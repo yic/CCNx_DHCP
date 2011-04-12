@@ -1376,6 +1376,11 @@ consume_matching_interests(struct ccnd_handle *h,
              (face != NULL && p->faceid == face->faceid))) {
             if (ccn_content_matches_interest(content_msg, content_size, 0, pc,
                                              p->interest_msg, p->size, NULL)) {
+                if (face->flags & CCN_FACE_MCAST) {
+                    ccnd_msg(h, "multicast ContentObject to %u (accession %llu)",
+                            f->faceid, (unsigned long long)content->accession);
+                }
+
                 face_send_queue_insert(h, f, content);
                 if (h->debug & (32 | 8))
                     ccnd_debug_ccnb(h, __LINE__, "consume", f,
@@ -3614,11 +3619,6 @@ process_incoming_interest(struct ccnd_handle *h, struct face *face,
                     if (face->q[c] != NULL)
                         k = ccn_indexbuf_member(face->q[c]->send_queue, content->accession);
                 if (k == -1) {
-                    if (face->flags & CCN_FACE_MCAST) {
-                        ccnd_msg(h, "multicast ContentObject to %u (accession %llu)",
-                                face->faceid, (unsigned long long)content->accession);
-                    }
-
                     k = face_send_queue_insert(h, face, content);
                     if (k >= 0) {
                         if (h->debug & (32 | 8))
