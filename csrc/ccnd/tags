@@ -1,0 +1,2090 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.8	//
+A	../lib/ccn_schedule.c	/^static int A(SARGS) { if (flags & CCN_SCHEDULE_CANCEL) return(0);$/;"	f	file:
+AI_ADDRCONFIG	../libexec/ccndc.c	51;"	d	file:
+AI_ADDRCONFIG	../libexec/udplink.c	43;"	d	file:
+ALLOW_STALE	../lib/ccn_traverse.c	51;"	d	file:
+ALLTESTS	../tests/dir.mk	/^ALLTESTS = \\$/;"	m
+ARRAY_N	../lib/ccn_dtag_table.c	22;"	d	file:
+AddSegRequest	../lib/ccn_fetch.c	/^AddSegRequest(struct ccn_fetch_stream *fs, seg_t seg) {$/;"	f	file:
+B	../lib/ccn_schedule.c	/^static int B(SARGS) { printf("B"); return 0; }$/;"	f	file:
+BIND_8_COMPAT	../libexec/ccndc.c	31;"	d	file:
+BROKEN_PROGRAMS	../ccnd/dir.mk	/^BROKEN_PROGRAMS = $/;"	m
+BROKEN_PROGRAMS	../cmd/dir.mk	/^BROKEN_PROGRAMS =$/;"	m
+BROKEN_PROGRAMS	../lib/dir.mk	/^BROKEN_PROGRAMS =$/;"	m
+BackgroundPID	../util/ccntestloop	/^BackgroundPID () {$/;"	f
+BackgroundPID	../util/ccntestloop.sh	/^BackgroundPID () {$/;"	f
+Base64	../cmd/ccn_ccnbtoxml.c	/^static const char Base64[] =$/;"	v	file:
+C	../lib/ccn_schedule.c	/^static int C(SARGS) { printf("C"); return 0; }$/;"	f	file:
+CALLBACK_FINAL	../cmd/ccn_ccnbtoxml.c	/^    CALLBACK_FINAL$/;"	e	enum:callback_kind	file:
+CALLBACK_INITIAL	../cmd/ccn_ccnbtoxml.c	/^    CALLBACK_INITIAL,$/;"	e	enum:callback_kind	file:
+CALLBACK_OBJECTEND	../cmd/ccn_ccnbtoxml.c	/^    CALLBACK_OBJECTEND,$/;"	e	enum:callback_kind	file:
+CCNBX_OPT_UNADORNED	../cmd/ccnbx.c	34;"	d	file:
+CCNBX_OPT_VERBOSE	../cmd/ccnbx.c	35;"	d	file:
+CCNDID_LOCAL_URI	../ccnd/ccnd_internal_client.c	59;"	d	file:
+CCNDID_NEIGHBOR_URI	../ccnd/ccnd_internal_client.c	60;"	d	file:
+CCNDOBJ	../ccnd/Android.mk	/^CCNDOBJ := ccnd.o ccnd_msg.o ccnd_internal_client.o ccnd_stats.o \\$/;"	m
+CCNDSRC	../ccnd/Android.mk	/^CCNDSRC := $(CCNDOBJ:.o=.c)$/;"	m
+CCND_FACE_METER_N	../ccnd/ccnd_private.h	/^    CCND_FACE_METER_N$/;"	e	enum:ccnd_face_meter_index
+CCND_ID_TEMPL	../ccnd/ccnd_internal_client.c	322;"	d	file:
+CCND_KEYSTORE_PASS	../ccnd/ccnd_internal_client.c	407;"	d	file:
+CCND_NOTICE_NAME	../ccnd/ccnd_internal_client.c	46;"	d	file:
+CCND_OBJ	../ccnd/dir.mk	/^CCND_OBJ = ccnd_main.o ccnd.o ccnd_msg.o ccnd_stats.o ccnd_internal_client.o$/;"	m
+CCND_PING	../ccnd/ccnd_internal_client.c	54;"	d	file:
+CCND_PRIVATE_DEFINED	../ccnd/ccnd_private.h	25;"	d
+CCND_TEST_100137	../ccnd/ccnd_internal_client.c	49;"	d	file:
+CCNLIBDIR	../ccnd/dir.mk	/^CCNLIBDIR = ..\/lib$/;"	m
+CCNLIBDIR	../cmd/dir.mk	/^CCNLIBDIR = ..\/lib$/;"	m
+CCNLIBDIR	../lib/dir.mk	/^CCNLIBDIR = ..\/lib$/;"	m
+CCNLIBDIR	../libexec/dir.mk	/^CCNLIBDIR = ..\/lib$/;"	m
+CCNLIBOBJ	../lib/Android.mk	/^CCNLIBOBJ := ccn_client.o ccn_charbuf.o ccn_indexbuf.o ccn_coding.o \\$/;"	m
+CCNLIBSRC	../lib/Android.mk	/^CCNLIBSRC := $(CCNLIBOBJ:.o=.c)$/;"	m
+CCN_AOK_CS	../include/ccn/ccn.h	512;"	d
+CCN_AOK_DEFAULT	../include/ccn/ccn.h	514;"	d
+CCN_AOK_EXPIRE	../include/ccn/ccn.h	516;"	d
+CCN_AOK_NEW	../include/ccn/ccn.h	513;"	d
+CCN_AOK_STALE	../include/ccn/ccn.h	515;"	d
+CCN_API_VERSION	../include/ccn/ccn.h	40;"	d
+CCN_ATTR	../include/ccn/coding.h	/^    CCN_ATTR,       \/**< attribute - numval is attrnamelen-1, value follows *\/$/;"	e	enum:ccn_tt
+CCN_BLOB	../include/ccn/coding.h	/^    CCN_BLOB,       \/**< opaque binary data - numval is byte count *\/$/;"	e	enum:ccn_tt
+CCN_BLOOM_DEFINED	../include/ccn/bloom.h	23;"	d
+CCN_CCND_DEFINED	../include/ccn/ccnd.h	23;"	d
+CCN_CCN_DEFINED	../include/ccn/ccn.h	23;"	d
+CCN_CHARBUF_DEFINED	../include/ccn/charbuf.h	23;"	d
+CCN_CLOSE	../include/ccn/coding.h	48;"	d
+CCN_CODING_DEFINED	../include/ccn/coding.h	23;"	d
+CCN_CONTENT_DATA	../include/ccn/ccn.h	/^    CCN_CONTENT_DATA = 0x0C04C0,$/;"	e	enum:ccn_content_type
+CCN_CONTENT_ENCR	../include/ccn/ccn.h	/^    CCN_CONTENT_ENCR = 0x10D091,$/;"	e	enum:ccn_content_type
+CCN_CONTENT_ENTRY_PRECIOUS	../ccnd/ccnd_private.h	260;"	d
+CCN_CONTENT_ENTRY_SLOWSEND	../ccnd/ccnd_private.h	258;"	d
+CCN_CONTENT_ENTRY_STALE	../ccnd/ccnd_private.h	259;"	d
+CCN_CONTENT_GONE	../include/ccn/ccn.h	/^    CCN_CONTENT_GONE = 0x18E344,$/;"	e	enum:ccn_content_type
+CCN_CONTENT_KEY	../include/ccn/ccn.h	/^    CCN_CONTENT_KEY  = 0x28463F,$/;"	e	enum:ccn_content_type
+CCN_CONTENT_LINK	../include/ccn/ccn.h	/^    CCN_CONTENT_LINK = 0x2C834A,$/;"	e	enum:ccn_content_type
+CCN_CONTENT_NACK	../include/ccn/ccn.h	/^    CCN_CONTENT_NACK = 0x34008A$/;"	e	enum:ccn_content_type
+CCN_CQ_ASAP	../ccnd/ccnd_private.h	/^    CCN_CQ_ASAP,$/;"	e	enum:cq_delay_class
+CCN_CQ_N	../ccnd/ccnd_private.h	/^    CCN_CQ_N$/;"	e	enum:cq_delay_class
+CCN_CQ_NORMAL	../ccnd/ccnd_private.h	/^    CCN_CQ_NORMAL,$/;"	e	enum:cq_delay_class
+CCN_CQ_SLOW	../ccnd/ccnd_private.h	/^    CCN_CQ_SLOW,$/;"	e	enum:cq_delay_class
+CCN_DATETIME_PRECISION_MAX	../include/ccn/charbuf.h	105;"	d
+CCN_DATETIME_PRECISION_USEC	../include/ccn/charbuf.h	104;"	d
+CCN_DATTR	../include/ccn/coding.h	/^    CCN_DATTR,      \/**< attribute numval is attrdict index *\/$/;"	e	enum:ccn_tt
+CCN_DEFAULT_LOCAL_SOCKNAME	../include/ccn/ccnd.h	25;"	d
+CCN_DEFAULT_UNICAST_PORT	../include/ccn/ccnd.h	33;"	d
+CCN_DEFAULT_UNICAST_PORT_NUMBER	../include/ccn/ccnd.h	32;"	d
+CCN_DIGEST_DEFAULT	../include/ccn/digest.h	/^    CCN_DIGEST_DEFAULT,$/;"	e	enum:ccn_digest_id
+CCN_DIGEST_DEFINED	../include/ccn/digest.h	26;"	d
+CCN_DIGEST_SHA1	../include/ccn/digest.h	/^    CCN_DIGEST_SHA1,$/;"	e	enum:ccn_digest_id
+CCN_DIGEST_SHA224	../include/ccn/digest.h	/^    CCN_DIGEST_SHA224,$/;"	e	enum:ccn_digest_id
+CCN_DIGEST_SHA256	../include/ccn/digest.h	/^    CCN_DIGEST_SHA256, \/* This is our current favorite *\/$/;"	e	enum:ccn_digest_id
+CCN_DIGEST_SHA384	../include/ccn/digest.h	/^    CCN_DIGEST_SHA384,$/;"	e	enum:ccn_digest_id
+CCN_DIGEST_SHA512	../include/ccn/digest.h	/^    CCN_DIGEST_SHA512$/;"	e	enum:ccn_digest_id
+CCN_DSTATE_ATTRNAME	../include/ccn/coding.h	/^    CCN_DSTATE_ATTRNAME,$/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_BLOB	../include/ccn/coding.h	/^    CCN_DSTATE_BLOB,$/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_ERR_ATTR	../include/ccn/coding.h	/^    CCN_DSTATE_ERR_ATTR     = -2,       $/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_ERR_BUG	../include/ccn/coding.h	/^    CCN_DSTATE_ERR_BUG      = -5$/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_ERR_CODING	../include/ccn/coding.h	/^    CCN_DSTATE_ERR_CODING   = -3,$/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_ERR_NEST	../include/ccn/coding.h	/^    CCN_DSTATE_ERR_NEST     = -4, $/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_ERR_OVERFLOW	../include/ccn/coding.h	/^    CCN_DSTATE_ERR_OVERFLOW = -1,$/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_INITIAL	../include/ccn/coding.h	/^    CCN_DSTATE_INITIAL = 0,$/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_NEWTOKEN	../include/ccn/coding.h	/^    CCN_DSTATE_NEWTOKEN,$/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_NUMVAL	../include/ccn/coding.h	/^    CCN_DSTATE_NUMVAL,$/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_PAUSE	../include/ccn/coding.h	212;"	d
+CCN_DSTATE_TAGNAME	../include/ccn/coding.h	/^    CCN_DSTATE_TAGNAME,$/;"	e	enum:ccn_decoder_state
+CCN_DSTATE_UDATA	../include/ccn/coding.h	/^    CCN_DSTATE_UDATA,$/;"	e	enum:ccn_decoder_state
+CCN_DTAG	../include/ccn/coding.h	/^    CCN_DTAG,       \/**< starts composite - numval is tagdict index (enum ccn_dtag) *\/$/;"	e	enum:ccn_tt
+CCN_DTAG_ACL	../include/ccn/coding.h	/^    CCN_DTAG_ACL = 103,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Action	../include/ccn/coding.h	/^    CCN_DTAG_Action = 73,$/;"	e	enum:ccn_dtag
+CCN_DTAG_AnswerOriginKind	../include/ccn/coding.h	/^    CCN_DTAG_AnswerOriginKind = 47,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Any	../include/ccn/coding.h	/^    CCN_DTAG_Any = 13,$/;"	e	enum:ccn_dtag
+CCN_DTAG_BinaryValue	../include/ccn/coding.h	/^    CCN_DTAG_BinaryValue = 100,$/;"	e	enum:ccn_dtag
+CCN_DTAG_BlockSize	../include/ccn/coding.h	/^    CCN_DTAG_BlockSize = 56,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Bloom	../include/ccn/coding.h	/^    CCN_DTAG_Bloom = 44,$/;"	e	enum:ccn_dtag
+CCN_DTAG_BloomSeed	../include/ccn/coding.h	/^    CCN_DTAG_BloomSeed = 45,$/;"	e	enum:ccn_dtag
+CCN_DTAG_CCNProtocolDataUnit	../include/ccn/coding.h	/^    CCN_DTAG_CCNProtocolDataUnit = 17702112$/;"	e	enum:ccn_dtag
+CCN_DTAG_Certificate	../include/ccn/coding.h	/^    CCN_DTAG_Certificate = 16,$/;"	e	enum:ccn_dtag
+CCN_DTAG_ChildSelector	../include/ccn/coding.h	/^    CCN_DTAG_ChildSelector = 85,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Collection	../include/ccn/coding.h	/^    CCN_DTAG_Collection = 17,$/;"	e	enum:ccn_dtag
+CCN_DTAG_CompleteName	../include/ccn/coding.h	/^    CCN_DTAG_CompleteName = 18,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Component	../include/ccn/coding.h	/^    CCN_DTAG_Component = 15,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Content	../include/ccn/coding.h	/^    CCN_DTAG_Content = 19,$/;"	e	enum:ccn_dtag
+CCN_DTAG_ContentDigest	../include/ccn/coding.h	/^    CCN_DTAG_ContentDigest = 21,$/;"	e	enum:ccn_dtag
+CCN_DTAG_ContentHash	../include/ccn/coding.h	/^    CCN_DTAG_ContentHash = 22,$/;"	e	enum:ccn_dtag
+CCN_DTAG_ContentObject	../include/ccn/coding.h	/^    CCN_DTAG_ContentObject = 64,	\/* 20090915 *\/$/;"	e	enum:ccn_dtag
+CCN_DTAG_Count	../include/ccn/coding.h	/^    CCN_DTAG_Count = 24,$/;"	e	enum:ccn_dtag
+CCN_DTAG_DecimalValue	../include/ccn/coding.h	/^    CCN_DTAG_DecimalValue = 98,$/;"	e	enum:ccn_dtag
+CCN_DTAG_DigestAlgorithm	../include/ccn/coding.h	/^    CCN_DTAG_DigestAlgorithm = 55,$/;"	e	enum:ccn_dtag
+CCN_DTAG_EncryptedKey	../include/ccn/coding.h	/^    CCN_DTAG_EncryptedKey = 70,$/;"	e	enum:ccn_dtag
+CCN_DTAG_EncryptedNonceKey	../include/ccn/coding.h	/^    CCN_DTAG_EncryptedNonceKey = 71,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Entry	../include/ccn/coding.h	/^    CCN_DTAG_Entry = 102,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Exclude	../include/ccn/coding.h	/^    CCN_DTAG_Exclude = 43,$/;"	e	enum:ccn_dtag
+CCN_DTAG_FaceID	../include/ccn/coding.h	/^    CCN_DTAG_FaceID = 74,$/;"	e	enum:ccn_dtag
+CCN_DTAG_FaceInstance	../include/ccn/coding.h	/^    CCN_DTAG_FaceInstance = 80,$/;"	e	enum:ccn_dtag
+CCN_DTAG_FinalBlockID	../include/ccn/coding.h	/^    CCN_DTAG_FinalBlockID = 59,$/;"	e	enum:ccn_dtag
+CCN_DTAG_ForwardingEntry	../include/ccn/coding.h	/^    CCN_DTAG_ForwardingEntry = 81,$/;"	e	enum:ccn_dtag
+CCN_DTAG_ForwardingFlags	../include/ccn/coding.h	/^    CCN_DTAG_ForwardingFlags = 79,$/;"	e	enum:ccn_dtag
+CCN_DTAG_FreshnessSeconds	../include/ccn/coding.h	/^    CCN_DTAG_FreshnessSeconds = 58,$/;"	e	enum:ccn_dtag
+CCN_DTAG_GlobalPrefix	../include/ccn/coding.h	/^    CCN_DTAG_GlobalPrefix = 89,$/;"	e	enum:ccn_dtag
+CCN_DTAG_GlobalPrefixName	../include/ccn/coding.h	/^    CCN_DTAG_GlobalPrefixName = 93,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Header	../include/ccn/coding.h	/^    CCN_DTAG_Header = 25,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Host	../include/ccn/coding.h	/^    CCN_DTAG_Host = 76,$/;"	e	enum:ccn_dtag
+CCN_DTAG_IPProto	../include/ccn/coding.h	/^    CCN_DTAG_IPProto = 75,$/;"	e	enum:ccn_dtag
+CCN_DTAG_InfoString	../include/ccn/coding.h	/^    CCN_DTAG_InfoString = 110,$/;"	e	enum:ccn_dtag
+CCN_DTAG_IntegerValue	../include/ccn/coding.h	/^    CCN_DTAG_IntegerValue = 97,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Interest	../include/ccn/coding.h	/^    CCN_DTAG_Interest = 26,	\/* 20090915 *\/$/;"	e	enum:ccn_dtag
+CCN_DTAG_InterestLifetime	../include/ccn/coding.h	/^    CCN_DTAG_InterestLifetime = 48,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Key	../include/ccn/coding.h	/^    CCN_DTAG_Key = 27,$/;"	e	enum:ccn_dtag
+CCN_DTAG_KeyAlgorithm	../include/ccn/coding.h	/^    CCN_DTAG_KeyAlgorithm = 68,$/;"	e	enum:ccn_dtag
+CCN_DTAG_KeyLocator	../include/ccn/coding.h	/^    CCN_DTAG_KeyLocator = 28,$/;"	e	enum:ccn_dtag
+CCN_DTAG_KeyName	../include/ccn/coding.h	/^    CCN_DTAG_KeyName = 29,$/;"	e	enum:ccn_dtag
+CCN_DTAG_KeyValuePair	../include/ccn/coding.h	/^    CCN_DTAG_KeyValuePair = 96,$/;"	e	enum:ccn_dtag
+CCN_DTAG_KeyValueSet	../include/ccn/coding.h	/^    CCN_DTAG_KeyValueSet = 95,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Label	../include/ccn/coding.h	/^    CCN_DTAG_Label = 69,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Length	../include/ccn/coding.h	/^    CCN_DTAG_Length = 30,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Link	../include/ccn/coding.h	/^    CCN_DTAG_Link = 31,$/;"	e	enum:ccn_dtag
+CCN_DTAG_LinkAuthenticator	../include/ccn/coding.h	/^    CCN_DTAG_LinkAuthenticator = 32,$/;"	e	enum:ccn_dtag
+CCN_DTAG_LocalName	../include/ccn/coding.h	/^    CCN_DTAG_LocalName = 90,$/;"	e	enum:ccn_dtag
+CCN_DTAG_MaxSuffixComponents	../include/ccn/coding.h	/^    CCN_DTAG_MaxSuffixComponents = 84,$/;"	e	enum:ccn_dtag
+CCN_DTAG_MinSuffixComponents	../include/ccn/coding.h	/^    CCN_DTAG_MinSuffixComponents = 83,$/;"	e	enum:ccn_dtag
+CCN_DTAG_MulticastInterface	../include/ccn/coding.h	/^    CCN_DTAG_MulticastInterface = 78,$/;"	e	enum:ccn_dtag
+CCN_DTAG_MulticastTTL	../include/ccn/coding.h	/^    CCN_DTAG_MulticastTTL = 82,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Name	../include/ccn/coding.h	/^    CCN_DTAG_Name = 14,$/;"	e	enum:ccn_dtag
+CCN_DTAG_NameComponentCount	../include/ccn/coding.h	/^    CCN_DTAG_NameComponentCount = 33,	\/* DeprecatedInInterest *\/$/;"	e	enum:ccn_dtag
+CCN_DTAG_NameValue	../include/ccn/coding.h	/^    CCN_DTAG_NameValue = 101,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Namespace	../include/ccn/coding.h	/^    CCN_DTAG_Namespace = 92,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Nonce	../include/ccn/coding.h	/^    CCN_DTAG_Nonce = 41,$/;"	e	enum:ccn_dtag
+CCN_DTAG_ParameterizedName	../include/ccn/coding.h	/^    CCN_DTAG_ParameterizedName = 104,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Parameters	../include/ccn/coding.h	/^    CCN_DTAG_Parameters = 109,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Policy	../include/ccn/coding.h	/^    CCN_DTAG_Policy = 91,$/;"	e	enum:ccn_dtag
+CCN_DTAG_PolicyVersion	../include/ccn/coding.h	/^    CCN_DTAG_PolicyVersion = 94,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Port	../include/ccn/coding.h	/^    CCN_DTAG_Port = 77,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Prefix	../include/ccn/coding.h	/^    CCN_DTAG_Prefix = 105,$/;"	e	enum:ccn_dtag
+CCN_DTAG_ProfileName	../include/ccn/coding.h	/^    CCN_DTAG_ProfileName = 108,$/;"	e	enum:ccn_dtag
+CCN_DTAG_PublisherCertificateDigest	../include/ccn/coding.h	/^    CCN_DTAG_PublisherCertificateDigest = 61,$/;"	e	enum:ccn_dtag
+CCN_DTAG_PublisherIssuerCertificateDigest	../include/ccn/coding.h	/^    CCN_DTAG_PublisherIssuerCertificateDigest = 63,$/;"	e	enum:ccn_dtag
+CCN_DTAG_PublisherIssuerKeyDigest	../include/ccn/coding.h	/^    CCN_DTAG_PublisherIssuerKeyDigest = 62,$/;"	e	enum:ccn_dtag
+CCN_DTAG_PublisherPublicKeyDigest	../include/ccn/coding.h	/^    CCN_DTAG_PublisherPublicKeyDigest = 60,$/;"	e	enum:ccn_dtag
+CCN_DTAG_RepositoryInfo	../include/ccn/coding.h	/^    CCN_DTAG_RepositoryInfo = 86,$/;"	e	enum:ccn_dtag
+CCN_DTAG_RepositoryVersion	../include/ccn/coding.h	/^    CCN_DTAG_RepositoryVersion = 88,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Root	../include/ccn/coding.h	/^    CCN_DTAG_Root = 107,$/;"	e	enum:ccn_dtag
+CCN_DTAG_RootDigest	../include/ccn/coding.h	/^    CCN_DTAG_RootDigest = 36,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Scope	../include/ccn/coding.h	/^    CCN_DTAG_Scope = 42,$/;"	e	enum:ccn_dtag
+CCN_DTAG_SequenceNumber	../include/ccn/coding.h	/^    CCN_DTAG_SequenceNumber = 256,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Signature	../include/ccn/coding.h	/^    CCN_DTAG_Signature = 37,$/;"	e	enum:ccn_dtag
+CCN_DTAG_SignatureBits	../include/ccn/coding.h	/^    CCN_DTAG_SignatureBits = 54,$/;"	e	enum:ccn_dtag
+CCN_DTAG_SignedInfo	../include/ccn/coding.h	/^    CCN_DTAG_SignedInfo = 20,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Start	../include/ccn/coding.h	/^    CCN_DTAG_Start = 38,$/;"	e	enum:ccn_dtag
+CCN_DTAG_StatusCode	../include/ccn/coding.h	/^    CCN_DTAG_StatusCode = 113,$/;"	e	enum:ccn_dtag
+CCN_DTAG_StatusResponse	../include/ccn/coding.h	/^    CCN_DTAG_StatusResponse = 112,$/;"	e	enum:ccn_dtag
+CCN_DTAG_StatusText	../include/ccn/coding.h	/^    CCN_DTAG_StatusText = 114,$/;"	e	enum:ccn_dtag
+CCN_DTAG_StringValue	../include/ccn/coding.h	/^    CCN_DTAG_StringValue = 99,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Suffix	../include/ccn/coding.h	/^    CCN_DTAG_Suffix = 106,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Timestamp	../include/ccn/coding.h	/^    CCN_DTAG_Timestamp = 39,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Type	../include/ccn/coding.h	/^    CCN_DTAG_Type = 40,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Version	../include/ccn/coding.h	/^    CCN_DTAG_Version = 87,$/;"	e	enum:ccn_dtag
+CCN_DTAG_Witness	../include/ccn/coding.h	/^    CCN_DTAG_Witness = 53,$/;"	e	enum:ccn_dtag
+CCN_DTAG_WrapAlgorithm	../include/ccn/coding.h	/^    CCN_DTAG_WrapAlgorithm = 67,$/;"	e	enum:ccn_dtag
+CCN_DTAG_WrappedKey	../include/ccn/coding.h	/^    CCN_DTAG_WrappedKey = 65,$/;"	e	enum:ccn_dtag
+CCN_DTAG_WrappingKeyIdentifier	../include/ccn/coding.h	/^    CCN_DTAG_WrappingKeyIdentifier = 66,$/;"	e	enum:ccn_dtag
+CCN_DTAG_WrappingKeyName	../include/ccn/coding.h	/^    CCN_DTAG_WrappingKeyName = 72,$/;"	e	enum:ccn_dtag
+CCN_EMPTY_PDU	../include/ccn/ccnd.h	39;"	d
+CCN_EMPTY_PDU_LENGTH	../include/ccn/ccnd.h	40;"	d
+CCN_EXT	../include/ccn/coding.h	/^    CCN_EXT,        \/**< starts composite extension - numval is subtype *\/$/;"	e	enum:ccn_tt
+CCN_EXTEND_DICT_DEFINED	../include/ccn/extend_dict.h	23;"	d
+CCN_FACE_CLOSING	../ccnd/ccnd_private.h	226;"	d
+CCN_FACE_CONNECTING	../ccnd/ccnd_private.h	224;"	d
+CCN_FACE_DC	../ccnd/ccnd_private.h	220;"	d
+CCN_FACE_DGRAM	../ccnd/ccnd_private.h	214;"	d
+CCN_FACE_GG	../ccnd/ccnd_private.h	215;"	d
+CCN_FACE_INET	../ccnd/ccnd_private.h	217;"	d
+CCN_FACE_INET6	../ccnd/ccnd_private.h	219;"	d
+CCN_FACE_LINK	../ccnd/ccnd_private.h	213;"	d
+CCN_FACE_LOCAL	../ccnd/ccnd_private.h	216;"	d
+CCN_FACE_LOOPBACK	../ccnd/ccnd_private.h	225;"	d
+CCN_FACE_MCAST	../ccnd/ccnd_private.h	218;"	d
+CCN_FACE_MGMT_DEFINED	../include/ccn/face_mgmt.h	21;"	d
+CCN_FACE_NORECV	../ccnd/ccnd_private.h	228;"	d
+CCN_FACE_NOSEND	../ccnd/ccnd_private.h	221;"	d
+CCN_FACE_PASSIVE	../ccnd/ccnd_private.h	227;"	d
+CCN_FACE_PERMANENT	../ccnd/ccnd_private.h	223;"	d
+CCN_FACE_REGOK	../ccnd/ccnd_private.h	229;"	d
+CCN_FACE_SEQOK	../ccnd/ccnd_private.h	230;"	d
+CCN_FACE_SEQPROBE	../ccnd/ccnd_private.h	231;"	d
+CCN_FACE_UNDECIDED	../ccnd/ccnd_private.h	222;"	d
+CCN_FETCH_DEFINED	../include/ccn/fetch.h	29;"	d
+CCN_FETCH_READ_END	../include/ccn/fetch.h	59;"	d
+CCN_FETCH_READ_NONE	../include/ccn/fetch.h	58;"	d
+CCN_FETCH_READ_TIMEOUT	../include/ccn/fetch.h	57;"	d
+CCN_FETCH_READ_ZERO	../include/ccn/fetch.h	56;"	d
+CCN_FINAL_DSTATE	../include/ccn/coding.h	214;"	d
+CCN_FORW_ACTIVE	../include/ccn/reg_mgmt.h	37;"	d
+CCN_FORW_ADVERTISE	../include/ccn/reg_mgmt.h	39;"	d
+CCN_FORW_CAPTURE	../include/ccn/reg_mgmt.h	41;"	d
+CCN_FORW_CHILD_INHERIT	../include/ccn/reg_mgmt.h	38;"	d
+CCN_FORW_LAST	../include/ccn/reg_mgmt.h	40;"	d
+CCN_FORW_LOCAL	../include/ccn/reg_mgmt.h	42;"	d
+CCN_FORW_PFXO	../ccnd/ccnd_private.h	353;"	d
+CCN_FORW_PUBMASK	../include/ccn/reg_mgmt.h	44;"	d
+CCN_FORW_REFRESHED	../ccnd/ccnd_private.h	354;"	d
+CCN_FORW_TAP	../include/ccn/reg_mgmt.h	43;"	d
+CCN_FORW_WAITING_CCNDID	../lib/ccn_client.c	98;"	d	file:
+CCN_FWU_SECS	../ccnd/ccnd_private.h	360;"	d
+CCN_GET_NOKEYWAIT	../include/ccn/ccn.h	373;"	d
+CCN_GET_TT_FROM_DSTATE	../include/ccn/coding.h	213;"	d
+CCN_HASHTB_DEFINED	../include/ccn/hashtb.h	23;"	d
+CCN_HEADER_DEFINED	../include/ccn/header.h	21;"	d
+CCN_INDEXBUF_DEFINED	../include/ccn/indexbuf.h	23;"	d
+CCN_INTEREST_LIFETIME_MICROSEC	../include/ccn/ccn.h	48;"	d
+CCN_INTEREST_LIFETIME_SEC	../include/ccn/ccn.h	47;"	d
+CCN_INTEREST_TIMEOUT_USECS	../lib/ccn_fetch.c	49;"	d	file:
+CCN_KEYSTORE_DEFINED	../include/ccn/keystore.h	26;"	d
+CCN_LOCAL_PORT_ENVNAME	../include/ccn/ccnd.h	26;"	d
+CCN_MARKER_BLKID	../include/ccn/ccn.h	/^    CCN_MARKER_BLKID   = 0xFB, \/**< nonconsecutive block ids *\/$/;"	e	enum:ccn_marker
+CCN_MARKER_CONTROL	../include/ccn/ccn.h	/^    CCN_MARKER_CONTROL = 0xC1, \/**< commands, etc. *\/ $/;"	e	enum:ccn_marker
+CCN_MARKER_NONE	../include/ccn/ccn.h	/^    CCN_MARKER_NONE = -1,$/;"	e	enum:ccn_marker
+CCN_MARKER_OSEQNUM	../include/ccn/ccn.h	/^    CCN_MARKER_OSEQNUM = 0xF8, \/**< deprecated *\/$/;"	e	enum:ccn_marker
+CCN_MARKER_SEQNUM	../include/ccn/ccn.h	/^    CCN_MARKER_SEQNUM  = 0x00, \/**< consecutive block sequence numbers *\/$/;"	e	enum:ccn_marker
+CCN_MARKER_VERSION	../include/ccn/ccn.h	/^    CCN_MARKER_VERSION = 0xFD  \/**< timestamp-based versioning *\/$/;"	e	enum:ccn_marker
+CCN_MATRIX_DEFINED	../include/ccn/matrix.h	26;"	d
+CCN_MAX_TINY	../include/ccn/coding.h	30;"	d
+CCN_MERKLEPATHASN1_DEFINED	../include/ccn/merklepathasn1.h	22;"	d
+CCN_NOFACEID	../ccnd/ccnd_private.h	232;"	d
+CCN_NO_FACEID	../include/ccn/face_mgmt.h	27;"	d
+CCN_NO_SCHEMA	../cmd/ccn_ccnbtoxml.c	56;"	d	file:
+CCN_NO_TOKEN	../include/ccn/coding.h	/^    CCN_NO_TOKEN    \/**< should not occur in encoding *\/$/;"	e	enum:ccn_tt
+CCN_PATH_VAR_TMP	../ccnd/ccnd_internal_client.c	398;"	d	file:
+CCN_PCO_B_Component0	../include/ccn/ccn.h	/^    CCN_PCO_B_Component0,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_Content	../include/ccn/ccn.h	/^    CCN_PCO_B_Content,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_DigestAlgorithm	../include/ccn/ccn.h	/^    CCN_PCO_B_DigestAlgorithm,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_FinalBlockID	../include/ccn/ccn.h	/^    CCN_PCO_B_FinalBlockID,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_FreshnessSeconds	../include/ccn/ccn.h	/^    CCN_PCO_B_FreshnessSeconds,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_KeyLocator	../include/ccn/ccn.h	/^    CCN_PCO_B_KeyLocator,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_KeyName_Name	../include/ccn/ccn.h	/^    CCN_PCO_B_KeyName_Name,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_KeyName_Pub	../include/ccn/ccn.h	/^    CCN_PCO_B_KeyName_Pub,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_Key_Certificate_KeyName	../include/ccn/ccn.h	/^    CCN_PCO_B_Key_Certificate_KeyName,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_Name	../include/ccn/ccn.h	/^    CCN_PCO_B_Name,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_PublisherPublicKeyDigest	../include/ccn/ccn.h	/^    CCN_PCO_B_PublisherPublicKeyDigest,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_Signature	../include/ccn/ccn.h	/^    CCN_PCO_B_Signature,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_SignatureBits	../include/ccn/ccn.h	/^    CCN_PCO_B_SignatureBits,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_SignedInfo	../include/ccn/ccn.h	/^    CCN_PCO_B_SignedInfo,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_Timestamp	../include/ccn/ccn.h	/^    CCN_PCO_B_Timestamp,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_Type	../include/ccn/ccn.h	/^    CCN_PCO_B_Type,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_B_Witness	../include/ccn/ccn.h	/^    CCN_PCO_B_Witness,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E	../include/ccn/ccn.h	/^    CCN_PCO_E$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_ComponentLast	../include/ccn/ccn.h	/^    CCN_PCO_E_ComponentLast = CCN_PCO_E_ComponentN,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_ComponentN	../include/ccn/ccn.h	/^    CCN_PCO_E_ComponentN,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_Content	../include/ccn/ccn.h	/^    CCN_PCO_E_Content,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_DigestAlgorithm	../include/ccn/ccn.h	/^    CCN_PCO_E_DigestAlgorithm,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_FinalBlockID	../include/ccn/ccn.h	/^    CCN_PCO_E_FinalBlockID,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_FreshnessSeconds	../include/ccn/ccn.h	/^    CCN_PCO_E_FreshnessSeconds,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_KeyLocator	../include/ccn/ccn.h	/^    CCN_PCO_E_KeyLocator,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_KeyName_Name	../include/ccn/ccn.h	/^    CCN_PCO_E_KeyName_Name,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_KeyName_Pub	../include/ccn/ccn.h	/^    CCN_PCO_E_KeyName_Pub,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_Key_Certificate_KeyName	../include/ccn/ccn.h	/^    CCN_PCO_E_Key_Certificate_KeyName,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_Name	../include/ccn/ccn.h	/^    CCN_PCO_E_Name,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_PublisherPublicKeyDigest	../include/ccn/ccn.h	/^    CCN_PCO_E_PublisherPublicKeyDigest,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_Signature	../include/ccn/ccn.h	/^    CCN_PCO_E_Signature,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_SignatureBits	../include/ccn/ccn.h	/^    CCN_PCO_E_SignatureBits,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_SignedInfo	../include/ccn/ccn.h	/^    CCN_PCO_E_SignedInfo,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_Timestamp	../include/ccn/ccn.h	/^    CCN_PCO_E_Timestamp,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_Type	../include/ccn/ccn.h	/^    CCN_PCO_E_Type,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PCO_E_Witness	../include/ccn/ccn.h	/^    CCN_PCO_E_Witness,$/;"	e	enum:ccn_parsed_content_object_offsetid
+CCN_PI_B_AnswerOriginKind	../include/ccn/ccn.h	/^    CCN_PI_B_AnswerOriginKind,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_ChildSelector	../include/ccn/ccn.h	/^    CCN_PI_B_ChildSelector,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_Component0	../include/ccn/ccn.h	/^    CCN_PI_B_Component0,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_Exclude	../include/ccn/ccn.h	/^    CCN_PI_B_Exclude,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_InterestLifetime	../include/ccn/ccn.h	/^    CCN_PI_B_InterestLifetime,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_LastPrefixComponent	../include/ccn/ccn.h	/^    CCN_PI_B_LastPrefixComponent,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_MaxSuffixComponents	../include/ccn/ccn.h	/^    CCN_PI_B_MaxSuffixComponents,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_MinSuffixComponents	../include/ccn/ccn.h	/^    CCN_PI_B_MinSuffixComponents,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_Name	../include/ccn/ccn.h	/^    CCN_PI_B_Name,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_Nonce	../include/ccn/ccn.h	/^    CCN_PI_B_Nonce,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_OTHER	../include/ccn/ccn.h	/^    CCN_PI_B_OTHER,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_PublisherID	../include/ccn/ccn.h	/^    CCN_PI_B_PublisherID, \/\/ XXX - rename$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_PublisherIDKeyDigest	../include/ccn/ccn.h	/^    CCN_PI_B_PublisherIDKeyDigest,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_B_Scope	../include/ccn/ccn.h	/^    CCN_PI_B_Scope,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E	../include/ccn/ccn.h	/^    CCN_PI_E$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_AnswerOriginKind	../include/ccn/ccn.h	/^    CCN_PI_E_AnswerOriginKind,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_ChildSelector	../include/ccn/ccn.h	/^    CCN_PI_E_ChildSelector,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_ComponentLast	../include/ccn/ccn.h	/^    CCN_PI_E_ComponentLast = CCN_PI_E_LastPrefixComponent,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_Exclude	../include/ccn/ccn.h	/^    CCN_PI_E_Exclude,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_InterestLifetime	../include/ccn/ccn.h	/^    CCN_PI_E_InterestLifetime,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_LastPrefixComponent	../include/ccn/ccn.h	/^    CCN_PI_E_LastPrefixComponent,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_MaxSuffixComponents	../include/ccn/ccn.h	/^    CCN_PI_E_MaxSuffixComponents,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_MinSuffixComponents	../include/ccn/ccn.h	/^    CCN_PI_E_MinSuffixComponents,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_Name	../include/ccn/ccn.h	/^    CCN_PI_E_Name,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_Nonce	../include/ccn/ccn.h	/^    CCN_PI_E_Nonce,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_OTHER	../include/ccn/ccn.h	/^    CCN_PI_E_OTHER,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_PublisherID	../include/ccn/ccn.h	/^    CCN_PI_E_PublisherID,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_PublisherIDKeyDigest	../include/ccn/ccn.h	/^    CCN_PI_E_PublisherIDKeyDigest,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PI_E_Scope	../include/ccn/ccn.h	/^    CCN_PI_E_Scope,$/;"	e	enum:ccn_parsed_interest_offsetid
+CCN_PRIVATE_DEFINED	../include/ccn/ccn_private.h	23;"	d
+CCN_PROCESSING_INSTRUCTIONS	../include/ccn/coding.h	/^    CCN_PROCESSING_INSTRUCTIONS = 16 \/* <?name:U value:U?> *\/$/;"	e	enum:ccn_ext_subtype
+CCN_PR_EQV	../ccnd/ccnd_private.h	298;"	d
+CCN_PR_SCOPE0	../ccnd/ccnd_private.h	299;"	d
+CCN_PR_SCOPE1	../ccnd/ccnd_private.h	300;"	d
+CCN_PR_SCOPE2	../ccnd/ccnd_private.h	301;"	d
+CCN_PR_STUFFED1	../ccnd/ccnd_private.h	296;"	d
+CCN_PR_TAP	../ccnd/ccnd_private.h	297;"	d
+CCN_PR_UNSENT	../ccnd/ccnd_private.h	294;"	d
+CCN_PR_WAIT1	../ccnd/ccnd_private.h	295;"	d
+CCN_RANDOM_DEFINED	../include/ccn/random.h	22;"	d
+CCN_REG_MGMT_DEFINED	../include/ccn/reg_mgmt.h	21;"	d
+CCN_SCHEDULE_CANCEL	../include/ccn/schedule.h	59;"	d
+CCN_SCHEDULE_DEFINED	../include/ccn/schedule.h	23;"	d
+CCN_SEQWRITER_DEFINED	../include/ccn/seqwriter.h	22;"	d
+CCN_SIGNING_DEFINED	../include/ccn/signing.h	25;"	d
+CCN_SIGNING_PARAMS_INIT	../include/ccn/ccn.h	711;"	d
+CCN_SKIPLIST_MAX_DEPTH	../ccnd/ccnd.c	581;"	d	file:
+CCN_SOCKADDRUTIL_DEFINED	../include/ccn/sockaddrutil.h	22;"	d
+CCN_SOCKCREATE_DEFINED	../include/ccn/sockcreate.h	21;"	d
+CCN_SP_FINAL_BLOCK	../include/ccn/ccn.h	718;"	d
+CCN_SP_OMIT_KEY_LOCATOR	../include/ccn/ccn.h	719;"	d
+CCN_SP_TEMPL_FINAL_BLOCK_ID	../include/ccn/ccn.h	715;"	d
+CCN_SP_TEMPL_FRESHNESS	../include/ccn/ccn.h	716;"	d
+CCN_SP_TEMPL_KEY_LOCATOR	../include/ccn/ccn.h	717;"	d
+CCN_SP_TEMPL_TIMESTAMP	../include/ccn/ccn.h	714;"	d
+CCN_TAG	../include/ccn/coding.h	/^    CCN_TAG,        \/**< starts composite - numval is tagnamelen-1 *\/ $/;"	e	enum:ccn_tt
+CCN_TT_BITS	../include/ccn/coding.h	28;"	d
+CCN_TT_HBIT	../include/ccn/coding.h	31;"	d
+CCN_TT_MASK	../include/ccn/coding.h	29;"	d
+CCN_UDATA	../include/ccn/coding.h	/^    CCN_UDATA,      \/**< UTF-8 encoded character data - numval is byte count *\/$/;"	e	enum:ccn_tt
+CCN_UNKNOWN_SCHEMA	../cmd/ccn_ccnbtoxml.c	57;"	d	file:
+CCN_UPCALL_CONSUMED_INTEREST	../include/ccn/ccn.h	/^    CCN_UPCALL_CONSUMED_INTEREST, \/**< incoming interest, someone has answered *\/$/;"	e	enum:ccn_upcall_kind
+CCN_UPCALL_CONTENT	../include/ccn/ccn.h	/^    CCN_UPCALL_CONTENT,           \/**< incoming verified content *\/$/;"	e	enum:ccn_upcall_kind
+CCN_UPCALL_CONTENT_BAD	../include/ccn/ccn.h	/^    CCN_UPCALL_CONTENT_BAD        \/**< verification failed *\/$/;"	e	enum:ccn_upcall_kind
+CCN_UPCALL_CONTENT_UNVERIFIED	../include/ccn/ccn.h	/^    CCN_UPCALL_CONTENT_UNVERIFIED,\/**< content that has not been verified *\/$/;"	e	enum:ccn_upcall_kind
+CCN_UPCALL_FINAL	../include/ccn/ccn.h	/^    CCN_UPCALL_FINAL,             \/**< handler is about to be deregistered *\/$/;"	e	enum:ccn_upcall_kind
+CCN_UPCALL_INTEREST	../include/ccn/ccn.h	/^    CCN_UPCALL_INTEREST,          \/**< incoming interest *\/$/;"	e	enum:ccn_upcall_kind
+CCN_UPCALL_INTEREST_TIMED_OUT	../include/ccn/ccn.h	/^    CCN_UPCALL_INTEREST_TIMED_OUT,\/**< interest timed out *\/$/;"	e	enum:ccn_upcall_kind
+CCN_UPCALL_RESULT_ERR	../include/ccn/ccn.h	/^    CCN_UPCALL_RESULT_ERR = -1, \/**< upcall detected an error *\/$/;"	e	enum:ccn_upcall_res
+CCN_UPCALL_RESULT_INTEREST_CONSUMED	../include/ccn/ccn.h	/^    CCN_UPCALL_RESULT_INTEREST_CONSUMED = 2,\/**< upcall claims to consume interest *\/$/;"	e	enum:ccn_upcall_res
+CCN_UPCALL_RESULT_OK	../include/ccn/ccn.h	/^    CCN_UPCALL_RESULT_OK = 0,   \/**< normal upcall return *\/$/;"	e	enum:ccn_upcall_res
+CCN_UPCALL_RESULT_REEXPRESS	../include/ccn/ccn.h	/^    CCN_UPCALL_RESULT_REEXPRESS = 1, \/**< reexpress the same interest again *\/$/;"	e	enum:ccn_upcall_res
+CCN_UPCALL_RESULT_VERIFY	../include/ccn/ccn.h	/^    CCN_UPCALL_RESULT_VERIFY = 3 \/**< force an unverified result to be verified *\/$/;"	e	enum:ccn_upcall_res
+CCN_URI_DEFINED	../include/ccn/uri.h	23;"	d
+CCN_VERSION_TIMEOUT	../lib/ccn_fetch.c	48;"	d	file:
+CCN_V_EST	../include/ccn/ccn.h	882;"	d
+CCN_V_HIGH	../include/ccn/ccn.h	881;"	d
+CCN_V_HIGHEST	../include/ccn/ccn.h	884;"	d
+CCN_V_LOW	../include/ccn/ccn.h	880;"	d
+CCN_V_LOWEST	../include/ccn/ccn.h	883;"	d
+CCN_V_NESTOK	../include/ccn/ccn.h	888;"	d
+CCN_V_NEXT	../include/ccn/ccn.h	885;"	d
+CCN_V_NOW	../include/ccn/ccn.h	887;"	d
+CCN_V_PREV	../include/ccn/ccn.h	886;"	d
+CCN_V_REPLACE	../include/ccn/ccn.h	879;"	d
+CFLAGS	../Makefile	/^CFLAGS = -g$/;"	m
+CHECKHTE	../lib/hashtb.c	38;"	d	file:
+CHKRES	../cmd/ccnbasicconfig.c	49;"	d	file:
+CHUNK_SIZE	../cmd/ccncatchunks.c	64;"	d	file:
+COPT	../conf/pickygcc.mk	/^COPT = -O$/;"	m
+COUNT	../lib/signbenchtest.c	30;"	d	file:
+CPREFLAGS	../conf.mk	/^CPREFLAGS= -I..\/include -D_REENTRANT$/;"	m
+CPREFLAGS	../conf/Darwin-8.11.0.mk	/^CPREFLAGS = -I..\/include -I\/opt\/local\/include$/;"	m
+CPREFLAGS	../conf/FreeBSD.mk	/^CPREFLAGS = -I..\/include -I\/usr\/local\/include$/;"	m
+CPREFLAGS	../conf/Linux.mk	/^CPREFLAGS= -I..\/include -D_REENTRANT$/;"	m
+CPREFLAGS	../conf/NetBSD.mk	/^CPREFLAGS = -I..\/include -I\/usr\/pkg\/include$/;"	m
+CPREFLAGS	../conf/SunOS-5.10.mk	/^CPREFLAGS = -I..\/include -I\/usr\/local\/ssl\/include -I\/usr\/sfw\/include$/;"	m
+CPREFLAGS	../conf/SunOS.mk	/^CPREFLAGS = -I..\/include -I\/usr\/sfw\/include$/;"	m
+CRLF	../ccnd/ccnd_stats.c	46;"	d	file:
+CRLF	../ccnd/ccndsmoketest.c	44;"	d	file:
+CSRC	../ccnd/dir.mk	/^CSRC = ccnd_main.c ccnd.c ccnd_msg.c ccnd_stats.c ccnd_internal_client.c ccndsmoketest.c$/;"	m
+CSRC	../cmd/dir.mk	/^CSRC =  ccn_ccnbtoxml.c ccn_splitccnb.c ccn_xmltoccnb.c ccnbasicconfig.c \\$/;"	m
+CSRC	../lib/dir.mk	/^CSRC = ccn_bloom.c ccn_buf_decoder.c ccn_buf_encoder.c ccn_bulkdata.c \\$/;"	m
+CSRC	../libexec/dir.mk	/^CSRC = ccndc.c udplink.c$/;"	m
+CWARNFLAGS	../conf.mk	/^CWARNFLAGS = -Wall -Wpointer-arith -Wreturn-type -Wstrict-prototypes$/;"	m
+CWARNFLAGS	../conf/Darwin.mk	/^CWARNFLAGS = -Wall -Wpointer-arith -Wreturn-type -Wstrict-prototypes$/;"	m
+CWARNFLAGS	../conf/FreeBSD.mk	/^CWARNFLAGS = -Wall -Wpointer-arith -Wreturn-type -Wstrict-prototypes$/;"	m
+CWARNFLAGS	../conf/Linux.mk	/^CWARNFLAGS = -Wall -Wpointer-arith -Wreturn-type -Wstrict-prototypes$/;"	m
+CWARNFLAGS	../conf/pickygcc.mk	/^CWARNFLAGS = -Wall -Wswitch-enum -Wno-format-y2k -Wno-unused-parameter     \\$/;"	m
+CallMe	../lib/ccn_fetch.c	/^CallMe(struct ccn_closure *selfp,$/;"	f	file:
+CheckDirectory	../util/ccntestloop	/^CheckDirectory () {$/;"	f
+CheckDirectory	../util/ccntestloop.sh	/^CheckDirectory () {$/;"	f
+CheckLogLevel	../util/ccntestloop	/^CheckLogLevel () {$/;"	f
+CheckLogLevel	../util/ccntestloop.sh	/^CheckLogLevel () {$/;"	f
+CheckTestout	../util/ccntestloop	/^CheckTestout () {$/;"	f
+CheckTestout	../util/ccntestloop.sh	/^CheckTestout () {$/;"	f
+Cleanup	../ccnd/testbasics	/^Cleanup () {$/;"	f
+Commentize	../lib/gen_enum_dtag	/^Commentize () {$/;"	f
+D	../lib/ccn_schedule.c	/^static int D(SARGS) { if (flags & CCN_SCHEDULE_CANCEL) return(0);$/;"	f	file:
+DATA	../lib/hashtb.c	35;"	d	file:
+DATA_OFFSET	../cmd/ccndumppcap.c	51;"	d	file:
+DEBRIS	../ccnd/dir.mk	/^DEBRIS = anything.ccnb contentobjecthash.ccnb contentmishash.ccnb \\$/;"	m
+DEBRIS	../cmd/dir.mk	/^DEBRIS =$/;"	m
+DEBRIS	../lib/dir.mk	/^DEBRIS = ccn_verifysig$/;"	m
+DEBRIS	../libexec/dir.mk	/^DEBRIS = ccndc-inject$/;"	m
+DEFAULT_DEST_PORT	../cmd/ccndumppcap.c	54;"	d	file:
+DEFAULT_SRC_PORT	../cmd/ccndumppcap.c	53;"	d	file:
+DUPDIR	../tests/dir.mk	/^DUPDIR = stubs$/;"	m
+DeltaTime	../cmd/ccn_fetch_test.c	/^DeltaTime(uint64_t mt1, uint64_t mt2) {$/;"	f	file:
+DeltaTime	../lib/ccn_fetch.c	/^DeltaTime(TimeMarker mt1, TimeMarker mt2) {$/;"	f	file:
+Dump	../lib/hashtbtest.c	/^Dump(struct hashtb *h)$/;"	f	file:
+Dump	../lib/matrixtest.c	/^Dump(struct ccn_matrix *m)$/;"	f
+ELEMENT	../lib/ccn_indexbuf.c	25;"	d	file:
+EXCLUDE_HIGH	../cmd/ccnslurp.c	39;"	d	file:
+EXCLUDE_HIGH	../lib/ccn_traverse.c	48;"	d	file:
+EXCLUDE_LOW	../cmd/ccnslurp.c	38;"	d	file:
+EXCLUDE_LOW	../lib/ccn_traverse.c	47;"	d	file:
+EXPATLIBS	../cmd/dir.mk	/^EXPATLIBS = -lexpat$/;"	m
+EXPATLIBS	../lib/dir.mk	/^EXPATLIBS = -lexpat$/;"	m
+EXPAT_PROGRAMS	../cmd/dir.mk	/^EXPAT_PROGRAMS = ccn_xmltoccnb$/;"	m
+Echo	../util/ccntestloop	/^Echo () {$/;"	f
+Echo	../util/ccntestloop.sh	/^Echo () {$/;"	f
+ElemDone	../cmd/ccn_fetch_test.c	/^ElemDone(TestElem e) {$/;"	f	file:
+ExecSelf	../util/ccntestloop	/^ExecSelf () {$/;"	f
+ExecSelf	../util/ccntestloop.sh	/^ExecSelf () {$/;"	f
+ExtractDeps	../tests/testdriver	/^ExtractDeps () {$/;"	f
+ExtractDeps	../tests/testdriver.sh	/^ExtractDeps () {$/;"	f
+FACESLOTBITS	../ccnd/ccnd_private.h	155;"	d
+FF	../lib/ccn_versioning.c	31;"	d	file:
+FM_BYTI	../ccnd/ccnd_private.h	/^    FM_BYTI,$/;"	e	enum:ccnd_face_meter_index
+FM_BYTO	../ccnd/ccnd_private.h	/^    FM_BYTO,$/;"	e	enum:ccnd_face_meter_index
+FM_DATI	../ccnd/ccnd_private.h	/^    FM_DATI,$/;"	e	enum:ccnd_face_meter_index
+FM_DATO	../ccnd/ccnd_private.h	/^    FM_DATO,$/;"	e	enum:ccnd_face_meter_index
+FM_INTI	../ccnd/ccnd_private.h	/^    FM_INTI,$/;"	e	enum:ccnd_face_meter_index
+FM_INTO	../ccnd/ccnd_private.h	/^    FM_INTO,$/;"	e	enum:ccnd_face_meter_index
+FORCE_BINARY	../cmd/ccn_ccnbtoxml.c	99;"	d	file:
+FRESHNESS	../lib/signbenchtest.c	29;"	d	file:
+Fail	../ccnd/ccnd-init-keystore-helper	/^Fail () {$/;"	f
+Fail	../ccnd/ccnd-init-keystore-helper.sh	/^Fail () {$/;"	f
+Fail	../ccnd/testbasics	/^Fail () {$/;"	f
+Fail	../lib/ccn_initkeystore.sh	/^Fail () {$/;"	f
+Fail	../util/ccntestloop	/^Fail () {$/;"	f
+Fail	../util/ccntestloop.sh	/^Fail () {$/;"	f
+FailHook	../util/ccntestloop	/^FailHook () {$/;"	f
+FailHook	../util/ccntestloop.sh	/^FailHook () {$/;"	f
+FindBufferForPosition	../lib/ccn_fetch.c	/^FindBufferForPosition(struct ccn_fetch_stream *fs, intmax_t pos) {$/;"	f	file:
+FindBufferForSeg	../lib/ccn_fetch.c	/^FindBufferForSeg(struct ccn_fetch_stream *fs, seg_t seg) {$/;"	f	file:
+GOT_HERE	../ccnd/ccnd.c	63;"	d	file:
+GOT_HERE	../ccnd/ccnd_internal_client.c	44;"	d	file:
+GOT_HERE	../cmd/ccncatchunks2.c	35;"	d	file:
+GOT_HERE	../lib/ccn_sockcreate.c	42;"	d	file:
+GetConfiguration	../util/ccntestloop	/^GetConfiguration () {$/;"	f
+GetConfiguration	../util/ccntestloop.sh	/^GetConfiguration () {$/;"	f
+GetCurrentTime	../cmd/ccn_fetch_test.c	/^GetCurrentTime(void) {$/;"	f	file:
+GetCurrentTimeUSecs	../lib/ccn_fetch.c	/^GetCurrentTimeUSecs(void) {$/;"	f	file:
+GetFinalSegment	../lib/ccn_fetch.c	/^GetFinalSegment(struct ccn_upcall_info *info) {$/;"	f	file:
+GetNumberFromInfo	../lib/ccn_fetch.c	/^GetNumberFromInfo(const unsigned char *ccnb,$/;"	f	file:
+GetTestNames	../tests/testdriver	/^GetTestNames () {$/;"	f
+GetTestNames	../tests/testdriver.sh	/^GetTestNames () {$/;"	f
+HSRC	../ccnd/dir.mk	/^HSRC = ccnd_private.h$/;"	m
+HT_NEW_ENTRY	../include/ccn/hashtb.h	112;"	d
+HT_OLD_ENTRY	../include/ccn/hashtb.h	111;"	d
+INSTALL	../conf.mk	/^INSTALL = install$/;"	m
+INSTALL	../conf/SunOS.mk	/^INSTALL = ginstall$/;"	m
+INSTALLED_PROGRAMS	../ccnd/dir.mk	/^INSTALLED_PROGRAMS = ccnd ccndsmoketest ccnd-init-keystore-helper$/;"	m
+INSTALLED_PROGRAMS	../cmd/dir.mk	/^INSTALLED_PROGRAMS = \\$/;"	m
+INSTALLED_PROGRAMS	../libexec/dir.mk	/^INSTALLED_PROGRAMS = ccndc$/;"	m
+INSTALLED_PROGRAMS	../util/dir.mk	/^INSTALLED_PROGRAMS = ccndstart ccndstop ccndstatus ccntestloop ccndlogging$/;"	m
+INSTALL_BASE	../conf.mk	/^INSTALL_BASE = \/usr\/local$/;"	m
+INSTALL_BIN	../conf.mk	/^INSTALL_BIN = $(INSTALL_BASE)\/bin$/;"	m
+INSTALL_INCLUDE	../conf.mk	/^INSTALL_INCLUDE = $(INSTALL_BASE)\/include$/;"	m
+INSTALL_LIB	../conf.mk	/^INSTALL_LIB = $(INSTALL_BASE)\/lib$/;"	m
+IP_ADDR_LENGTH	../cmd/ccndumppcap.c	40;"	d	file:
+IP_CHKSUM_OFFSET	../cmd/ccndumppcap.c	43;"	d	file:
+IP_DEST_ADDR_OFFSET	../cmd/ccndumppcap.c	45;"	d	file:
+IP_HDR_LENGTH	../cmd/ccndumppcap.c	41;"	d	file:
+IP_LENGTH_OFFSET	../cmd/ccndumppcap.c	42;"	d	file:
+IP_OFFSET	../cmd/ccndumppcap.c	39;"	d	file:
+IP_SRC_ADDR_OFFSET	../cmd/ccndumppcap.c	44;"	d	file:
+InferPosition	../lib/ccn_fetch.c	/^InferPosition(struct ccn_fetch_stream *fs, seg_t seg) {$/;"	f	file:
+KEY	../lib/hashtb.c	36;"	d	file:
+L	../cmd/ccn_ccnbtoxml.c	749;"	d	file:
+LDLIBS	../ccnd/dir.mk	/^LDLIBS = -L$(CCNLIBDIR) $(MORE_LDLIBS) -lccn$/;"	m
+LDLIBS	../cmd/dir.mk	/^LDLIBS = -L..\/lib $(MORE_LDLIBS) -lccn$/;"	m
+LDLIBS	../lib/dir.mk	/^LDLIBS = -L$(CCNLIBDIR) $(MORE_LDLIBS) -lccn$/;"	m
+LDLIBS	../libexec/dir.mk	/^LDLIBS = -L$(CCNLIBDIR) $(MORE_LDLIBS) -lccn$/;"	m
+LIBS	../lib/dir.mk	/^LIBS = libccn.a$/;"	m
+LIB_OBJS	../lib/dir.mk	/^LIB_OBJS = ccn_client.o ccn_charbuf.o ccn_indexbuf.o ccn_coding.o \\$/;"	m
+LLC_LENGTH	../cmd/ccndumppcap.c	38;"	d	file:
+LOCAL_BUF_MAX	../cmd/ccn_fetch_test.c	38;"	d	file:
+LOCAL_CFLAGS	../ccnd/Android.mk	/^LOCAL_CFLAGS := -g$/;"	m
+LOCAL_CFLAGS	../lib/Android.mk	/^LOCAL_CFLAGS := -g$/;"	m
+LOCAL_C_INCLUDES	../ccnd/Android.mk	/^LOCAL_C_INCLUDES	:= $(LOCAL_PATH)$/;"	m
+LOCAL_C_INCLUDES	../lib/Android.mk	/^LOCAL_C_INCLUDES	:= $(LOCAL_PATH)$/;"	m
+LOCAL_MODULE	../ccnd/Android.mk	/^LOCAL_MODULE		:= libccnd$/;"	m
+LOCAL_MODULE	../lib/Android.mk	/^LOCAL_MODULE		:= libccnx$/;"	m
+LOCAL_PATH	../Android.mk	/^LOCAL_PATH := $(call my-dir)$/;"	m
+LOCAL_PATH	../ccnd/Android.mk	/^LOCAL_PATH := $(call my-dir)$/;"	m
+LOCAL_PATH	../lib/Android.mk	/^LOCAL_PATH := $(call my-dir)$/;"	m
+LOCAL_SCOPE	../lib/ccn_traverse.c	50;"	d	file:
+LOCAL_SHARED_LIBRARIES	../ccnd/Android.mk	/^LOCAL_SHARED_LIBRARIES :=$/;"	m
+LOCAL_SHARED_LIBRARIES	../lib/Android.mk	/^LOCAL_SHARED_LIBRARIES :=$/;"	m
+LOCAL_SRC_FILES	../ccnd/Android.mk	/^LOCAL_SRC_FILES := $(CCNDSRC)$/;"	m
+LOCAL_SRC_FILES	../lib/Android.mk	/^LOCAL_SRC_FILES := $(CCNLIBSRC)$/;"	m
+LOCAL_STATIC_LIBRARIES	../ccnd/Android.mk	/^LOCAL_STATIC_LIBRARIES := libcrypto libccnx$/;"	m
+LOCAL_STATIC_LIBRARIES	../lib/Android.mk	/^LOCAL_STATIC_LIBRARIES := libcrypto libssl$/;"	m
+LOGGIT	../lib/ccn_sockcreate.c	41;"	d	file:
+LastRunNumber	../util/ccntestloop	/^LastRunNumber () {$/;"	f
+LastRunNumber	../util/ccntestloop.sh	/^LastRunNumber () {$/;"	f
+MAKEF	../Makefile	/^MAKEF =  -f ..\/conf.mk -f dir.mk -f ..\/subr.mk$/;"	m
+MARKHTE	../lib/hashtb.c	39;"	d	file:
+MAXFACES	../ccnd/ccnd_private.h	156;"	d
+MAX_DATA_SIZE	../lib/ccn_seqwriter.c	28;"	d	file:
+MAX_ENUMERATORS	../lib/hashtb.c	164;"	d	file:
+MAX_PACKET	../cmd/ccndumppcap.c	52;"	d	file:
+MOAN	../lib/ccn_verifysig.c	33;"	d	file:
+MORECOMPS_MASK	../ccnd/ccnd_internal_client.c	113;"	d	file:
+MORE_LDLIBS	../conf/CYGWIN_NT-5.1.mk	/^MORE_LDLIBS=..\/contrib\/getaddrinfo\/getaddrinfo.o$/;"	m
+MORE_LDLIBS	../conf/CYGWIN_NT-6.0.mk	/^MORE_LDLIBS=..\/contrib\/getaddrinfo\/getaddrinfo.o$/;"	m
+MORE_LDLIBS	../conf/Darwin-8.11.0.mk	/^MORE_LDLIBS = -L\/opt\/local\/lib$/;"	m
+MORE_LDLIBS	../conf/FreeBSD.mk	/^MORE_LDLIBS = -L\/usr\/local\/lib -R\/usr\/local\/lib$/;"	m
+MORE_LDLIBS	../conf/NetBSD.mk	/^MORE_LDLIBS = -L\/usr\/pkg\/lib -R\/usr\/pkg\/lib$/;"	m
+MORE_LDLIBS	../conf/SunOS-5.10.mk	/^MORE_LDLIBS = -L\/usr\/local\/ssl\/lib -R\/usr\/local\/ssl\/lib -L\/usr\/sfw\/lib -R\/usr\/local\/ssl\/lib -lmtmalloc -lnsl -lsocket$/;"	m
+MORE_LDLIBS	../conf/SunOS.mk	/^MORE_LDLIBS = -lmtmalloc -lnsl -lsocket -L\/usr\/sfw\/lib -R\/usr\/sfw\/lib$/;"	m
+MP_info	../include/ccn/merklepathasn1.h	/^} MP_info;$/;"	t	typeref:struct:MP_info_st
+MP_info_st	../include/ccn/merklepathasn1.h	/^typedef struct MP_info_st {$/;"	s
+MUST_VERIFY	../ccnd/ccnd_internal_client.c	114;"	d	file:
+MUST_VERIFY	../cmd/ccnls.c	37;"	d	file:
+MUST_VERIFY	../lib/ccn_traverse.c	49;"	d	file:
+MUST_VERIFY1	../ccnd/ccnd_internal_client.c	115;"	d	file:
+MaxSuffixDefault	../lib/ccn_fetch.c	50;"	d	file:
+MilliSleep	../cmd/ccn_fetch_test.c	/^MilliSleep(uint64_t n) {$/;"	f	file:
+MinMilliSleep	../cmd/ccn_fetch_test.c	69;"	d	file:
+Moan	../lib/ccn_verifysig.c	/^Moan(int line) {$/;"	f
+MyAlloc	../cmd/ccn_fetch_test.c	82;"	d	file:
+MyCharbuf	../cmd/ccn_fetch_test.c	/^typedef struct ccn_charbuf *MyCharbuf;$/;"	t	typeref:struct:ccn_charbuf	file:
+MyParms	../cmd/ccn_fetch_test.c	/^struct MyParms {$/;"	s	file:
+NL	../ccnd/ccnd_stats.c	47;"	d	file:
+NOTE_ERR	../lib/ccn_client.c	105;"	d	file:
+NOTE_ERRNO	../lib/ccn_client.c	106;"	d	file:
+NS_MAXDNAME	../libexec/ccndc.c	60;"	d	file:
+NS_MAXMSG	../libexec/ccndc.c	55;"	d	file:
+Name	../lib/ccn_buf_decoder.c	/^    int Name;$/;"	m	struct:parsed_KeyName	file:
+NeedSegment	../lib/ccn_fetch.c	/^NeedSegment(struct ccn_fetch_stream *fs, seg_t seg) {$/;"	f	file:
+NeedSegments	../lib/ccn_fetch.c	/^NeedSegments(struct ccn_fetch_stream *fs) {$/;"	f	file:
+NewBufferForSeg	../lib/ccn_fetch.c	/^NewBufferForSeg(struct ccn_fetch_stream *fs, seg_t seg, size_t len) {$/;"	f	file:
+NewElem	../cmd/ccn_fetch_test.c	/^NewElem(struct MyParms *p) {$/;"	f	file:
+NoteTimes	../util/ccntestloop	/^NoteTimes () {$/;"	f
+NoteTimes	../util/ccntestloop.sh	/^NoteTimes () {$/;"	f
+OBJTREE	../Makefile	/^OBJTREE = build$/;"	m
+ON_ERROR_CLEANUP	../libexec/ccndc.c	144;"	d	file:
+ON_ERROR_EXIT	../libexec/ccndc.c	134;"	d	file:
+ON_NULL_CLEANUP	../libexec/ccndc.c	152;"	d	file:
+OPENSSL_CFLAGS	../conf/Darwin-9.8.0.mk	/^OPENSSL_CFLAGS = -I\/opt\/local\/include$/;"	m
+OPENSSL_CFLAGS	../conf/OpenSSL.mk	/^OPENSSL_CFLAGS = -I$(OPENSSL_PREFIX)\/include$/;"	m
+OPENSSL_LIBS	../conf/Darwin-9.8.0.mk	/^OPENSSL_LIBS = -L\/opt\/local\/lib$/;"	m
+OPENSSL_LIBS	../conf/OpenSSL.mk	/^OPENSSL_LIBS = -R$(OPENSSL_PREFIX)\/lib -L$(OPENSSL_PREFIX)\/lib$/;"	m
+OPENSSL_PREFIX	../conf/OpenSSL.mk	/^OPENSSL_PREFIX = \/usr\/local\/ssl$/;"	m
+OPER_MASK	../ccnd/ccnd_internal_client.c	116;"	d	file:
+OP_DESTROYFACE	../ccnd/ccnd_internal_client.c	119;"	d	file:
+OP_NEWFACE	../ccnd/ccnd_internal_client.c	118;"	d	file:
+OP_NOTICE	../ccnd/ccnd_internal_client.c	123;"	d	file:
+OP_PING	../ccnd/ccnd_internal_client.c	117;"	d	file:
+OP_PREFIXREG	../ccnd/ccnd_internal_client.c	120;"	d	file:
+OP_REG	../libexec/ccndc.c	68;"	d	file:
+OP_SELFREG	../ccnd/ccnd_internal_client.c	121;"	d	file:
+OP_SERVICE	../ccnd/ccnd_internal_client.c	124;"	d	file:
+OP_UNREG	../ccnd/ccnd_internal_client.c	122;"	d	file:
+OP_UNREG	../libexec/ccndc.c	69;"	d	file:
+PAYLOAD_SIZE	../lib/signbenchtest.c	31;"	d	file:
+PCAP_PROGRAMS	../conf.mk	/^PCAP_PROGRAMS = ccndumppcap$/;"	m
+PCAP_PROGRAMS	../conf/CYGWIN_NT-5.1.mk	/^PCAP_PROGRAMS=$/;"	m
+PCAP_PROGRAMS	../conf/CYGWIN_NT-6.0.mk	/^PCAP_PROGRAMS=$/;"	m
+PIPELIMIT	../cmd/ccncatchunks2.c	33;"	d	file:
+PLATCFLAGS	../conf.mk	/^PLATCFLAGS=-fPIC$/;"	m
+PLATCFLAGS	../conf/CYGWIN_NT-5.1.mk	/^PLATCFLAGS=-DNEED_GETADDRINFO_COMPAT -Wl,--enable-auto-import -I..\/contrib\/getaddrinfo$/;"	m
+PLATCFLAGS	../conf/CYGWIN_NT-6.0.mk	/^PLATCFLAGS=-DNEED_GETADDRINFO_COMPAT -Wl,--enable-auto-import -I..\/contrib\/getaddrinfo$/;"	m
+PLATCFLAGS	../conf/Darwin.mk	/^PLATCFLAGS=-fno-common$/;"	m
+PLATCFLAGS	../conf/FreeBSD.mk	/^PLATCFLAGS=-fPIC$/;"	m
+PLATCFLAGS	../conf/Linux.mk	/^PLATCFLAGS=-fPIC$/;"	m
+PLATCFLAGS	../conf/SunOS.mk	/^PLATCFLAGS = -mt -Kpic$/;"	m
+PREFER_HEX	../cmd/ccn_ccnbtoxml.c	100;"	d	file:
+PROGRAMS	../ccnd/dir.mk	/^PROGRAMS = $(INSTALLED_PROGRAMS)$/;"	m
+PROGRAMS	../cmd/dir.mk	/^PROGRAMS = $(INSTALLED_PROGRAMS) \\$/;"	m
+PROGRAMS	../lib/dir.mk	/^PROGRAMS = hashtbtest matrixtest skel_decode_test \\$/;"	m
+PROGRAMS	../libexec/dir.mk	/^PROGRAMS = $(INSTALLED_PROGRAMS) udplink$/;"	m
+PROGRAMS	../util/dir.mk	/^PROGRAMS = $(INSTALLED_PROGRAMS)$/;"	m
+PrintDetails	../util/ccntestloop	/^PrintDetails () {$/;"	f
+PrintDetails	../util/ccntestloop.sh	/^PrintDetails () {$/;"	f
+ProvideDefault	../configure	/^ProvideDefault () {$/;"	f
+ProvideDefaults	../util/ccntestloop	/^ProvideDefaults () {$/;"	f
+ProvideDefaults	../util/ccntestloop.sh	/^ProvideDefaults () {$/;"	f
+PruneOldLogs	../util/ccntestloop	/^PruneOldLogs () {$/;"	f
+PruneOldLogs	../util/ccntestloop.sh	/^PruneOldLogs () {$/;"	f
+PruneSegments	../lib/ccn_fetch.c	/^PruneSegments(struct ccn_fetch_stream *fs) {$/;"	f	file:
+PublisherID	../lib/ccn_buf_decoder.c	/^    int PublisherID;$/;"	m	struct:parsed_KeyName	file:
+REAL_CFLAGS	../subr.mk	/^REAL_CFLAGS = $(COPT) $(CWARNFLAGS) $(CPREFLAGS) $(PLATCFLAGS)$/;"	m
+RESOLV_LIBS	../conf.mk	/^RESOLV_LIBS = -lresolv$/;"	m
+RESOLV_LIBS	../conf/FreeBSD.mk	/^RESOLV_LIBS=$/;"	m
+RM	../conf.mk	/^RM = rm -f$/;"	m
+Rebuild	../util/ccntestloop	/^Rebuild () {$/;"	f
+Rebuild	../util/ccntestloop.sh	/^Rebuild () {$/;"	f
+RemSegRequest	../lib/ccn_fetch.c	/^RemSegRequest(struct ccn_fetch_stream *fs, struct localClosure *req) {$/;"	f	file:
+RemovePIDFile	../util/ccntestloop	/^RemovePIDFile () {$/;"	f
+RemovePIDFile	../util/ccntestloop.sh	/^RemovePIDFile () {$/;"	f
+RunATest	../tests/testdriver	/^RunATest () {$/;"	f
+RunATest	../tests/testdriver.sh	/^RunATest () {$/;"	f
+RunCTest	../util/ccntestloop	/^RunCTest () {$/;"	f
+RunCTest	../util/ccntestloop.sh	/^RunCTest () {$/;"	f
+RunJavaTest	../util/ccntestloop	/^RunJavaTest () {$/;"	f
+RunJavaTest	../util/ccntestloop.sh	/^RunJavaTest () {$/;"	f
+RunTest	../util/ccntestloop	/^RunTest () {$/;"	f
+RunTest	../util/ccntestloop.sh	/^RunTest () {$/;"	f
+SARGS	../lib/ccn_schedule.c	340;"	d	file:
+SCRIPTSRC	../ccnd/dir.mk	/^SCRIPTSRC = testbasics fortunes.ccnb contentobjecthash.ref anything.ref \\$/;"	m
+SCRIPTSRC	../cmd/dir.mk	/^SCRIPTSRC = ccn_initkeystore.sh$/;"	m
+SCRIPTSRC	../lib/dir.mk	/^SCRIPTSRC = ccn_initkeystore.sh$/;"	m
+SCRIPTSRC	../tests/dir.mk	/^SCRIPTSRC = testdriver.sh functions preamble settings $(ALLTESTS)$/;"	m
+SCRIPTSRC	../util/dir.mk	/^SCRIPTSRC = shebang \\$/;"	m
+SELF	../ccnd/Makefile	/^	SELF=`basename \\`pwd\\``; (cd .. && $(MAKE) SUBDIRS=$$SELF $@)$/;"	m
+SELF	../cmd/Makefile	/^	SELF=`basename \\`pwd\\``; (cd .. && $(MAKE) SUBDIRS=$$SELF $@)$/;"	m
+SELF	../generic.mk	/^	SELF=`basename \\`pwd\\``; (cd .. && $(MAKE) SUBDIRS=$$SELF $@)$/;"	m
+SELF	../lib/Makefile	/^	SELF=`basename \\`pwd\\``; (cd .. && $(MAKE) SUBDIRS=$$SELF $@)$/;"	m
+SELF	../libexec/Makefile	/^	SELF=`basename \\`pwd\\``; (cd .. && $(MAKE) SUBDIRS=$$SELF $@)$/;"	m
+SELF	../tests/Makefile	/^	SELF=`basename \\`pwd\\``; (cd .. && $(MAKE) SUBDIRS=$$SELF $@)$/;"	m
+SELF	../util/Makefile	/^	SELF=`basename \\`pwd\\``; (cd .. && $(MAKE) SUBDIRS=$$SELF $@)$/;"	m
+SH	../conf.mk	/^SH = \/bin\/sh$/;"	m
+SHARED_LD_FLAGS	../conf.mk	/^SHARED_LD_FLAGS = -shared --whole-archive -soname=$(SHLIBNAME) -lc$/;"	m
+SHARED_LD_FLAGS	../conf/Darwin.mk	/^SHARED_LD_FLAGS = -dylib -arch `\/usr\/bin\/arch` -install_name $(SHLIBNAME) $(OPENSSL_LIBS) -all_load \/usr\/lib\/dylib1.o -lcrypto -lSystem$/;"	m
+SHARED_LD_FLAGS	../conf/FreeBSD.mk	/^SHARED_LD_FLAGS= -shared -whole-archive -soname=$(SHLIBNAME) -lc$/;"	m
+SHARED_LD_FLAGS	../conf/Linux.mk	/^SHARED_LD_FLAGS = -shared --whole-archive -soname=$(SHLIBNAME) -lc$/;"	m
+SHARED_LD_FLAGS	../conf/SunOS.mk	/^SHARED_LD_FLAGS = -G -z allextract$/;"	m
+SHEXT	../conf.mk	/^SHEXT=so$/;"	m
+SHEXT	../conf/Darwin.mk	/^SHEXT=dylib$/;"	m
+SHEXT	../conf/FreeBSD.mk	/^SHEXT=so$/;"	m
+SHEXT	../conf/Linux.mk	/^SHEXT=so$/;"	m
+SHEXT	../conf/SunOS.mk	/^SHEXT = so$/;"	m
+SHLIBDEPS	../conf.mk	/^SHLIBDEPS=$/;"	m
+SHLIBDEPS	../conf/Darwin.mk	/^SHLIBDEPS=\/usr\/lib\/dylib1.o$/;"	m
+SHLIBDEPS	../conf/FreeBSD.mk	/^SHLIBDEPS=$/;"	m
+SHLIBDEPS	../conf/Linux.mk	/^SHLIBDEPS=$/;"	m
+SHLIBDEPS	../conf/SunOS.mk	/^SHLIBDEPS=$/;"	m
+SHLIBNAME	../conf.mk	/^SHLIBNAME=libccn.$(SHEXT).1$/;"	m
+SHLIBNAME	../conf/Darwin.mk	/^SHLIBNAME=libccn.1.$(SHEXT)$/;"	m
+SHLIBNAME	../conf/FreeBSD.mk	/^SHLIBNAME=libccn.$(SHEXT).1$/;"	m
+SHLIBNAME	../conf/Linux.mk	/^SHLIBNAME=libccn.$(SHEXT).1$/;"	m
+SHLIBNAME	../conf/SunOS.mk	/^SHLIBNAME=libccn.$(SHEXT).1$/;"	m
+SHOW_HEX_STATE	../lib/skel_decode_test.c	43;"	d	file:
+SUBDIRS	../Makefile	/^SUBDIRS = lib ccnd libexec cmd util tests$/;"	m
+SaveLogs	../util/ccntestloop	/^SaveLogs () {$/;"	f
+SaveLogs	../util/ccntestloop.sh	/^SaveLogs () {$/;"	f
+ScriptChanged	../util/ccntestloop	/^ScriptChanged () {$/;"	f
+ScriptChanged	../util/ccntestloop.sh	/^ScriptChanged () {$/;"	f
+SetExitCode	../tests/testdriver	/^SetExitCode () {$/;"	f
+SetExitCode	../tests/testdriver.sh	/^SetExitCode () {$/;"	f
+SetPIDFile	../util/ccntestloop	/^SetPIDFile () {$/;"	f
+SetPIDFile	../util/ccntestloop.sh	/^SetPIDFile () {$/;"	f
+ShowDelta	../lib/ccn_fetch.c	/^ShowDelta(FILE *f, TimeMarker from) {$/;"	f	file:
+SourcesChanged	../util/ccntestloop	/^SourcesChanged () {$/;"	f
+SourcesChanged	../util/ccntestloop.sh	/^SourcesChanged () {$/;"	f
+StartBackground	../util/ccntestloop	/^StartBackground () {$/;"	f
+StartBackground	../util/ccntestloop.sh	/^StartBackground () {$/;"	f
+Status	../util/ccntestloop	/^Status () {$/;"	f
+Status	../util/ccntestloop.sh	/^Status () {$/;"	f
+StopBackground	../util/ccntestloop	/^StopBackground () {$/;"	f
+StopBackground	../util/ccntestloop.sh	/^StopBackground () {$/;"	f
+StuffPreload	../util/ccndstart	/^StuffPreload () {$/;"	f
+StuffPreload	../util/ccndstart.sh	/^StuffPreload () {$/;"	f
+TESTS	../tests/dir.mk	/^TESTS = $(ALLTESTS)$/;"	m
+TESTSCHEDULE	../lib/ccn_schedule.c	/^int TESTSCHEDULE()$/;"	f
+THIS_CANNOT_HAPPEN	../lib/ccn_client.c	108;"	d	file:
+TOSS_WHITE	../cmd/ccn_xmltoccnb.c	391;"	d	file:
+T_SRV	../libexec/ccndc.c	65;"	d	file:
+TestBusy	../tests/testdriver	/^TestBusy () {$/;"	f
+TestBusy	../tests/testdriver.sh	/^TestBusy () {$/;"	f
+TestElem	../cmd/ccn_fetch_test.c	/^typedef struct TestElemStruct *TestElem;$/;"	t	typeref:struct:TestElemStruct	file:
+TestElemStruct	../cmd/ccn_fetch_test.c	/^struct TestElemStruct {$/;"	s	file:
+ThisRunNumber	../util/ccntestloop	/^ThisRunNumber () {$/;"	f
+ThisRunNumber	../util/ccntestloop.sh	/^ThisRunNumber () {$/;"	f
+TimeMarker	../lib/ccn_fetch.c	/^typedef uint64_t TimeMarker;$/;"	t	file:
+TryAppend	../configure	/^TryAppend () {$/;"	f
+TryScript	../configure	/^TryScript () {$/;"	f
+UDPMAXBUF	../libexec/udplink.c	51;"	d	file:
+UDP_CHKSUM_OFFSET	../cmd/ccndumppcap.c	50;"	d	file:
+UDP_HDR_LENGTH	../cmd/ccndumppcap.c	48;"	d	file:
+UDP_LENGTH_OFFSET	../cmd/ccndumppcap.c	49;"	d	file:
+UDP_OFFSET	../cmd/ccndumppcap.c	47;"	d	file:
+UpdateSources	../util/ccntestloop	/^UpdateSources () {$/;"	f
+UpdateSources	../util/ccntestloop.sh	/^UpdateSources () {$/;"	f
+Usage	../util/ccndlogging	/^Usage () {$/;"	f
+Usage	../util/ccndlogging.sh	/^Usage () {$/;"	f
+Usage	../util/ccndstatus	/^Usage () {$/;"	f
+Usage	../util/ccndstatus.sh	/^Usage () {$/;"	f
+Usage	../util/ccntestloop	/^Usage () {$/;"	f
+Usage	../util/ccntestloop.sh	/^Usage () {$/;"	f
+VERBOSE_DECODE	../cmd/ccn_ccnbtoxml.c	101;"	d	file:
+XML	../lib/ccn_coding.c	27;"	d	file:
+XXX	../lib/ccn_client.c	111;"	d	file:
+accept_connection	../ccnd/ccnd.c	/^accept_connection(struct ccnd_handle *h, int listener_fd)$/;"	f	file:
+accession	../ccnd/ccnd_private.h	/^    ccn_accession_t accession;      \/**< newest used accession number *\/$/;"	m	struct:ccnd_handle
+accession	../ccnd/ccnd_private.h	/^    ccn_accession_t accession;  \/**< assigned in arrival order *\/$/;"	m	struct:content_entry
+accession_base	../ccnd/ccnd_private.h	/^    ccn_accession_t accession_base;$/;"	m	struct:ccnd_handle
+accum	../cmd/ccn_fetch_test.c	/^	intmax_t accum;$/;"	m	struct:TestElemStruct	file:
+action	../include/ccn/face_mgmt.h	/^    const char *action;$/;"	m	struct:ccn_face_instance
+action	../include/ccn/reg_mgmt.h	/^    const char *action;$/;"	m	struct:ccn_forwarding_entry
+action	../include/ccn/schedule.h	/^    ccn_scheduled_action action;$/;"	m	struct:ccn_scheduled_event
+action	../lib/ccn_client.c	/^    struct ccn_closure *action;  \/* handler for incoming content *\/$/;"	m	struct:expressed_interest	typeref:struct:expressed_interest::ccn_closure	file:
+action	../lib/ccn_client.c	/^    struct ccn_closure *action;$/;"	m	struct:interest_filter	typeref:struct:interest_filter::ccn_closure	file:
+action	../lib/ccn_client.c	/^    struct ccn_closure action;$/;"	m	struct:ccn_reg_closure	typeref:struct:ccn_reg_closure::ccn_closure	file:
+addr	../ccnd/ccnd_private.h	/^    const struct sockaddr *addr;$/;"	m	struct:face	typeref:struct:face::sockaddr
+address	../include/ccn/sockcreate.h	/^    const char *address;        \/**< acceptable to getaddrinfo *\/$/;"	m	struct:ccn_sockdescr
+addrlen	../ccnd/ccnd_private.h	/^    socklen_t addrlen;$/;"	m	struct:face
+adjust_npe_predicted_response	../ccnd/ccnd.c	/^adjust_npe_predicted_response(struct ccnd_handle *h,$/;"	f	file:
+adjust_outbound_for_existing_interests	../ccnd/ccnd.c	/^adjust_outbound_for_existing_interests(struct ccnd_handle *h, struct face *face,$/;"	f	file:
+adjust_predicted_response	../ccnd/ccnd.c	/^adjust_predicted_response(struct ccnd_handle *h,$/;"	f	file:
+af_name	../ccnd/ccnd.c	/^af_name(int family)$/;"	f	file:
+age	../ccnd/ccnd_private.h	/^    struct ccn_scheduled_event *age;$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_scheduled_event
+age_forwarding	../ccnd/ccnd.c	/^age_forwarding(struct ccn_schedule *sched,$/;"	f	file:
+age_forwarding	../ccnd/ccnd_private.h	/^    struct ccn_scheduled_event *age_forwarding;$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_scheduled_event
+age_forwarding_needed	../ccnd/ccnd.c	/^age_forwarding_needed(struct ccnd_handle *h)$/;"	f	file:
+all_chars_percent_encoded	../lib/encodedecodetest.c	/^static char all_chars_percent_encoded[256 * 3 + 1]; \/* Computed *\/$/;"	v	file:
+all_chars_percent_encoded_canon	../lib/encodedecodetest.c	/^static const char *all_chars_percent_encoded_canon =$/;"	v	file:
+all_whitespace	../cmd/ccn_xmltoccnb.c	/^all_whitespace(struct ccn_charbuf *b)$/;"	f	file:
+allow_stale	../cmd/ccnbuzz.c	/^    int allow_stale;$/;"	m	struct:mydata	file:
+allow_stale	../cmd/ccncatchunks.c	/^    int allow_stale;$/;"	m	struct:mydata	file:
+allow_stale	../cmd/ccncatchunks2.c	/^    int allow_stale;$/;"	m	struct:mydata	file:
+allow_stale	../cmd/ccnsimplecat.c	/^    int allow_stale;$/;"	m	struct:mydata	file:
+annotation	../cmd/ccn_ccnbtoxml.c	/^    struct ccn_charbuf *annotation;$/;"	m	struct:ccn_decoder	typeref:struct:ccn_decoder::ccn_charbuf	file:
+answer_highest	../lib/ccn_versioning.c	/^answer_highest(struct ccn_charbuf *templ)$/;"	f	file:
+answer_passive	../cmd/ccnslurp.c	/^answer_passive(struct ccn_charbuf *templ)$/;"	f	file:
+answer_passive	../lib/ccn_traverse.c	/^answer_passive(struct ccn_charbuf *templ, int allow_stale)$/;"	f	file:
+answer_passive	../lib/ccn_versioning.c	/^answer_passive(struct ccn_charbuf *templ)$/;"	f	file:
+answerfrom	../include/ccn/ccn.h	/^    int answerfrom;$/;"	m	struct:ccn_parsed_interest
+api_version	../include/ccn/ccn.h	/^    int api_version;$/;"	m	struct:ccn_signing_params
+appendOut	../cmd/ccn_fetch_test.c	/^	int appendOut;$/;"	m	struct:MyParms	file:
+append_Any_filter	../lib/ccn_traverse.c	/^append_Any_filter(struct ccn_charbuf *c)$/;"	f	file:
+append_bf_all	../cmd/ccnbuzz.c	/^append_bf_all(struct ccn_charbuf *c)$/;"	f	file:
+append_bf_all	../cmd/ccnslurp.c	/^append_bf_all(struct ccn_charbuf *c)$/;"	f	file:
+append_bloom_element	../cmd/ccnbuzz.c	/^append_bloom_element(struct ccn_charbuf *templ,$/;"	f	file:
+append_filter_all	../lib/ccn_versioning.c	/^append_filter_all(struct ccn_charbuf *c)$/;"	f	file:
+append_future_vcomp	../lib/ccn_versioning.c	/^append_future_vcomp(struct ccn_charbuf *templ)$/;"	f	file:
+appnonce	../ccnd/ccnd_private.h	/^    void (*appnonce)(struct ccnd_handle *, struct face *, struct ccn_charbuf *);$/;"	m	struct:ccnd_handle
+ask_more	../cmd/ccncatchunks2.c	/^ask_more(struct mydata *md, uintmax_t seq)$/;"	f	file:
+assumeFixed	../cmd/ccn_fetch_test.c	/^	int assumeFixed;$/;"	m	struct:MyParms	file:
+autoreg	../ccnd/ccnd_private.h	/^    struct ccn_charbuf *autoreg;    \/**< URIs to auto-register *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_charbuf
+backoff	../cmd/ccncatchunks2.c	/^    unsigned backoff;$/;"	m	struct:mydata	file:
+base64_char_count	../cmd/ccn_ccnbtoxml.c	/^    int base64_char_count;$/;"	m	struct:ccn_decoder	file:
+base64_decode_bytes	../cmd/ccn_xmltoccnb.c	/^base64_decode_bytes(struct base64_decoder *d, const void *p, size_t count)$/;"	f	file:
+base64_decoder	../cmd/ccn_xmltoccnb.c	/^struct base64_decoder {$/;"	s	file:
+batching	../lib/ccn_seqwriter.c	/^    int batching;$/;"	m	struct:ccn_seqwriter	file:
+bignumval	../cmd/ccn_ccnbtoxml.c	/^    uintmax_t bignumval;$/;"	m	struct:ccn_decoder	file:
+bits	../cmd/ccn_ccnbtoxml.c	/^    int bits;$/;"	m	struct:ccn_decoder	file:
+block_size	../include/ccn/header.h	/^    uintmax_t block_size;$/;"	m	struct:ccn_header
+bloom	../include/ccn/bloom.h	/^    unsigned char bloom[1024]; \/* 8 kilobits maximum *\/$/;"	m	struct:ccn_bloom_wire
+bloom_nexthash	../lib/ccn_bloom.c	/^bloom_nexthash(int s, int u)$/;"	f	file:
+bloom_seed	../lib/ccn_bloom.c	/^bloom_seed(const struct ccn_bloom_wire *f)$/;"	f	file:
+bucket	../lib/hashtb.c	/^    struct node **bucket;$/;"	m	struct:hashtb	typeref:struct:hashtb::node	file:
+buf	../cmd/ccn_fetch_test.c	/^	string buf;$/;"	m	struct:TestElemStruct	file:
+buf	../include/ccn/ccn.h	/^    const unsigned char *buf;$/;"	m	struct:ccn_buf_decoder
+buf	../include/ccn/charbuf.h	/^    unsigned char *buf;$/;"	m	struct:ccn_charbuf
+buf	../include/ccn/indexbuf.h	/^    size_t *buf;$/;"	m	struct:ccn_indexbuf
+buf	../lib/ccn_fetch.c	/^	unsigned char *buf;	\/\/ where the bytes are$/;"	m	struct:ccn_fetch_buffer	file:
+bufLen	../cmd/ccn_fetch_test.c	/^	int bufLen;$/;"	m	struct:TestElemStruct	file:
+bufList	../lib/ccn_fetch.c	/^	struct ccn_fetch_buffer *bufList;	\/\/ the buffer list$/;"	m	struct:ccn_fetch_stream	typeref:struct:ccn_fetch_stream::ccn_fetch_buffer	file:
+bufMax	../cmd/ccn_fetch_test.c	/^	int bufMax;$/;"	m	struct:TestElemStruct	file:
+buffer	../lib/ccn_seqwriter.c	/^    struct ccn_charbuf *buffer;$/;"	m	struct:ccn_seqwriter	typeref:struct:ccn_seqwriter::ccn_charbuf	file:
+bulkdata	../lib/ccn_bulkdata.c	/^struct bulkdata {$/;"	s	file:
+burst_nsec	../ccnd/ccnd_private.h	/^    unsigned burst_nsec;             \/**< nsec per KByte, limits burst rate *\/$/;"	m	struct:content_queue
+callback	../cmd/ccn_ccnbtoxml.c	/^    ccn_decoder_callback callback;$/;"	m	struct:ccn_decoder	file:
+callback_kind	../cmd/ccn_ccnbtoxml.c	/^enum callback_kind {$/;"	g	file:
+callback_state	../cmd/ccn_ccnbtoxml.c	/^struct callback_state {$/;"	s	file:
+callbackdata	../cmd/ccn_ccnbtoxml.c	/^    void *callbackdata;$/;"	m	struct:ccn_decoder	file:
+capacity	../ccnd/ccnd_private.h	/^    unsigned long capacity;         \/**< may toss content if there more than$/;"	m	struct:ccnd_handle
+ccn	../lib/ccn_client.c	/^struct ccn {$/;"	s	file:
+ccnFD	../cmd/ccn_fetch_test.c	/^	int ccnFD;$/;"	m	struct:MyParms	file:
+ccn_accession_t	../ccnd/ccnd_private.h	/^typedef unsigned ccn_accession_t;$/;"	t
+ccn_add_entropy	../lib/ccn_signing.c	/^ccn_add_entropy(const void *buf, size_t size, int bits_of_entropy)$/;"	f
+ccn_age_interest	../lib/ccn_client.c	/^ccn_age_interest(struct ccn *h,$/;"	f	file:
+ccn_append_link_name	../lib/ccn_client.c	/^ccn_append_link_name(struct ccn_charbuf *name, const unsigned char *data, size_t data_size)$/;"	f	file:
+ccn_append_link_stuff	../ccnd/ccnd.c	/^ccn_append_link_stuff(struct ccnd_handle *h,$/;"	f	file:
+ccn_append_pubkey_blob	../lib/ccn_signing.c	/^ccn_append_pubkey_blob(struct ccn_charbuf *c, const struct ccn_pkey *i_pubkey)$/;"	f
+ccn_append_uri_component	../lib/ccn_uri.c	/^ccn_append_uri_component(struct ccn_charbuf *c, const char *s, size_t limit, size_t *cont)$/;"	f	file:
+ccn_binary_seqfunc	../lib/ccn_bulkdata.c	/^ccn_binary_seqfunc(uintmax_t x, void *param, struct ccn_charbuf *resultbuf)$/;"	f
+ccn_bloom	../lib/ccn_bloom.c	/^struct ccn_bloom {$/;"	s	file:
+ccn_bloom_create	../lib/ccn_bloom.c	/^ccn_bloom_create(int estimated_members, const unsigned char seed[4])$/;"	f
+ccn_bloom_destroy	../lib/ccn_bloom.c	/^ccn_bloom_destroy(struct ccn_bloom **bp)$/;"	f
+ccn_bloom_from_wire	../lib/ccn_bloom.c	/^ccn_bloom_from_wire(const void *data, size_t size)$/;"	f
+ccn_bloom_insert	../lib/ccn_bloom.c	/^ccn_bloom_insert(struct ccn_bloom *b, const void *key, size_t size)$/;"	f
+ccn_bloom_match	../lib/ccn_bloom.c	/^ccn_bloom_match(struct ccn_bloom *b, const void *key, size_t size)$/;"	f
+ccn_bloom_match_wire	../lib/ccn_bloom.c	/^ccn_bloom_match_wire(const struct ccn_bloom_wire *f, const void *key, size_t size)$/;"	f
+ccn_bloom_n	../lib/ccn_bloom.c	/^ccn_bloom_n(struct ccn_bloom *b)$/;"	f
+ccn_bloom_store_wire	../lib/ccn_bloom.c	/^ccn_bloom_store_wire(struct ccn_bloom *b, unsigned char *dest, size_t destsize)$/;"	f
+ccn_bloom_validate_wire	../lib/ccn_bloom.c	/^ccn_bloom_validate_wire(const void *buf, size_t size)$/;"	f
+ccn_bloom_wire	../include/ccn/bloom.h	/^struct ccn_bloom_wire {$/;"	s
+ccn_bloom_wiresize	../lib/ccn_bloom.c	/^ccn_bloom_wiresize(struct ccn_bloom *b)$/;"	f
+ccn_buf_advance	../lib/ccn_buf_decoder.c	/^ccn_buf_advance(struct ccn_buf_decoder *d)$/;"	f
+ccn_buf_advance_past_element	../lib/ccn_buf_decoder.c	/^ccn_buf_advance_past_element(struct ccn_buf_decoder *d)$/;"	f
+ccn_buf_check_close	../lib/ccn_buf_decoder.c	/^ccn_buf_check_close(struct ccn_buf_decoder *d)$/;"	f
+ccn_buf_decoder	../include/ccn/ccn.h	/^struct ccn_buf_decoder {$/;"	s
+ccn_buf_decoder_start	../lib/ccn_buf_decoder.c	/^ccn_buf_decoder_start(struct ccn_buf_decoder *d,$/;"	f
+ccn_buf_decoder_start_at_components	../lib/ccn_buf_decoder.c	/^ccn_buf_decoder_start_at_components(struct ccn_buf_decoder *d,$/;"	f	file:
+ccn_buf_match_attr	../lib/ccn_buf_decoder.c	/^ccn_buf_match_attr(struct ccn_buf_decoder *d, const char *s)$/;"	f
+ccn_buf_match_blob	../lib/ccn_buf_decoder.c	/^ccn_buf_match_blob(struct ccn_buf_decoder *d,$/;"	f
+ccn_buf_match_dtag	../lib/ccn_buf_decoder.c	/^ccn_buf_match_dtag(struct ccn_buf_decoder *d, enum ccn_dtag dtag)$/;"	f
+ccn_buf_match_some_blob	../lib/ccn_buf_decoder.c	/^ccn_buf_match_some_blob(struct ccn_buf_decoder *d)$/;"	f
+ccn_buf_match_some_dtag	../lib/ccn_buf_decoder.c	/^ccn_buf_match_some_dtag(struct ccn_buf_decoder *d)$/;"	f
+ccn_buf_match_udata	../lib/ccn_buf_decoder.c	/^ccn_buf_match_udata(struct ccn_buf_decoder *d, const char *s)$/;"	f
+ccn_cache_key	../lib/ccn_client.c	/^ccn_cache_key(struct ccn *h,$/;"	f	file:
+ccn_charbuf	../include/ccn/charbuf.h	/^struct ccn_charbuf {$/;"	s
+ccn_charbuf_append	../lib/ccn_charbuf.c	/^ccn_charbuf_append(struct ccn_charbuf *c, const void *p, size_t n)$/;"	f
+ccn_charbuf_append_charbuf	../lib/ccn_charbuf.c	/^ccn_charbuf_append_charbuf(struct ccn_charbuf *c, const struct ccn_charbuf *in)$/;"	f
+ccn_charbuf_append_closer	../lib/ccn_buf_encoder.c	/^ccn_charbuf_append_closer(struct ccn_charbuf *c)$/;"	f
+ccn_charbuf_append_datetime	../lib/ccn_charbuf.c	/^ccn_charbuf_append_datetime(struct ccn_charbuf *c, time_t secs, int nsecs)$/;"	f
+ccn_charbuf_append_sockaddr	../lib/ccn_sockaddrutil.c	/^ccn_charbuf_append_sockaddr(struct ccn_charbuf *c, const struct sockaddr *sa)$/;"	f
+ccn_charbuf_append_string	../lib/ccn_charbuf.c	/^ccn_charbuf_append_string(struct ccn_charbuf *c, const char *s)$/;"	f
+ccn_charbuf_append_tt	../lib/ccn_buf_encoder.c	/^ccn_charbuf_append_tt(struct ccn_charbuf *c, size_t val, enum ccn_tt tt)$/;"	f
+ccn_charbuf_append_value	../lib/ccn_charbuf.c	/^ccn_charbuf_append_value(struct ccn_charbuf *c, unsigned val, unsigned n)$/;"	f
+ccn_charbuf_as_string	../lib/ccn_charbuf.c	/^ccn_charbuf_as_string(struct ccn_charbuf *c)$/;"	f
+ccn_charbuf_create	../lib/ccn_charbuf.c	/^ccn_charbuf_create(void)$/;"	f
+ccn_charbuf_destroy	../lib/ccn_charbuf.c	/^ccn_charbuf_destroy(struct ccn_charbuf **cbp)$/;"	f
+ccn_charbuf_duplicate	../cmd/ccnslurp.c	/^ccn_charbuf_duplicate(struct ccn_charbuf *c)$/;"	f	file:
+ccn_charbuf_duplicate	../lib/ccn_traverse.c	/^ccn_charbuf_duplicate(struct ccn_charbuf *c)$/;"	f	file:
+ccn_charbuf_putf	../lib/ccn_charbuf.c	/^ccn_charbuf_putf(struct ccn_charbuf *c, const char *fmt, ...)$/;"	f
+ccn_charbuf_reserve	../lib/ccn_charbuf.c	/^ccn_charbuf_reserve(struct ccn_charbuf *c, size_t n)$/;"	f
+ccn_charbuf_reset	../lib/ccn_charbuf.c	/^void ccn_charbuf_reset(struct ccn_charbuf *c)$/;"	f
+ccn_check_interests	../lib/ccn_client.c	/^ccn_check_interests(struct expressed_interest *list)$/;"	f
+ccn_check_namebuf	../lib/ccn_client.c	/^ccn_check_namebuf(struct ccn *h, struct ccn_charbuf *namebuf, int prefix_comps,$/;"	f	file:
+ccn_check_pub_arrival	../lib/ccn_client.c	/^ccn_check_pub_arrival(struct ccn *h, struct expressed_interest *interest)$/;"	f	file:
+ccn_chk_signing_params	../lib/ccn_client.c	/^ccn_chk_signing_params(struct ccn *h,$/;"	f
+ccn_clean_all_interests	../lib/ccn_client.c	/^ccn_clean_all_interests(struct ccn *h)$/;"	f	file:
+ccn_clean_interests_by_prefix	../lib/ccn_client.c	/^ccn_clean_interests_by_prefix(struct ccn *h, struct interests_by_prefix *entry)$/;"	f
+ccn_closure	../include/ccn/ccn.h	/^struct ccn_closure {$/;"	s
+ccn_compare_names	../lib/ccn_buf_decoder.c	/^ccn_compare_names(const unsigned char *a, size_t asize,$/;"	f
+ccn_connect	../lib/ccn_client.c	/^ccn_connect(struct ccn *h, const char *name)$/;"	f
+ccn_construct_interest	../lib/ccn_client.c	/^ccn_construct_interest(struct ccn *h,$/;"	f	file:
+ccn_content_get_value	../lib/ccn_buf_decoder.c	/^ccn_content_get_value(const unsigned char *data, size_t data_size,$/;"	f
+ccn_content_matches_interest	../lib/ccn_match.c	/^ccn_content_matches_interest(const unsigned char *content_object,$/;"	f
+ccn_content_type	../include/ccn/ccn.h	/^enum ccn_content_type {$/;"	g
+ccn_create	../lib/ccn_client.c	/^ccn_create(void)$/;"	f
+ccn_create_version	../lib/ccn_versioning.c	/^ccn_create_version(struct ccn *h, struct ccn_charbuf *name,$/;"	f
+ccn_d2i_pubkey	../lib/ccn_signing.c	/^ccn_d2i_pubkey(const unsigned char *p, size_t size)$/;"	f
+ccn_decimal_seqfunc	../lib/ccn_bulkdata.c	/^ccn_decimal_seqfunc(uintmax_t x, void *param, struct ccn_charbuf *resultbuf)$/;"	f
+ccn_decoder	../cmd/ccn_ccnbtoxml.c	/^struct ccn_decoder {$/;"	s	file:
+ccn_decoder_callback	../cmd/ccn_ccnbtoxml.c	/^typedef void (*ccn_decoder_callback)($/;"	t	file:
+ccn_decoder_create	../cmd/ccn_ccnbtoxml.c	/^ccn_decoder_create(int formatting_flags, const struct ccn_dict *dtags)$/;"	f
+ccn_decoder_decode	../cmd/ccn_ccnbtoxml.c	/^ccn_decoder_decode(struct ccn_decoder *d, unsigned char p[], size_t n)$/;"	f
+ccn_decoder_destroy	../cmd/ccn_ccnbtoxml.c	/^ccn_decoder_destroy(struct ccn_decoder **dp)$/;"	f
+ccn_decoder_pop	../cmd/ccn_ccnbtoxml.c	/^ccn_decoder_pop(struct ccn_decoder *d)$/;"	f
+ccn_decoder_push	../cmd/ccn_ccnbtoxml.c	/^ccn_decoder_push(struct ccn_decoder *d)$/;"	f
+ccn_decoder_set_callback	../cmd/ccn_ccnbtoxml.c	/^ccn_decoder_set_callback(struct ccn_decoder *d, ccn_decoder_callback c, void *data)$/;"	f
+ccn_decoder_stack_item	../cmd/ccn_ccnbtoxml.c	/^struct ccn_decoder_stack_item {$/;"	s	file:
+ccn_decoder_state	../include/ccn/coding.h	/^enum ccn_decoder_state {$/;"	g
+ccn_destroy	../lib/ccn_client.c	/^ccn_destroy(struct ccn **hp)$/;"	f
+ccn_destroy_dict	../lib/ccn_extend_dict.c	/^ccn_destroy_dict(struct ccn_dict **dp)$/;"	f
+ccn_destroy_interest	../lib/ccn_client.c	/^ccn_destroy_interest(struct ccn *h, struct expressed_interest *i)$/;"	f	file:
+ccn_dict	../include/ccn/coding.h	/^struct ccn_dict {$/;"	s
+ccn_dict_entry	../include/ccn/coding.h	/^struct ccn_dict_entry {$/;"	s
+ccn_digest	../lib/ccn_digest.c	/^struct ccn_digest {$/;"	s	file:
+ccn_digest_Content	../lib/ccn_client.c	/^ccn_digest_Content(const unsigned char *content_object,$/;"	f	file:
+ccn_digest_ContentObject	../lib/ccn_match.c	/^ccn_digest_ContentObject(const unsigned char *content_object,$/;"	f
+ccn_digest_create	../lib/ccn_digest.c	/^ccn_digest_create(enum ccn_digest_id id)$/;"	f
+ccn_digest_destroy	../lib/ccn_digest.c	/^ccn_digest_destroy(struct ccn_digest **pd)$/;"	f
+ccn_digest_final	../lib/ccn_digest.c	/^ccn_digest_final(struct ccn_digest *d, unsigned char *result, size_t digest_size)$/;"	f
+ccn_digest_getid	../lib/ccn_digest.c	/^ccn_digest_getid(struct ccn_digest *d)$/;"	f
+ccn_digest_id	../include/ccn/digest.h	/^enum ccn_digest_id {$/;"	g
+ccn_digest_init	../lib/ccn_digest.c	/^ccn_digest_init(struct ccn_digest *d)$/;"	f
+ccn_digest_size	../lib/ccn_digest.c	/^ccn_digest_size(struct ccn_digest *d)$/;"	f
+ccn_digest_update	../lib/ccn_digest.c	/^ccn_digest_update(struct ccn_digest *d, const void *data, size_t size)$/;"	f
+ccn_disconnect	../lib/ccn_client.c	/^ccn_disconnect(struct ccn *h)$/;"	f
+ccn_dispatch_message	../lib/ccn_client.c	/^ccn_dispatch_message(struct ccn *h, unsigned char *msg, size_t size)$/;"	f
+ccn_dtag	../include/ccn/coding.h	/^enum ccn_dtag {$/;"	g
+ccn_dtag_dict	../lib/ccn_dtag_table.c	/^const struct ccn_dict ccn_dtag_dict = {ARRAY_N(ccn_tagdict) - 1, ccn_tagdict};$/;"	v	typeref:struct:ccn_dict
+ccn_dump_names	../lib/ccn_traverse.c	/^ccn_dump_names(struct ccn *h, struct ccn_charbuf *name_prefix, int local_scope, int allow_stale)$/;"	f
+ccn_encode_ContentObject	../lib/ccn_buf_encoder.c	/^ccn_encode_ContentObject(struct ccn_charbuf *buf,$/;"	f
+ccn_encode_Signature	../lib/ccn_buf_encoder.c	/^ccn_encode_Signature(struct ccn_charbuf *buf,$/;"	f	file:
+ccn_encode_StatusResponse	../lib/ccn_buf_encoder.c	/^ccn_encode_StatusResponse(struct ccn_charbuf *buf,$/;"	f
+ccn_encoder	../cmd/ccn_xmltoccnb.c	/^struct ccn_encoder {$/;"	s	file:
+ccn_encoder_create	../cmd/ccn_xmltoccnb.c	/^ccn_encoder_create(FILE *outfile, const struct ccn_dict *dtags)$/;"	f
+ccn_encoder_destroy	../cmd/ccn_xmltoccnb.c	/^ccn_encoder_destroy(struct ccn_encoder **cbp)$/;"	f
+ccn_encoder_stack_item	../cmd/ccn_xmltoccnb.c	/^struct ccn_encoder_stack_item {$/;"	s	file:
+ccn_express_interest	../lib/ccn_client.c	/^ccn_express_interest(struct ccn *h,$/;"	f
+ccn_ext_subtype	../include/ccn/coding.h	/^enum ccn_ext_subtype {$/;"	g
+ccn_extend_dict	../lib/ccn_extend_dict.c	/^ccn_extend_dict(const char *dict_file, struct ccn_dict *d, struct ccn_dict **rdp)$/;"	f
+ccn_face_instance	../include/ccn/face_mgmt.h	/^struct ccn_face_instance {$/;"	s
+ccn_face_instance_destroy	../lib/ccn_face_mgmt.c	/^ccn_face_instance_destroy(struct ccn_face_instance **pfi)$/;"	f
+ccn_face_instance_parse	../lib/ccn_face_mgmt.c	/^ccn_face_instance_parse(const unsigned char *p, size_t size)$/;"	f
+ccn_fetch	../lib/ccn_fetch.c	/^struct ccn_fetch {$/;"	s	file:
+ccn_fetch_avail	../lib/ccn_fetch.c	/^ccn_fetch_avail(struct ccn_fetch_stream *fs) {$/;"	f
+ccn_fetch_buffer	../lib/ccn_fetch.c	/^struct ccn_fetch_buffer {$/;"	s	file:
+ccn_fetch_close	../lib/ccn_fetch.c	/^ccn_fetch_close(struct ccn_fetch_stream *fs) {$/;"	f
+ccn_fetch_destroy	../lib/ccn_fetch.c	/^ccn_fetch_destroy(struct ccn_fetch *f) {$/;"	f
+ccn_fetch_flags	../include/ccn/fetch.h	/^} ccn_fetch_flags;$/;"	t	typeref:enum:__anon1
+ccn_fetch_flags_None	../include/ccn/fetch.h	/^	ccn_fetch_flags_None = 0,$/;"	e	enum:__anon1
+ccn_fetch_flags_NoteAddRem	../include/ccn/fetch.h	/^	ccn_fetch_flags_NoteAddRem = 2,$/;"	e	enum:__anon1
+ccn_fetch_flags_NoteAll	../include/ccn/fetch.h	/^	ccn_fetch_flags_NoteAll = 0xffff$/;"	e	enum:__anon1
+ccn_fetch_flags_NoteFill	../include/ccn/fetch.h	/^	ccn_fetch_flags_NoteFill = 8,$/;"	e	enum:__anon1
+ccn_fetch_flags_NoteFinal	../include/ccn/fetch.h	/^	ccn_fetch_flags_NoteFinal = 16,$/;"	e	enum:__anon1
+ccn_fetch_flags_NoteGlitch	../include/ccn/fetch.h	/^	ccn_fetch_flags_NoteGlitch = 1,$/;"	e	enum:__anon1
+ccn_fetch_flags_NoteNeed	../include/ccn/fetch.h	/^	ccn_fetch_flags_NoteNeed = 4,$/;"	e	enum:__anon1
+ccn_fetch_flags_NoteOpenClose	../include/ccn/fetch.h	/^	ccn_fetch_flags_NoteOpenClose = 64,$/;"	e	enum:__anon1
+ccn_fetch_flags_NoteTimeout	../include/ccn/fetch.h	/^	ccn_fetch_flags_NoteTimeout = 32,$/;"	e	enum:__anon1
+ccn_fetch_get_ccn	../lib/ccn_fetch.c	/^ccn_fetch_get_ccn(struct ccn_fetch *f) {$/;"	f
+ccn_fetch_new	../lib/ccn_fetch.c	/^ccn_fetch_new(struct ccn *h) {$/;"	f
+ccn_fetch_next	../lib/ccn_fetch.c	/^ccn_fetch_next(struct ccn_fetch *f, struct ccn_fetch_stream *fs) {$/;"	f
+ccn_fetch_open	../lib/ccn_fetch.c	/^ccn_fetch_open(struct ccn_fetch *f,$/;"	f
+ccn_fetch_poll	../lib/ccn_fetch.c	/^ccn_fetch_poll(struct ccn_fetch *f) {$/;"	f
+ccn_fetch_position	../lib/ccn_fetch.c	/^ccn_fetch_position(struct ccn_fetch_stream *fs) {$/;"	f
+ccn_fetch_read	../lib/ccn_fetch.c	/^ccn_fetch_read(struct ccn_fetch_stream *fs,$/;"	f
+ccn_fetch_seek	../lib/ccn_fetch.c	/^ccn_fetch_seek(struct ccn_fetch_stream *fs, intmax_t pos) {$/;"	f
+ccn_fetch_set_debug	../lib/ccn_fetch.c	/^ccn_fetch_set_debug(struct ccn_fetch *f, FILE *debug, ccn_fetch_flags flags) {$/;"	f
+ccn_fetch_stream	../lib/ccn_fetch.c	/^struct ccn_fetch_stream {$/;"	s	file:
+ccn_fetch_tagged_nonNegativeInteger	../lib/ccn_buf_decoder.c	/^ccn_fetch_tagged_nonNegativeInteger(enum ccn_dtag tt,$/;"	f
+ccn_forwarding	../ccnd/ccnd_private.h	/^struct ccn_forwarding {$/;"	s
+ccn_forwarding_entry	../include/ccn/reg_mgmt.h	/^struct ccn_forwarding_entry {$/;"	s
+ccn_forwarding_entry_destroy	../lib/ccn_reg_mgmt.c	/^ccn_forwarding_entry_destroy(struct ccn_forwarding_entry **pfe)$/;"	f
+ccn_forwarding_entry_parse	../lib/ccn_reg_mgmt.c	/^ccn_forwarding_entry_parse(const unsigned char *p, size_t size)$/;"	f
+ccn_get	../lib/ccn_client.c	/^ccn_get(struct ccn *h,$/;"	f
+ccn_get_connection_fd	../lib/ccn_client.c	/^ccn_get_connection_fd(struct ccn *h)$/;"	f
+ccn_get_content_type	../lib/ccn_client.c	/^ccn_get_content_type(const unsigned char *ccnb,$/;"	f	file:
+ccn_get_header	../lib/ccn_header.c	/^ccn_get_header(struct ccn *h, struct ccn_charbuf *name, int timeout)$/;"	f
+ccn_get_public_key	../lib/ccn_client.c	/^ccn_get_public_key(struct ccn *h,$/;"	f
+ccn_geterror	../lib/ccn_client.c	/^ccn_geterror(struct ccn *h)$/;"	f
+ccn_gettime	../include/ccn/schedule.h	/^struct ccn_gettime {$/;"	s
+ccn_gettime_action	../include/ccn/schedule.h	/^typedef void (*ccn_gettime_action)(const struct ccn_gettime *, struct ccn_timeval *);$/;"	t
+ccn_grab_buffered_output	../lib/ccn_client.c	/^ccn_grab_buffered_output(struct ccn *h)$/;"	f
+ccn_gripe	../lib/ccn_client.c	/^ccn_gripe(struct expressed_interest *i)$/;"	f	file:
+ccn_handler	../include/ccn/ccn.h	/^typedef enum ccn_upcall_res (*ccn_handler)($/;"	t	typeref:enum:ccn_handler
+ccn_header	../include/ccn/header.h	/^struct ccn_header {$/;"	s
+ccn_header_destroy	../lib/ccn_header.c	/^ccn_header_destroy(struct ccn_header **ph)$/;"	f
+ccn_header_parse	../lib/ccn_header.c	/^ccn_header_parse(const unsigned char *p, size_t size)$/;"	f
+ccn_indexbuf	../include/ccn/indexbuf.h	/^struct ccn_indexbuf {$/;"	s
+ccn_indexbuf_append	../lib/ccn_indexbuf.c	/^ccn_indexbuf_append(struct ccn_indexbuf *c, const ELEMENT *p, size_t n)$/;"	f
+ccn_indexbuf_append_element	../lib/ccn_indexbuf.c	/^ccn_indexbuf_append_element(struct ccn_indexbuf *c, ELEMENT v)$/;"	f
+ccn_indexbuf_create	../lib/ccn_indexbuf.c	/^ccn_indexbuf_create(void)$/;"	f
+ccn_indexbuf_destroy	../lib/ccn_indexbuf.c	/^ccn_indexbuf_destroy(struct ccn_indexbuf **cbp)$/;"	f
+ccn_indexbuf_member	../lib/ccn_indexbuf.c	/^ccn_indexbuf_member(struct ccn_indexbuf *x, ELEMENT val)$/;"	f
+ccn_indexbuf_move_to_end	../lib/ccn_indexbuf.c	/^ccn_indexbuf_move_to_end(struct ccn_indexbuf *x, ELEMENT val)$/;"	f
+ccn_indexbuf_move_to_front	../lib/ccn_indexbuf.c	/^ccn_indexbuf_move_to_front(struct ccn_indexbuf *x, ELEMENT val)$/;"	f
+ccn_indexbuf_obtain	../lib/ccn_client.c	/^ccn_indexbuf_obtain(struct ccn *h)$/;"	f	file:
+ccn_indexbuf_release	../lib/ccn_client.c	/^ccn_indexbuf_release(struct ccn *h, struct ccn_indexbuf *c)$/;"	f	file:
+ccn_indexbuf_remove_element	../lib/ccn_indexbuf.c	/^ccn_indexbuf_remove_element(struct ccn_indexbuf *x, ELEMENT val)$/;"	f
+ccn_indexbuf_remove_first_match	../lib/ccn_indexbuf.c	/^ccn_indexbuf_remove_first_match(struct ccn_indexbuf *x, ELEMENT val)$/;"	f
+ccn_indexbuf_reserve	../lib/ccn_indexbuf.c	/^ccn_indexbuf_reserve(struct ccn_indexbuf *c, size_t n)$/;"	f
+ccn_indexbuf_set_insert	../lib/ccn_indexbuf.c	/^ccn_indexbuf_set_insert(struct ccn_indexbuf *x, ELEMENT val)$/;"	f
+ccn_initiate_ccndid_fetch	../lib/ccn_client.c	/^ccn_initiate_ccndid_fetch(struct ccn *h)$/;"	f	file:
+ccn_initiate_key_fetch	../lib/ccn_client.c	/^ccn_initiate_key_fetch(struct ccn *h,$/;"	f	file:
+ccn_initiate_prefix_reg	../lib/ccn_client.c	/^ccn_initiate_prefix_reg(struct ccn *h,$/;"	f	file:
+ccn_interest_lifetime	../lib/ccn_interest.c	/^ccn_interest_lifetime(const unsigned char *msg,$/;"	f
+ccn_interest_lifetime_seconds	../lib/ccn_interest.c	/^ccn_interest_lifetime_seconds(const unsigned char *msg,$/;"	f
+ccn_keystore	../lib/ccn_keystore.c	/^struct ccn_keystore {$/;"	s	file:
+ccn_keystore_certificate	../lib/ccn_keystore.c	/^ccn_keystore_certificate(struct ccn_keystore *p)$/;"	f
+ccn_keystore_create	../lib/ccn_keystore.c	/^ccn_keystore_create(void)$/;"	f
+ccn_keystore_destroy	../lib/ccn_keystore.c	/^ccn_keystore_destroy(struct ccn_keystore **p)$/;"	f
+ccn_keystore_init	../lib/ccn_keystore.c	/^ccn_keystore_init(struct ccn_keystore *p, char *name, char *password)$/;"	f
+ccn_keystore_private_key	../lib/ccn_keystore.c	/^ccn_keystore_private_key(struct ccn_keystore *p)$/;"	f
+ccn_keystore_public_key	../lib/ccn_keystore.c	/^ccn_keystore_public_key(struct ccn_keystore *p)$/;"	f
+ccn_keystore_public_key_digest	../lib/ccn_keystore.c	/^ccn_keystore_public_key_digest(struct ccn_keystore *p)$/;"	f
+ccn_keystore_public_key_digest_length	../lib/ccn_keystore.c	/^ccn_keystore_public_key_digest_length(struct ccn_keystore *p)$/;"	f
+ccn_link_state_init	../ccnd/ccnd.c	/^ccn_link_state_init(struct ccnd_handle *h, struct face *face)$/;"	f	file:
+ccn_load_default_key	../lib/ccn_client.c	/^ccn_load_default_key(struct ccn *h,$/;"	f
+ccn_load_private_key	../lib/ccn_client.c	/^ccn_load_private_key(struct ccn *h,$/;"	f
+ccn_locate_key	../lib/ccn_client.c	/^ccn_locate_key(struct ccn *h,$/;"	f	file:
+ccn_marker	../include/ccn/ccn.h	/^enum ccn_marker {$/;"	g
+ccn_matrix	../lib/ccn_matrix.c	/^struct ccn_matrix {$/;"	s	file:
+ccn_matrix_bounds	../include/ccn/matrix.h	/^struct ccn_matrix_bounds {$/;"	s
+ccn_matrix_clear	../lib/ccn_matrix.c	/^ccn_matrix_clear(struct ccn_matrix *m, const struct ccn_matrix_bounds *bounds)$/;"	f
+ccn_matrix_create	../lib/ccn_matrix.c	/^ccn_matrix_create(void)$/;"	f
+ccn_matrix_destroy	../lib/ccn_matrix.c	/^ccn_matrix_destroy(struct ccn_matrix **mp)$/;"	f
+ccn_matrix_fetch	../lib/ccn_matrix.c	/^ccn_matrix_fetch(struct ccn_matrix *m, uint_least64_t row, unsigned col)$/;"	f
+ccn_matrix_getbounds	../lib/ccn_matrix.c	/^ccn_matrix_getbounds(struct ccn_matrix *m, struct ccn_matrix_bounds *result)$/;"	f
+ccn_matrix_key	../lib/ccn_matrix.c	/^struct ccn_matrix_key {$/;"	s	file:
+ccn_matrix_store	../lib/ccn_matrix.c	/^ccn_matrix_store(struct ccn_matrix *m, uint_least64_t row, unsigned col,$/;"	f
+ccn_matrix_trim	../lib/ccn_matrix.c	/^ccn_matrix_trim(struct ccn_matrix *m, const struct ccn_matrix_bounds *bounds)$/;"	f
+ccn_merkle_root_hash	../lib/ccn_signing.c	/^int ccn_merkle_root_hash(const unsigned char *msg, size_t size,$/;"	f
+ccn_name_append	../lib/ccn_name_util.c	/^ccn_name_append(struct ccn_charbuf *c, const void *component, size_t n)$/;"	f
+ccn_name_append_components	../lib/ccn_name_util.c	/^ccn_name_append_components(struct ccn_charbuf *c,$/;"	f
+ccn_name_append_nonce	../lib/ccn_name_util.c	/^ccn_name_append_nonce(struct ccn_charbuf *c)$/;"	f
+ccn_name_append_numeric	../lib/ccn_name_util.c	/^ccn_name_append_numeric(struct ccn_charbuf *c,$/;"	f
+ccn_name_append_str	../lib/ccn_name_util.c	/^ccn_name_append_str(struct ccn_charbuf *c, const char *s)$/;"	f
+ccn_name_chop	../lib/ccn_name_util.c	/^ccn_name_chop(struct ccn_charbuf *c, struct ccn_indexbuf *components, int n)$/;"	f
+ccn_name_comp_get	../lib/ccn_name_util.c	/^ccn_name_comp_get(const unsigned char *data,$/;"	f
+ccn_name_comp_strcmp	../lib/ccn_name_util.c	/^ccn_name_comp_strcmp(const unsigned char *data,$/;"	f
+ccn_name_from_uri	../lib/ccn_uri.c	/^ccn_name_from_uri(struct ccn_charbuf *c, const char *uri)$/;"	f
+ccn_name_init	../lib/ccn_name_util.c	/^ccn_name_init(struct ccn_charbuf *c)$/;"	f
+ccn_name_last_component_offset	../lib/ccn_uri.c	/^ccn_name_last_component_offset(const unsigned char *ccnb, size_t size)$/;"	f	file:
+ccn_name_next_sibling	../lib/ccn_name_util.c	/^ccn_name_next_sibling(struct ccn_charbuf *c)$/;"	f
+ccn_name_split	../lib/ccn_name_util.c	/^ccn_name_split(const struct ccn_charbuf *c, struct ccn_indexbuf *components)$/;"	f
+ccn_note_err	../lib/ccn_client.c	/^ccn_note_err(struct ccn *h)$/;"	f	file:
+ccn_notify_ccndid_changed	../lib/ccn_client.c	/^ccn_notify_ccndid_changed(struct ccn *h)$/;"	f	file:
+ccn_output_is_pending	../lib/ccn_client.c	/^ccn_output_is_pending(struct ccn *h)$/;"	f
+ccn_parse_ContentObject	../lib/ccn_buf_decoder.c	/^ccn_parse_ContentObject(const unsigned char *msg, size_t size,$/;"	f
+ccn_parse_Exclude	../lib/ccn_buf_decoder.c	/^ccn_parse_Exclude(struct ccn_buf_decoder *d)$/;"	f
+ccn_parse_KeyName	../lib/ccn_buf_decoder.c	/^ccn_parse_KeyName(struct ccn_buf_decoder *d, struct parsed_KeyName *x)$/;"	f	file:
+ccn_parse_Name	../lib/ccn_buf_decoder.c	/^ccn_parse_Name(struct ccn_buf_decoder *d, struct ccn_indexbuf *components)$/;"	f
+ccn_parse_PublisherID	../lib/ccn_buf_decoder.c	/^ccn_parse_PublisherID(struct ccn_buf_decoder *d, struct ccn_parsed_interest *pi)$/;"	f
+ccn_parse_Signature	../lib/ccn_buf_decoder.c	/^ccn_parse_Signature(struct ccn_buf_decoder *d, struct ccn_parsed_ContentObject *x)$/;"	f	file:
+ccn_parse_SignedInfo	../lib/ccn_buf_decoder.c	/^ccn_parse_SignedInfo(struct ccn_buf_decoder *d, struct ccn_parsed_ContentObject *x)$/;"	f	file:
+ccn_parse_interest	../lib/ccn_buf_decoder.c	/^ccn_parse_interest(const unsigned char *msg, size_t size,$/;"	f
+ccn_parse_nonNegativeInteger	../lib/ccn_buf_decoder.c	/^ccn_parse_nonNegativeInteger(struct ccn_buf_decoder *d)$/;"	f
+ccn_parse_optional_Any_or_Bloom	../lib/ccn_buf_decoder.c	/^ccn_parse_optional_Any_or_Bloom(struct ccn_buf_decoder *d)$/;"	f	file:
+ccn_parse_optional_tagged_BLOB	../lib/ccn_buf_decoder.c	/^ccn_parse_optional_tagged_BLOB(struct ccn_buf_decoder *d, enum ccn_dtag dtag,$/;"	f
+ccn_parse_optional_tagged_UDATA	../lib/ccn_buf_decoder.c	/^ccn_parse_optional_tagged_UDATA(struct ccn_buf_decoder *d, enum ccn_dtag dtag)$/;"	f
+ccn_parse_optional_tagged_binary_number	../lib/ccn_buf_decoder.c	/^ccn_parse_optional_tagged_binary_number(struct ccn_buf_decoder *d, enum ccn_dtag dtag,$/;"	f
+ccn_parse_optional_tagged_nonNegativeInteger	../lib/ccn_buf_decoder.c	/^ccn_parse_optional_tagged_nonNegativeInteger(struct ccn_buf_decoder *d, enum ccn_dtag dtag)$/;"	f
+ccn_parse_required_tagged_BLOB	../lib/ccn_buf_decoder.c	/^ccn_parse_required_tagged_BLOB(struct ccn_buf_decoder *d, enum ccn_dtag dtag,$/;"	f
+ccn_parse_required_tagged_UDATA	../lib/ccn_buf_decoder.c	/^ccn_parse_required_tagged_UDATA(struct ccn_buf_decoder *d, enum ccn_dtag dtag)$/;"	f
+ccn_parse_required_tagged_binary_number	../lib/ccn_buf_decoder.c	/^ccn_parse_required_tagged_binary_number(struct ccn_buf_decoder *d,$/;"	f
+ccn_parse_required_tagged_timestamp	../lib/ccn_buf_decoder.c	/^ccn_parse_required_tagged_timestamp(struct ccn_buf_decoder *d, enum ccn_dtag dtag)$/;"	f
+ccn_parse_tagged_required_uintmax	../lib/ccn_header.c	/^ccn_parse_tagged_required_uintmax(struct ccn_buf_decoder *d, enum ccn_dtag dtag, uintmax_t *result)$/;"	f
+ccn_parse_tagged_string	../lib/ccn_buf_decoder.c	/^ccn_parse_tagged_string(struct ccn_buf_decoder *d, enum ccn_dtag dtag, struct ccn_charbuf *store)$/;"	f
+ccn_parse_timestamp	../lib/ccn_buf_decoder.c	/^ccn_parse_timestamp(struct ccn_buf_decoder *d)$/;"	f
+ccn_parse_uintmax	../lib/ccn_buf_decoder.c	/^ccn_parse_uintmax(struct ccn_buf_decoder *d, uintmax_t *result)$/;"	f
+ccn_parsed_ContentObject	../include/ccn/ccn.h	/^struct ccn_parsed_ContentObject {$/;"	s
+ccn_parsed_content_object_offsetid	../include/ccn/ccn.h	/^enum ccn_parsed_content_object_offsetid {$/;"	g
+ccn_parsed_interest	../include/ccn/ccn.h	/^struct ccn_parsed_interest {$/;"	s
+ccn_parsed_interest_offsetid	../include/ccn/ccn.h	/^enum ccn_parsed_interest_offsetid {$/;"	g
+ccn_perror	../lib/ccn_client.c	/^ccn_perror(struct ccn *h, const char *s)$/;"	f
+ccn_process_input	../lib/ccn_client.c	/^ccn_process_input(struct ccn *h)$/;"	f	file:
+ccn_process_scheduled_operations	../lib/ccn_client.c	/^ccn_process_scheduled_operations(struct ccn *h)$/;"	f
+ccn_pubid_matches	../lib/ccn_match.c	/^ccn_pubid_matches(const unsigned char *content_object,$/;"	f	file:
+ccn_pubkey_free	../lib/ccn_signing.c	/^ccn_pubkey_free(struct ccn_pkey *i_pubkey)$/;"	f
+ccn_pubkey_size	../lib/ccn_signing.c	/^ccn_pubkey_size(const struct ccn_pkey *i_pubkey)$/;"	f
+ccn_pushout	../lib/ccn_client.c	/^ccn_pushout(struct ccn *h)$/;"	f	file:
+ccn_put	../lib/ccn_client.c	/^ccn_put(struct ccn *h, const void *p, size_t length)$/;"	f
+ccn_random_bytes	../lib/ccn_signing.c	/^ccn_random_bytes(unsigned char *buf, size_t size)$/;"	f
+ccn_ref_tagged_BLOB	../lib/ccn_buf_decoder.c	/^ccn_ref_tagged_BLOB(enum ccn_dtag tt,$/;"	f
+ccn_refresh_interest	../lib/ccn_client.c	/^ccn_refresh_interest(struct ccn *h, struct expressed_interest *interest)$/;"	f	file:
+ccn_reg_closure	../lib/ccn_client.c	/^    struct ccn_reg_closure *ccn_reg_closure;$/;"	m	struct:interest_filter	typeref:struct:interest_filter::ccn_reg_closure	file:
+ccn_reg_closure	../lib/ccn_client.c	/^struct ccn_reg_closure {$/;"	s	file:
+ccn_replace_handler	../lib/ccn_client.c	/^ccn_replace_handler(struct ccn *h,$/;"	f	file:
+ccn_reset_timeout	../lib/ccn_fetch.c	/^ccn_reset_timeout(struct ccn_fetch_stream *fs) {$/;"	f
+ccn_resolve_version	../lib/ccn_versioning.c	/^ccn_resolve_version(struct ccn *h, struct ccn_charbuf *name,$/;"	f
+ccn_run	../lib/ccn_client.c	/^ccn_run(struct ccn *h, int timeout)$/;"	f
+ccn_schedule	../lib/ccn_schedule.c	/^struct ccn_schedule {$/;"	s	file:
+ccn_schedule_cancel	../lib/ccn_schedule.c	/^ccn_schedule_cancel(struct ccn_schedule *sched, struct ccn_scheduled_event *ev)$/;"	f
+ccn_schedule_cancelled_event	../lib/ccn_schedule.c	/^ccn_schedule_cancelled_event(struct ccn_schedule *sched, void *clienth,$/;"	f	file:
+ccn_schedule_create	../lib/ccn_schedule.c	/^ccn_schedule_create(void *clienth, const struct ccn_gettime *ccnclock)$/;"	f
+ccn_schedule_destroy	../lib/ccn_schedule.c	/^ccn_schedule_destroy(struct ccn_schedule **schedp)$/;"	f
+ccn_schedule_event	../lib/ccn_schedule.c	/^ccn_schedule_event($/;"	f
+ccn_schedule_get_gettime	../lib/ccn_schedule.c	/^ccn_schedule_get_gettime(struct ccn_schedule *schedp) {$/;"	f
+ccn_schedule_heap_item	../lib/ccn_schedule.c	/^struct ccn_schedule_heap_item {$/;"	s	file:
+ccn_schedule_run	../lib/ccn_schedule.c	/^ccn_schedule_run(struct ccn_schedule *sched)$/;"	f
+ccn_schedule_run_next	../lib/ccn_schedule.c	/^ccn_schedule_run_next(struct ccn_schedule *sched)$/;"	f	file:
+ccn_scheduled_action	../include/ccn/schedule.h	/^typedef int (*ccn_scheduled_action)($/;"	t
+ccn_scheduled_event	../include/ccn/schedule.h	/^struct ccn_scheduled_event {$/;"	s
+ccn_seqfunc	../lib/ccn_bulkdata.c	/^typedef void ccn_seqfunc(uintmax_t x, void *param,$/;"	t	file:
+ccn_seqw_batch_end	../lib/ccn_seqwriter.c	/^ccn_seqw_batch_end(struct ccn_seqwriter *w)$/;"	f
+ccn_seqw_batch_start	../lib/ccn_seqwriter.c	/^ccn_seqw_batch_start(struct ccn_seqwriter *w)$/;"	f
+ccn_seqw_close	../lib/ccn_seqwriter.c	/^ccn_seqw_close(struct ccn_seqwriter *w)$/;"	f
+ccn_seqw_create	../lib/ccn_seqwriter.c	/^ccn_seqw_create(struct ccn *h, struct ccn_charbuf *name)$/;"	f
+ccn_seqw_possible_interest	../lib/ccn_seqwriter.c	/^ccn_seqw_possible_interest(struct ccn_seqwriter *w)$/;"	f
+ccn_seqw_write	../lib/ccn_seqwriter.c	/^ccn_seqw_write(struct ccn_seqwriter *w, const void *buf, size_t size)$/;"	f
+ccn_seqwriter	../lib/ccn_seqwriter.c	/^struct ccn_seqwriter {$/;"	s	file:
+ccn_set_interest_filter	../lib/ccn_client.c	/^ccn_set_interest_filter(struct ccn *h, struct ccn_charbuf *namebuf,$/;"	f
+ccn_set_interest_filter_with_flags	../lib/ccn_client.c	/^ccn_set_interest_filter_with_flags(struct ccn *h, struct ccn_charbuf *namebuf,$/;"	f
+ccn_set_run_timeout	../lib/ccn_client.c	/^ccn_set_run_timeout(struct ccn *h, int timeout)$/;"	f
+ccn_seterror	../lib/ccn_client.c	/^ccn_seterror(struct ccn *h, int error_code)$/;"	f
+ccn_setup_sockaddr_un	../lib/ccn_setup_sockaddr_un.c	/^ccn_setup_sockaddr_un(const char *portstr, struct sockaddr_un *result)$/;"	f
+ccn_setup_socket	../lib/ccn_sockcreate.c	/^ccn_setup_socket(const struct ccn_sockdescr *descr,$/;"	f
+ccn_sigc	../lib/ccn_signing.c	/^struct ccn_sigc {$/;"	s	file:
+ccn_sigc_create	../lib/ccn_signing.c	/^ccn_sigc_create(void)$/;"	f
+ccn_sigc_destroy	../lib/ccn_signing.c	/^ccn_sigc_destroy(struct ccn_sigc **ctx)$/;"	f
+ccn_sigc_final	../lib/ccn_signing.c	/^ccn_sigc_final(struct ccn_sigc *ctx, struct ccn_signature *signature, size_t *size, const struct ccn_pkey *priv_key)$/;"	f
+ccn_sigc_init	../lib/ccn_signing.c	/^ccn_sigc_init(struct ccn_sigc *ctx, const char *digest)$/;"	f
+ccn_sigc_signature_max_size	../lib/ccn_signing.c	/^ccn_sigc_signature_max_size(struct ccn_sigc *ctx, const struct ccn_pkey *priv_key)$/;"	f
+ccn_sigc_update	../lib/ccn_signing.c	/^ccn_sigc_update(struct ccn_sigc *ctx, const void *data, size_t size)$/;"	f
+ccn_sign_content	../lib/ccn_client.c	/^ccn_sign_content(struct ccn *h,$/;"	f
+ccn_signed_info_create	../lib/ccn_buf_encoder.c	/^ccn_signed_info_create(struct ccn_charbuf *c,$/;"	f
+ccn_signing_params	../include/ccn/ccn.h	/^struct ccn_signing_params {$/;"	s
+ccn_skeleton_decode	../lib/ccn_coding.c	/^ccn_skeleton_decode(struct ccn_skeleton_decoder *d,$/;"	f
+ccn_skeleton_decoder	../include/ccn/coding.h	/^struct ccn_skeleton_decoder { \/* initialize to all 0 *\/$/;"	s
+ccn_sockdescr	../include/ccn/sockcreate.h	/^struct ccn_sockdescr {$/;"	s
+ccn_sockets	../include/ccn/sockcreate.h	/^struct ccn_sockets {$/;"	s
+ccn_stuff_interest	../ccnd/ccnd.c	/^ccn_stuff_interest(struct ccnd_handle *h,$/;"	f	file:
+ccn_tagdict	../lib/ccn_dtag_table.c	/^static const struct ccn_dict_entry ccn_tagdict[] = {$/;"	v	typeref:struct:ccn_dict_entry	file:
+ccn_timeval	../include/ccn/schedule.h	/^struct ccn_timeval {$/;"	s
+ccn_traversal	../lib/ccn_traverse.c	/^struct ccn_traversal {$/;"	s	file:
+ccn_tt	../include/ccn/coding.h	/^enum ccn_tt {$/;"	g
+ccn_upcall_info	../include/ccn/ccn.h	/^struct ccn_upcall_info {$/;"	s
+ccn_upcall_kind	../include/ccn/ccn.h	/^enum ccn_upcall_kind {$/;"	g
+ccn_upcall_res	../include/ccn/ccn.h	/^enum ccn_upcall_res {$/;"	g
+ccn_update_refresh_us	../lib/ccn_client.c	/^ccn_update_refresh_us(struct ccn *h, struct timeval *tv)$/;"	f	file:
+ccn_uri_append	../lib/ccn_uri.c	/^ccn_uri_append(struct ccn_charbuf *c,$/;"	f
+ccn_uri_append_percentescaped	../lib/ccn_uri.c	/^ccn_uri_append_percentescaped(struct ccn_charbuf *c,$/;"	f
+ccn_verify_content	../lib/ccn_client.c	/^ccn_verify_content(struct ccn *h,$/;"	f
+ccn_verify_signature	../lib/ccn_signing.c	/^int ccn_verify_signature(const unsigned char *msg,$/;"	f
+ccnb_append_face_instance	../lib/ccn_face_mgmt.c	/^ccnb_append_face_instance(struct ccn_charbuf *c,$/;"	f
+ccnb_append_forwarding_entry	../lib/ccn_reg_mgmt.c	/^ccnb_append_forwarding_entry(struct ccn_charbuf *c,$/;"	f
+ccnb_append_header	../lib/ccn_header.c	/^ccnb_append_header(struct ccn_charbuf *c,$/;"	f
+ccnb_append_now_blob	../lib/ccn_buf_encoder.c	/^ccnb_append_now_blob(struct ccn_charbuf *c, enum ccn_marker marker)$/;"	f
+ccnb_append_number	../lib/ccn_buf_encoder.c	/^ccnb_append_number(struct ccn_charbuf *c, int nni)$/;"	f
+ccnb_append_tagged_blob	../lib/ccn_buf_encoder.c	/^ccnb_append_tagged_blob(struct ccn_charbuf *c,$/;"	f
+ccnb_append_timestamp_blob	../lib/ccn_buf_encoder.c	/^ccnb_append_timestamp_blob(struct ccn_charbuf *c,$/;"	f
+ccnb_element_begin	../lib/ccn_buf_encoder.c	/^ccnb_element_begin(struct ccn_charbuf *c, enum ccn_dtag dtag)$/;"	f
+ccnb_element_end	../lib/ccn_buf_encoder.c	/^int ccnb_element_end(struct ccn_charbuf *c)$/;"	f
+ccnb_tagged_putf	../lib/ccn_buf_encoder.c	/^ccnb_tagged_putf(struct ccn_charbuf *c,$/;"	f
+ccnbx	../cmd/ccnbx.c	/^ccnbx(const char *path, const char *selector, int options) {$/;"	f	file:
+ccnd_answer_req	../ccnd/ccnd_internal_client.c	/^ccnd_answer_req(struct ccn_closure *selfp,$/;"	f	file:
+ccnd_append_debug_nonce	../ccnd/ccnd.c	/^ccnd_append_debug_nonce(struct ccnd_handle *h, struct face *face, struct ccn_charbuf *cb) {$/;"	f	file:
+ccnd_append_plain_nonce	../ccnd/ccnd.c	/^ccnd_append_plain_nonce(struct ccnd_handle *h, struct face *face, struct ccn_charbuf *cb) {$/;"	f	file:
+ccnd_close_fd	../ccnd/ccnd.c	/^ccnd_close_fd(struct ccnd_handle *h, unsigned faceid, int *pfd)$/;"	f	file:
+ccnd_collect_stats	../ccnd/ccnd_stats.c	/^ccnd_collect_stats(struct ccnd_handle *h, struct ccnd_stats *ans)$/;"	f	file:
+ccnd_colorhash	../ccnd/ccnd_stats.c	/^ccnd_colorhash(struct ccnd_handle *h)$/;"	f	file:
+ccnd_create	../ccnd/ccnd.c	/^ccnd_create(const char *progname, ccnd_logger logger, void *loggerdata)$/;"	f
+ccnd_debug_ccnb	../ccnd/android_msg.c	/^ccnd_debug_ccnb(struct ccnd_handle *h,$/;"	f
+ccnd_debug_ccnb	../ccnd/ccnd_msg.c	/^ccnd_debug_ccnb(struct ccnd_handle *h,$/;"	f
+ccnd_destroy	../ccnd/ccnd.c	/^ccnd_destroy(struct ccnd_handle **pccnd)$/;"	f
+ccnd_destroy_face	../ccnd/ccnd.c	/^ccnd_destroy_face(struct ccnd_handle *h, unsigned faceid)$/;"	f
+ccnd_face_from_faceid	../ccnd/ccnd.c	/^ccnd_face_from_faceid(struct ccnd_handle *h, unsigned faceid)$/;"	f
+ccnd_face_meter_index	../ccnd/ccnd_private.h	/^enum ccnd_face_meter_index {$/;"	g
+ccnd_face_status_change	../ccnd/ccnd_internal_client.c	/^ccnd_face_status_change(struct ccnd_handle *ccnd, unsigned faceid)$/;"	f
+ccnd_get_local_sockname	../ccnd/ccnd.c	/^ccnd_get_local_sockname(void)$/;"	f	file:
+ccnd_getboundsocket	../ccnd/ccnd.c	/^ccnd_getboundsocket(void *dat, struct sockaddr *who, socklen_t wholen)$/;"	f	file:
+ccnd_gettime	../ccnd/ccnd.c	/^ccnd_gettime(const struct ccn_gettime *self, struct ccn_timeval *result)$/;"	f	file:
+ccnd_handle	../ccnd/ccnd_private.h	/^struct ccnd_handle {$/;"	s
+ccnd_id	../ccnd/ccnd_private.h	/^    unsigned char ccnd_id[32];      \/**< sha256 digest of our public key *\/$/;"	m	struct:ccnd_handle
+ccnd_id	../include/ccn/face_mgmt.h	/^    const unsigned char *ccnd_id;$/;"	m	struct:ccn_face_instance
+ccnd_id	../include/ccn/reg_mgmt.h	/^    const unsigned char *ccnd_id;$/;"	m	struct:ccn_forwarding_entry
+ccnd_id_size	../include/ccn/face_mgmt.h	/^    size_t ccnd_id_size;$/;"	m	struct:ccn_face_instance
+ccnd_id_size	../include/ccn/reg_mgmt.h	/^    size_t ccnd_id_size;$/;"	m	struct:ccn_forwarding_entry
+ccnd_init_internal_keystore	../ccnd/ccnd_internal_client.c	/^ccnd_init_internal_keystore(struct ccnd_handle *ccnd)$/;"	f
+ccnd_init_service_ccnb	../ccnd/ccnd_internal_client.c	/^ccnd_init_service_ccnb(struct ccnd_handle *ccnd, const char *baseuri, int freshness)$/;"	f	file:
+ccnd_internal_client_refresh	../ccnd/ccnd_internal_client.c	/^ccnd_internal_client_refresh(struct ccn_schedule *sched,$/;"	f	file:
+ccnd_internal_client_start	../ccnd/ccnd_internal_client.c	/^ccnd_internal_client_start(struct ccnd_handle *ccnd)$/;"	f
+ccnd_internal_client_stop	../ccnd/ccnd_internal_client.c	/^ccnd_internal_client_stop(struct ccnd_handle *ccnd)$/;"	f
+ccnd_listen_on	../ccnd/ccnd.c	/^ccnd_listen_on(struct ccnd_handle *h, const char *addrs)$/;"	f	file:
+ccnd_listen_on_address	../ccnd/ccnd.c	/^ccnd_listen_on_address(struct ccnd_handle *h, const char *addr)$/;"	f	file:
+ccnd_listen_on_wildcards	../ccnd/ccnd.c	/^ccnd_listen_on_wildcards(struct ccnd_handle *h)$/;"	f	file:
+ccnd_logger	../ccnd/ccnd_private.h	/^typedef int (*ccnd_logger)(void *loggerdata, const char *format, va_list ap);$/;"	t
+ccnd_meter	../ccnd/ccnd_stats.c	/^struct ccnd_meter {$/;"	s	file:
+ccnd_meter_bump	../ccnd/ccnd_stats.c	/^ccnd_meter_bump(struct ccnd_handle *h, struct ccnd_meter *m, unsigned amt)$/;"	f
+ccnd_meter_create	../ccnd/ccnd_stats.c	/^ccnd_meter_create(struct ccnd_handle *h, const char *what)$/;"	f
+ccnd_meter_destroy	../ccnd/ccnd_stats.c	/^ccnd_meter_destroy(struct ccnd_meter **pm)$/;"	f
+ccnd_meter_init	../ccnd/ccnd_stats.c	/^ccnd_meter_init(struct ccnd_handle *h, struct ccnd_meter *m, const char *what)$/;"	f
+ccnd_meter_rate	../ccnd/ccnd_stats.c	/^ccnd_meter_rate(struct ccnd_handle *h, struct ccnd_meter *m)$/;"	f
+ccnd_meter_total	../ccnd/ccnd_stats.c	/^ccnd_meter_total(struct ccnd_meter *m)$/;"	f
+ccnd_msg	../ccnd/android_msg.c	/^ccnd_msg(struct ccnd_handle *h, const char *fmt, ...)$/;"	f
+ccnd_msg	../ccnd/ccnd_msg.c	/^ccnd_msg(struct ccnd_handle *h, const char *fmt, ...)$/;"	f
+ccnd_nack	../ccnd/ccnd.c	/^ccnd_nack(struct ccnd_handle *h, struct ccn_charbuf *reply_body,$/;"	f	file:
+ccnd_new_face_msg	../ccnd/ccnd.c	/^ccnd_new_face_msg(struct ccnd_handle *h, struct face *face)$/;"	f	file:
+ccnd_notice_push	../ccnd/ccnd_internal_client.c	/^ccnd_notice_push(struct ccn_schedule *sched,$/;"	f	file:
+ccnd_parse_uri_list	../ccnd/ccnd.c	/^ccnd_parse_uri_list(struct ccnd_handle *h, const char *what, const char *uris)$/;"	f	file:
+ccnd_reg_ccnx_ccndid	../ccnd/ccnd_internal_client.c	/^ccnd_reg_ccnx_ccndid(struct ccnd_handle *ccnd)$/;"	f	file:
+ccnd_reg_prefix	../ccnd/ccnd.c	/^ccnd_reg_prefix(struct ccnd_handle *h,$/;"	f	file:
+ccnd_reg_uri	../ccnd/ccnd.c	/^ccnd_reg_uri(struct ccnd_handle *h,$/;"	f
+ccnd_reg_uri_list	../ccnd/ccnd.c	/^ccnd_reg_uri_list(struct ccnd_handle *h,$/;"	f
+ccnd_req_destroyface	../ccnd/ccnd.c	/^ccnd_req_destroyface(struct ccnd_handle *h,$/;"	f
+ccnd_req_newface	../ccnd/ccnd.c	/^ccnd_req_newface(struct ccnd_handle *h,$/;"	f
+ccnd_req_prefix_or_self_reg	../ccnd/ccnd.c	/^ccnd_req_prefix_or_self_reg(struct ccnd_handle *h,$/;"	f	file:
+ccnd_req_prefixreg	../ccnd/ccnd.c	/^ccnd_req_prefixreg(struct ccnd_handle *h,$/;"	f
+ccnd_req_selfreg	../ccnd/ccnd.c	/^ccnd_req_selfreg(struct ccnd_handle *h,$/;"	f
+ccnd_req_unreg	../ccnd/ccnd.c	/^ccnd_req_unreg(struct ccnd_handle *h,$/;"	f
+ccnd_reseed	../ccnd/ccnd.c	/^ccnd_reseed(struct ccnd_handle *h)$/;"	f	file:
+ccnd_run	../ccnd/ccnd.c	/^ccnd_run(struct ccnd_handle *h)$/;"	f
+ccnd_send	../ccnd/ccnd.c	/^ccnd_send(struct ccnd_handle *h,$/;"	f
+ccnd_setsockopt_v6only	../ccnd/ccnd.c	/^ccnd_setsockopt_v6only(struct ccnd_handle *h, int fd)$/;"	f
+ccnd_shutdown_listeners	../ccnd/ccnd.c	/^ccnd_shutdown_listeners(struct ccnd_handle *h)$/;"	f	file:
+ccnd_start_notice	../ccnd/ccnd_internal_client.c	/^ccnd_start_notice(struct ccnd_handle *ccnd)$/;"	f	file:
+ccnd_stats	../ccnd/ccnd_stats.c	/^struct ccnd_stats {$/;"	s	file:
+ccnd_stats_handle_http_connection	../ccnd/ccnd_stats.c	/^ccnd_stats_handle_http_connection(struct ccnd_handle *h, struct face *face)$/;"	f
+ccnd_stats_http_set_debug	../ccnd/ccnd_stats.c	/^ccnd_stats_http_set_debug(struct ccnd_handle *h, struct face *face, int level)$/;"	f	file:
+ccnd_uri_listen	../ccnd/ccnd_internal_client.c	/^ccnd_uri_listen(struct ccnd_handle *ccnd, const char *uri,$/;"	f	file:
+ccnd_usage	../ccnd/android_msg.c	/^ccnd_usage(void)$/;"	f
+ccnd_usage_message	../ccnd/ccnd_msg.c	/^const char *ccnd_usage_message =$/;"	v
+ccndc_fatal	../libexec/ccndc.c	/^ccndc_fatal(int line, const char *format, ...)$/;"	f
+ccndc_warn	../libexec/ccndc.c	/^ccndc_warn(int lineno, const char *format, ...)$/;"	f
+ccndid	../lib/ccn_client.c	/^    struct ccn_charbuf *ccndid;$/;"	m	struct:ccn	typeref:struct:ccn::ccn_charbuf	file:
+ccndid	../libexec/ccndc.c	/^static const unsigned char *ccndid = ccndid_storage;$/;"	v	file:
+ccndid_size	../libexec/ccndc.c	/^static size_t ccndid_size = 0;$/;"	v	file:
+ccndid_storage	../libexec/ccndc.c	/^static unsigned char ccndid_storage[32] = {0};$/;"	v	file:
+certificate	../lib/ccn_keystore.c	/^    X509 *certificate;$/;"	m	struct:ccn_keystore	file:
+changeloglevel	../libexec/udplink.c	/^changeloglevel(int s) {$/;"	f
+charbuf_obtain	../ccnd/ccnd.c	/^charbuf_obtain(struct ccnd_handle *h)$/;"	f	file:
+charbuf_release	../ccnd/ccnd.c	/^charbuf_release(struct ccnd_handle *h, struct ccn_charbuf *c)$/;"	f	file:
+check_ccndid	../ccnd/ccnd.c	/^check_ccndid(struct ccnd_handle *h,$/;"	f	file:
+check_comm_file	../ccnd/ccnd.c	/^check_comm_file(struct ccnd_handle *h)$/;"	f	file:
+check_dgram_faces	../ccnd/ccnd.c	/^check_dgram_faces(struct ccnd_handle *h)$/;"	f	file:
+check_face_instance_ccndid	../ccnd/ccnd.c	/^check_face_instance_ccndid(struct ccnd_handle *h,$/;"	f	file:
+check_forward_to	../ccnd/ccnd.c	/^check_forward_to(struct ccnd_handle *h, struct nameprefix_entry *npe)$/;"	f	file:
+check_forwarding_entry_ccndid	../ccnd/ccnd.c	/^check_forwarding_entry_ccndid(struct ccnd_handle *h,$/;"	f	file:
+check_nameprefix_entries	../ccnd/ccnd.c	/^check_nameprefix_entries(struct ccnd_handle *h)$/;"	f	file:
+check_propagating	../ccnd/ccnd.c	/^check_propagating(struct ccnd_handle *h)$/;"	f	file:
+chface	../ccnd/ccnd_private.h	/^    struct ccn_indexbuf *chface;    \/**< faceids w\/ recent status changes *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_indexbuf
+children	../ccnd/ccnd_private.h	/^    int children;                \/**< number of children *\/$/;"	m	struct:nameprefix_entry
+chkres	../cmd/ccnbasicconfig.c	/^chkres(int res, int lineno)$/;"	f	file:
+choose_content_delay_class	../ccnd/ccnd.c	/^choose_content_delay_class(struct ccnd_handle *h, unsigned faceid, int content_flags)$/;"	f	file:
+choose_face_delay	../ccnd/ccnd.c	/^choose_face_delay(struct ccnd_handle *h, struct face *face, enum cq_delay_class c)$/;"	f	file:
+cl	../lib/ccn_seqwriter.c	/^    struct ccn_closure cl;$/;"	m	struct:ccn_seqwriter	typeref:struct:ccn_seqwriter::ccn_closure	file:
+clean	../ccnd/ccnd_private.h	/^    struct ccn_scheduled_event *clean;$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_scheduled_event
+clean_deamon	../ccnd/ccnd.c	/^clean_deamon(struct ccn_schedule *sched,$/;"	f	file:
+clean_needed	../ccnd/ccnd.c	/^clean_needed(struct ccnd_handle *h)$/;"	f	file:
+cleanout_empties	../ccnd/ccnd.c	/^cleanout_empties(struct ccnd_handle *h)$/;"	f	file:
+cleanout_stragglers	../ccnd/ccnd.c	/^cleanout_stragglers(struct ccnd_handle *h)$/;"	f	file:
+cleanup_at_exit	../ccnd/ccnd.c	/^cleanup_at_exit(void)$/;"	f	file:
+client	../lib/ccn_bulkdata.c	/^    struct ccn_closure *client;     \/* client-supplied upcall for delivery *\/$/;"	m	struct:bulkdata	typeref:struct:bulkdata::ccn_closure	file:
+clienth	../lib/ccn_schedule.c	/^    void *clienth;$/;"	m	struct:ccn_schedule	file:
+clock	../lib/ccn_schedule.c	/^    const struct ccn_gettime *clock;$/;"	m	struct:ccn_schedule	typeref:struct:ccn_schedule::ccn_gettime	file:
+close_fd	../ccnd/ccnd.c	/^close_fd(int *pfd)$/;"	f	file:
+closed	../lib/ccn_seqwriter.c	/^    unsigned char closed;$/;"	m	struct:ccn_seqwriter	file:
+closure	../cmd/ccncatchunks2.c	/^    struct ccn_closure closure;     \/* closure per slot *\/$/;"	m	struct:ooodata	typeref:struct:ooodata::ccn_closure	file:
+closure	../lib/ccn_bulkdata.c	/^    struct ccn_closure closure;     \/* our closure for getting matching data *\/$/;"	m	struct:pending	typeref:struct:pending::ccn_closure	file:
+closure	../lib/ccn_client.c	/^    struct ccn_closure closure;$/;"	m	struct:simple_get_data	typeref:struct:simple_get_data::ccn_closure	file:
+co_bytes_recvd	../cmd/ccncatchunks2.c	/^    intmax_t co_bytes_recvd;$/;"	m	struct:mydata	file:
+cob0	../lib/ccn_seqwriter.c	/^    struct ccn_charbuf *cob0;$/;"	m	struct:ccn_seqwriter	typeref:struct:ccn_seqwriter::ccn_charbuf	file:
+col	../lib/ccn_matrix.c	/^    unsigned       col;$/;"	m	struct:ccn_matrix_key	file:
+col_max	../include/ccn/matrix.h	/^    unsigned col_max;$/;"	m	struct:ccn_matrix_bounds
+col_min	../include/ccn/matrix.h	/^    unsigned col_min;$/;"	m	struct:ccn_matrix_bounds
+collect_face_meter_html	../ccnd/ccnd_stats.c	/^collect_face_meter_html(struct ccnd_handle *h, struct ccn_charbuf *b)$/;"	f	file:
+collect_faces_html	../ccnd/ccnd_stats.c	/^collect_faces_html(struct ccnd_handle *h, struct ccn_charbuf *b)$/;"	f	file:
+collect_faces_xml	../ccnd/ccnd_stats.c	/^collect_faces_xml(struct ccnd_handle *h, struct ccn_charbuf *b)$/;"	f	file:
+collect_forwarding_html	../ccnd/ccnd_stats.c	/^collect_forwarding_html(struct ccnd_handle *h, struct ccn_charbuf *b)$/;"	f	file:
+collect_forwarding_xml	../ccnd/ccnd_stats.c	/^collect_forwarding_xml(struct ccnd_handle *h, struct ccn_charbuf *b)$/;"	f	file:
+collect_meter_xml	../ccnd/ccnd_stats.c	/^collect_meter_xml(struct ccnd_handle *h, struct ccn_charbuf *b, struct ccnd_meter *m)$/;"	f	file:
+collect_stats_html	../ccnd/ccnd_stats.c	/^collect_stats_html(struct ccnd_handle *h)$/;"	f	file:
+collect_stats_xml	../ccnd/ccnd_stats.c	/^collect_stats_xml(struct ccnd_handle *h)$/;"	f	file:
+comm_file_ok	../ccnd/ccnd.c	/^comm_file_ok(void)$/;"	f	file:
+components	../cmd/dataresponsetest.c	/^        struct ccn_indexbuf *components;$/;"	m	struct:handlerstate::handlerstateitem	typeref:struct:handlerstate::handlerstateitem::ccn_indexbuf	file:
+comps	../ccnd/ccnd_private.h	/^    unsigned short *comps;      \/**< Name Component byte boundary offsets *\/$/;"	m	struct:content_entry
+comps	../lib/encodedecodetest.c	/^    char * comps[];$/;"	m	struct:path	file:
+compsbuf	../lib/ccn_client.c	/^    struct ccn_indexbuf *compsbuf;$/;"	m	struct:simple_get_data	typeref:struct:simple_get_data::ccn_indexbuf	file:
+consume	../ccnd/ccnd.c	/^consume(struct ccnd_handle *h, struct propagating_entry *pe)$/;"	f	file:
+consume_matching_interests	../ccnd/ccnd.c	/^consume_matching_interests(struct ccnd_handle *h,$/;"	f	file:
+content	../ccnd/ccnd_private.h	/^    struct content_entry *content;$/;"	m	struct:sparse_straggler_entry	typeref:struct:sparse_straggler_entry::content_entry
+content_by_accession	../ccnd/ccnd_private.h	/^    struct content_entry **content_by_accession;$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::content_entry
+content_by_accession_window	../ccnd/ccnd_private.h	/^    unsigned content_by_accession_window;$/;"	m	struct:ccnd_handle
+content_ccnb	../include/ccn/ccn.h	/^    const unsigned char *content_ccnb;$/;"	m	struct:ccn_upcall_info
+content_ccnb	../lib/ccn_bulkdata.c	/^    unsigned char *content_ccnb;    \/* the content that has arrived *\/$/;"	m	struct:pending	file:
+content_comps	../include/ccn/ccn.h	/^    struct ccn_indexbuf *content_comps;$/;"	m	struct:ccn_upcall_info	typeref:struct:ccn_upcall_info::ccn_indexbuf
+content_digest	../include/ccn/header.h	/^    struct ccn_charbuf *content_digest;$/;"	m	struct:ccn_header	typeref:struct:ccn_header::ccn_charbuf
+content_dups_recvd	../ccnd/ccnd_private.h	/^    unsigned long content_dups_recvd;$/;"	m	struct:ccnd_handle
+content_entry	../ccnd/ccnd_private.h	/^struct content_entry {$/;"	s
+content_from_accession	../ccnd/ccnd.c	/^content_from_accession(struct ccnd_handle *h, ccn_accession_t accession)$/;"	f	file:
+content_items_sent	../ccnd/ccnd_private.h	/^    unsigned long content_items_sent;$/;"	m	struct:ccnd_handle
+content_matches_interest_prefix	../ccnd/ccnd.c	/^content_matches_interest_prefix(struct ccnd_handle *h,$/;"	f	file:
+content_queue	../ccnd/ccnd_private.h	/^struct content_queue {$/;"	s
+content_queue_create	../ccnd/ccnd.c	/^content_queue_create(struct ccnd_handle *h, struct face *face, enum cq_delay_class c)$/;"	f	file:
+content_queue_destroy	../ccnd/ccnd.c	/^content_queue_destroy(struct ccnd_handle *h, struct content_queue **pq)$/;"	f	file:
+content_received	../cmd/ccnsendchunks.c	/^    int content_received;$/;"	m	struct:mydata	file:
+content_sender	../ccnd/ccnd.c	/^content_sender(struct ccn_schedule *sched,$/;"	f	file:
+content_sent	../cmd/ccnsendchunks.c	/^    int content_sent;$/;"	m	struct:mydata	file:
+content_size	../lib/ccn_bulkdata.c	/^    size_t content_size;$/;"	m	struct:pending	file:
+content_skiplist_findbefore	../ccnd/ccnd.c	/^content_skiplist_findbefore(struct ccnd_handle *h,$/;"	f	file:
+content_skiplist_insert	../ccnd/ccnd.c	/^content_skiplist_insert(struct ccnd_handle *h, struct content_entry *content)$/;"	f	file:
+content_skiplist_next	../ccnd/ccnd.c	/^content_skiplist_next(struct ccnd_handle *h, struct content_entry *content)$/;"	f	file:
+content_skiplist_remove	../ccnd/ccnd.c	/^content_skiplist_remove(struct ccnd_handle *h, struct content_entry *content)$/;"	f	file:
+content_tab	../ccnd/ccnd_private.h	/^    struct hashtb *content_tab;     \/**< keyed by portion of ContentObject *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::hashtb
+contents	../cmd/dataresponsetest.c	/^        unsigned char *contents;$/;"	m	struct:handlerstate::handlerstateitem	file:
+context	../lib/ccn_signing.c	/^    EVP_MD_CTX context;$/;"	m	struct:ccn_sigc	file:
+count	../cmd/dataresponsetest.c	/^    int count;$/;"	m	struct:handlerstate	file:
+count	../include/ccn/coding.h	/^    int count;              \/**< Count of elements in the table *\/$/;"	m	struct:ccn_dict
+count	../include/ccn/header.h	/^    uintmax_t count;$/;"	m	struct:ccn_header
+count	../lib/encodedecodetest.c	/^    int count;$/;"	m	struct:path	file:
+counter	../cmd/ccnls.c	/^    long *counter;$/;"	m	struct:upcalldata	file:
+counter	../cmd/ccnslurp.c	/^    long *counter;$/;"	m	struct:upcalldata	file:
+counter	../lib/ccn_traverse.c	/^    long *counter;$/;"	m	struct:ccn_traversal	file:
+cq_delay_class	../ccnd/ccnd_private.h	/^enum cq_delay_class {$/;"	g
+create_face	../libexec/ccndc.c	/^create_face(struct ccn *h, struct ccn_face_instance *face_instance)$/;"	f	file:
+create_local_listener	../ccnd/ccnd.c	/^create_local_listener(struct ccnd_handle *h, const char *sockname, int backlog)$/;"	f	file:
+create_passive_templ	../cmd/ccnslurp.c	/^create_passive_templ(void)$/;"	f	file:
+curwindow	../cmd/ccncatchunks2.c	/^    unsigned curwindow;$/;"	m	struct:mydata	file:
+cvt_a_date	../cmd/ccntimefromdatetime.c	/^cvt_a_date(char *s)$/;"	f	file:
+data	../include/ccn/ccn.h	/^    void *data;         \/**< for client use *\/$/;"	m	struct:ccn_closure
+data	../include/ccn/hashtb.h	/^    void *data;$/;"	m	struct:hashtb_enumerator
+data	../include/ccn/schedule.h	/^    void *data;                \/* for private use by gettime *\/$/;"	m	struct:ccn_gettime
+data_pause_microsec	../ccnd/ccnd_private.h	/^    unsigned data_pause_microsec;   \/**< tunable, see choose_face_delay() *\/$/;"	m	struct:ccnd_handle
+datasize	../include/ccn/hashtb.h	/^    size_t datasize;$/;"	m	struct:hashtb_enumerator
+dd	../lib/ccn_schedule.c	/^static char dd[] = "ABDEFGHI";$/;"	v	file:
+debug	../ccnd/ccnd_private.h	/^    int debug;                      \/**< For controlling debug output *\/$/;"	m	struct:ccnd_handle
+debug	../cmd/ccn_fetch_test.c	/^	FILE *debug;$/;"	m	struct:MyParms	file:
+debug	../lib/ccn_fetch.c	/^	FILE *debug;$/;"	m	struct:ccn_fetch	file:
+debugFlags	../lib/ccn_fetch.c	/^	ccn_fetch_flags debugFlags;$/;"	m	struct:ccn_fetch	file:
+decode_message	../lib/encodedecodetest.c	/^decode_message(struct ccn_charbuf *message, struct path * name_path, char *data, size_t len, const void *verkey) {$/;"	f
+decoder	../ccnd/ccnd_private.h	/^    struct ccn_skeleton_decoder decoder;$/;"	m	struct:face	typeref:struct:face::ccn_skeleton_decoder
+decoder	../include/ccn/ccn.h	/^    struct ccn_skeleton_decoder decoder;$/;"	m	struct:ccn_buf_decoder	typeref:struct:ccn_buf_decoder::ccn_skeleton_decoder
+decoder	../lib/ccn_client.c	/^    struct ccn_skeleton_decoder decoder;$/;"	m	struct:ccn	typeref:struct:ccn::ccn_skeleton_decoder	file:
+default_pubid	../lib/ccn_client.c	/^    struct ccn_charbuf *default_pubid;$/;"	m	struct:ccn	typeref:struct:ccn::ccn_charbuf	file:
+deferred	../lib/hashtb.c	/^    struct node *deferred;      \/* deferred cleanup *\/$/;"	m	struct:hashtb	typeref:struct:hashtb::node	file:
+deliver_content	../lib/ccn_bulkdata.c	/^deliver_content(struct ccn *h, struct bulkdata *b)$/;"	f	file:
+delivered	../cmd/ccncatchunks2.c	/^    intmax_t delivered;$/;"	m	struct:mydata	file:
+delivered_bytes	../cmd/ccncatchunks2.c	/^    intmax_t delivered_bytes;$/;"	m	struct:mydata	file:
+descr	../include/ccn/face_mgmt.h	/^    struct ccn_sockdescr descr;$/;"	m	struct:ccn_face_instance	typeref:struct:ccn_face_instance::ccn_sockdescr
+descr	../include/ccn/schedule.h	/^    char descr[8];$/;"	m	struct:ccn_gettime
+dgram_faces	../ccnd/ccnd_private.h	/^    struct hashtb *dgram_faces;     \/**< keyed by sockaddr *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::hashtb
+dict	../include/ccn/coding.h	/^    const struct ccn_dict_entry *dict; \/**< the table entries *\/$/;"	m	struct:ccn_dict	typeref:struct:ccn_dict::ccn_dict_entry
+dict_lookup	../cmd/ccn_xmltoccnb.c	/^dict_lookup(const char *key, const struct ccn_dict_entry *dict, int n)$/;"	f	file:
+dict_name_from_number	../cmd/ccn_ccnbtoxml.c	/^dict_name_from_number(int ndx, const struct ccn_dict_entry *dict, int n)$/;"	f	file:
+digest	../include/ccn/ccn.h	/^    unsigned char digest[32];	\/* Computed only when needed *\/$/;"	m	struct:ccn_parsed_ContentObject
+digest	../lib/ccn_signing.c	/^    const EVP_MD *digest;$/;"	m	struct:ccn_sigc	file:
+digest_bytes	../include/ccn/ccn.h	/^    int digest_bytes;$/;"	m	struct:ccn_parsed_ContentObject
+do_character_data	../cmd/ccn_xmltoccnb.c	/^do_character_data(void *ud, const XML_Char *s, int len)$/;"	f	file:
+do_deferred_write	../ccnd/ccnd.c	/^do_deferred_write(struct ccnd_handle *h, int fd)$/;"	f	file:
+do_end_element	../cmd/ccn_xmltoccnb.c	/^do_end_element(void *ud, const XML_Char *name)$/;"	f	file:
+do_processing_instructions	../cmd/ccn_xmltoccnb.c	/^do_processing_instructions(void *ud, const XML_Char *target, const XML_Char *data)$/;"	f	file:
+do_propagate	../ccnd/ccnd.c	/^do_propagate(struct ccn_schedule *sched,$/;"	f	file:
+do_start_element	../cmd/ccn_xmltoccnb.c	/^do_start_element(void *ud, const XML_Char *name,$/;"	f	file:
+done	../cmd/ccnsimplecat.c	/^    int *done;$/;"	m	struct:mydata	file:
+dst	../cmd/ccn_fetch_test.c	/^	string dst;$/;"	m	struct:MyParms	file:
+dtag_lookup	../cmd/ccnbx.c	/^dtag_lookup(const char *key)$/;"	f	file:
+dump_udp_packet	../cmd/ccndumppcap.c	/^dump_udp_packet(pcap_dumper_t *dump_file, $/;"	f	file:
+dups	../cmd/ccncatchunks2.c	/^    intmax_t dups;$/;"	m	struct:mydata	file:
+e	../lib/ccn_matrix.c	/^    struct hashtb_enumerator e;$/;"	m	struct:ccn_matrix	typeref:struct:ccn_matrix::hashtb_enumerator	file:
+element_index	../include/ccn/coding.h	/^    size_t element_index;   \/**< Starting index of most-recent element *\/$/;"	m	struct:ccn_skeleton_decoder
+emit_bytes	../cmd/ccn_xmltoccnb.c	/^emit_bytes(struct ccn_encoder *u, const void *p, size_t length)$/;"	f	file:
+emit_closer	../cmd/ccn_xmltoccnb.c	/^emit_closer(struct ccn_encoder *u)$/;"	f	file:
+emit_name	../cmd/ccn_xmltoccnb.c	/^emit_name(struct ccn_encoder *u, enum ccn_tt tt, const void *name)$/;"	f	file:
+emit_tt	../cmd/ccn_xmltoccnb.c	/^emit_tt(struct ccn_encoder *u, size_t numval, enum ccn_tt tt)$/;"	f	file:
+emit_xchars	../cmd/ccn_xmltoccnb.c	/^emit_xchars(struct ccn_encoder *u, const XML_Char *xchars)$/;"	f	file:
+encode_message	../lib/encodedecodetest.c	/^encode_message(struct ccn_charbuf *message, struct path * name_path, char *data, size_t len, struct ccn_charbuf *signed_info, const void *pkey) {$/;"	f
+end	../cmd/ccn_xmltoccnb.c	/^    size_t end;$/;"	m	struct:ccn_encoder_stack_item	file:
+endName	../lib/ccn_buf_decoder.c	/^    int endName;$/;"	m	struct:parsed_KeyName	file:
+endPublisherID	../lib/ccn_buf_decoder.c	/^    int endPublisherID;$/;"	m	struct:parsed_KeyName	file:
+enroll_content	../ccnd/ccnd.c	/^enroll_content(struct ccnd_handle *h, struct content_entry *content)$/;"	f	file:
+enroll_face	../ccnd/ccnd.c	/^enroll_face(struct ccnd_handle *h, struct face *face)$/;"	f	file:
+err	../lib/ccn_client.c	/^    int err;                    \/* pos => errno value, neg => other *\/$/;"	m	struct:ccn	file:
+errline	../lib/ccn_client.c	/^    int errline;$/;"	m	struct:ccn	file:
+establish_min_recv_bufsize	../ccnd/ccnd.c	/^establish_min_recv_bufsize(struct ccnd_handle *h, int fd, int minsize)$/;"	f	file:
+ev	../lib/ccn_schedule.c	/^    struct ccn_scheduled_event *ev;$/;"	m	struct:ccn_schedule_heap_item	typeref:struct:ccn_schedule_heap_item::ccn_scheduled_event	file:
+evdata	../include/ccn/schedule.h	/^    void *evdata;$/;"	m	struct:ccn_scheduled_event
+event_time	../lib/ccn_schedule.c	/^    intptr_t event_time;$/;"	m	struct:ccn_schedule_heap_item	file:
+evint	../include/ccn/schedule.h	/^    intptr_t evint;$/;"	m	struct:ccn_scheduled_event
+excl	../cmd/ccncatchunks2.c	/^    struct excludestuff *excl;$/;"	m	struct:mydata	typeref:struct:mydata::excludestuff	file:
+excl	../cmd/ccnls.c	/^    struct ccn_charbuf **excl; \/* Array of n_excl items *\/$/;"	m	struct:upcalldata	typeref:struct:upcalldata::ccn_charbuf	file:
+excl	../cmd/ccnslurp.c	/^    struct ccn_charbuf **excl; \/* Array of n_excl items *\/$/;"	m	struct:upcalldata	typeref:struct:upcalldata::ccn_charbuf	file:
+excl	../lib/ccn_traverse.c	/^    struct ccn_charbuf **excl; \/* Array of n_excl items *\/$/;"	m	struct:ccn_traversal	typeref:struct:ccn_traversal::ccn_charbuf	file:
+expected_res	../lib/encodedecodetest.c	/^expected_res(int res, char code)$/;"	f
+expire_content	../ccnd/ccnd.c	/^expire_content(struct ccn_schedule *sched,$/;"	f	file:
+expires	../ccnd/ccnd_private.h	/^    int expires;                 \/**< time remaining, in seconds *\/$/;"	m	struct:ccn_forwarding
+expiry	../lib/ccn_client.c	/^    struct timeval expiry;       \/* Expiration time *\/$/;"	m	struct:interest_filter	typeref:struct:interest_filter::timeval	file:
+express_bulkdata_interest	../lib/ccn_bulkdata.c	/^express_bulkdata_interest(struct ccn *h, struct pending *p)$/;"	f	file:
+express_my_interest	../cmd/ccnslurp.c	/^express_my_interest(struct ccn *h,$/;"	f	file:
+express_my_interest	../lib/ccn_traverse.c	/^express_my_interest(struct ccn *h,$/;"	f	file:
+expressed_interest	../lib/ccn_client.c	/^struct expressed_interest {$/;"	s	file:
+extsize	../include/ccn/hashtb.h	/^    size_t extsize;$/;"	m	struct:hashtb_enumerator
+extsize	../lib/hashtb.c	/^    size_t extsize;$/;"	m	struct:node	file:
+f	../cmd/ccn_fetch_test.c	/^	struct ccn_fetch *f;$/;"	m	struct:MyParms	typeref:struct:MyParms::ccn_fetch	file:
+face	../ccnd/ccnd_private.h	/^struct face {$/;"	s
+face0	../ccnd/ccnd_private.h	/^    struct face *face0;             \/**< special face for internal client *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::face
+face_from_faceid	../ccnd/ccnd.c	/^face_from_faceid(struct ccnd_handle *h, unsigned faceid)$/;"	f	file:
+face_gen	../ccnd/ccnd_private.h	/^    unsigned face_gen;              \/**< faceid generation number *\/$/;"	m	struct:ccnd_handle
+face_limit	../ccnd/ccnd_private.h	/^    unsigned face_limit;            \/**< current number of face slots *\/$/;"	m	struct:ccnd_handle
+face_rover	../ccnd/ccnd_private.h	/^    unsigned face_rover;            \/**< for faceid allocation *\/$/;"	m	struct:ccnd_handle
+face_send_queue_insert	../ccnd/ccnd.c	/^face_send_queue_insert(struct ccnd_handle *h,$/;"	f	file:
+faceid	../ccnd/ccnd_private.h	/^    unsigned faceid;             \/**< locally unique number identifying face *\/$/;"	m	struct:ccn_forwarding
+faceid	../ccnd/ccnd_private.h	/^    unsigned faceid;            \/**< internal face id *\/$/;"	m	struct:face
+faceid	../ccnd/ccnd_private.h	/^    unsigned faceid;            \/**< origin of the interest, dest for matches *\/$/;"	m	struct:propagating_entry
+faceid	../include/ccn/face_mgmt.h	/^    unsigned faceid;$/;"	m	struct:ccn_face_instance
+faceid	../include/ccn/reg_mgmt.h	/^    unsigned faceid;$/;"	m	struct:ccn_forwarding_entry
+faceid_from_fd	../ccnd/ccnd.c	/^faceid_from_fd(struct ccnd_handle *h, int fd)$/;"	f	file:
+faces_by_faceid	../ccnd/ccnd_private.h	/^    struct face **faces_by_faceid;  \/**< array with face_limit elements *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::face
+faces_by_fd	../ccnd/ccnd_private.h	/^    struct hashtb *faces_by_fd;     \/**< keyed by fd *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::hashtb
+fds	../ccnd/ccnd_private.h	/^    struct pollfd *fds;             \/**< used for poll system call *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::pollfd
+fgen	../ccnd/ccnd_private.h	/^    int fgen;                    \/**< used to decide when forward_to is stale *\/$/;"	m	struct:nameprefix_entry
+fgen	../ccnd/ccnd_private.h	/^    int fgen;                   \/**< decide if outbound is stale *\/$/;"	m	struct:propagating_entry
+fi	../libexec/ccndc.c	/^    struct ccn_face_instance *fi;$/;"	m	struct:prefix_face_list_item	typeref:struct:prefix_face_list_item::ccn_face_instance	file:
+fileName	../cmd/ccn_fetch_test.c	/^	string fileName;$/;"	m	struct:TestElemStruct	file:
+fileSize	../lib/ccn_fetch.c	/^	intmax_t fileSize;		\/\/ the file size (< 0 if unassigned)$/;"	m	struct:ccn_fetch_stream	file:
+filename	../cmd/dataresponsetest.c	/^        char *filename;$/;"	m	struct:handlerstate::handlerstateitem	file:
+fileprefix	../cmd/ccn_ccnbtoxml.c	/^    char *fileprefix;$/;"	m	struct:callback_state	file:
+fill_holes	../cmd/ccncatchunks2.c	/^fill_holes(struct ccn_schedule *sched, void *clienth, $/;"	f	file:
+finalSeg	../lib/ccn_fetch.c	/^	seg_t finalSeg;			\/\/ final segment number (< 0 if not known yet)$/;"	m	struct:ccn_fetch_stream	file:
+finalSegLen	../lib/ccn_fetch.c	/^	int finalSegLen;		\/\/ final segment length$/;"	m	struct:ccn_fetch_stream	file:
+finalize	../include/ccn/hashtb.h	/^    hashtb_finalize_proc finalize; \/* default is NULL *\/$/;"	m	struct:hashtb_param
+finalize_content	../ccnd/ccnd.c	/^finalize_content(struct hashtb_enumerator *content_enumerator)$/;"	f	file:
+finalize_data	../include/ccn/hashtb.h	/^    void *finalize_data;           \/* default is NULL *\/$/;"	m	struct:hashtb_param
+finalize_face	../ccnd/ccnd.c	/^finalize_face(struct hashtb_enumerator *e)$/;"	f	file:
+finalize_interest_filter	../lib/ccn_client.c	/^finalize_interest_filter(struct hashtb_enumerator *e)$/;"	f	file:
+finalize_keystore	../lib/ccn_client.c	/^finalize_keystore(struct hashtb_enumerator *e)$/;"	f	file:
+finalize_nameprefix	../ccnd/ccnd.c	/^finalize_nameprefix(struct hashtb_enumerator *e)$/;"	f	file:
+finalize_pkey	../lib/ccn_client.c	/^finalize_pkey(struct hashtb_enumerator *e)$/;"	f	file:
+finalize_propagating	../ccnd/ccnd.c	/^finalize_propagating(struct hashtb_enumerator *e)$/;"	f	file:
+finally	../lib/hashtbtest.c	/^finally(struct hashtb_enumerator *e)$/;"	f	file:
+finalslot	../cmd/ccncatchunks2.c	/^    unsigned finalslot;$/;"	m	struct:mydata	file:
+find_first_match_candidate	../ccnd/ccnd.c	/^find_first_match_candidate(struct ccnd_handle *h,$/;"	f	file:
+finish_openudata	../cmd/ccn_xmltoccnb.c	/^finish_openudata(struct ccn_encoder *u)$/;"	f	file:
+first	../lib/ccn_bulkdata.c	/^    struct pending *first;          \/* start of list of pending items *\/$/;"	m	struct:bulkdata	typeref:struct:bulkdata::pending	file:
+flags	../ccnd/ccnd_private.h	/^    int flags;                  \/**< CCN_FACE_* face flags *\/$/;"	m	struct:face
+flags	../ccnd/ccnd_private.h	/^    int flags;                  \/**< see below *\/$/;"	m	struct:content_entry
+flags	../ccnd/ccnd_private.h	/^    unsigned flags;              \/**< CCN_FORW_* - c.f. <ccn\/reg_mgnt.h> *\/$/;"	m	struct:ccn_forwarding
+flags	../ccnd/ccnd_private.h	/^    unsigned flags;              \/**< CCN_FORW_* flags about namespace *\/$/;"	m	struct:nameprefix_entry
+flags	../ccnd/ccnd_private.h	/^    unsigned flags;             \/**< CCN_PR_xxx *\/$/;"	m	struct:propagating_entry
+flags	../cmd/ccnslurp.c	/^    int flags;$/;"	m	struct:upcalldata	file:
+flags	../include/ccn/reg_mgmt.h	/^    int flags;$/;"	m	struct:ccn_forwarding_entry
+flags	../lib/ccn_client.c	/^    int flags;$/;"	m	struct:interest_filter	file:
+flags	../lib/ccn_client.c	/^    int flags;$/;"	m	struct:simple_get_data	file:
+flags	../lib/ccn_traverse.c	/^    int flags;$/;"	m	struct:ccn_traversal	file:
+flags	../libexec/ccndc.c	/^    int flags;$/;"	m	struct:prefix_face_list_item	file:
+flood	../ccnd/ccnd_private.h	/^    int flood;                      \/**< Internal control for auto-reg *\/$/;"	m	struct:ccnd_handle
+force_zero_freshness	../ccnd/ccnd_private.h	/^    int force_zero_freshness;       \/**< Simulate freshness=0 on all content *\/$/;"	m	struct:ccnd_handle
+formatting_flags	../cmd/ccn_ccnbtoxml.c	/^    int formatting_flags;$/;"	m	struct:ccn_decoder	file:
+forward_to	../ccnd/ccnd_private.h	/^    struct ccn_indexbuf *forward_to; \/**< faceids to forward to *\/$/;"	m	struct:nameprefix_entry	typeref:struct:nameprefix_entry::ccn_indexbuf
+forward_to_gen	../ccnd/ccnd_private.h	/^    unsigned forward_to_gen;        \/**< for forward_to updates *\/$/;"	m	struct:ccnd_handle
+forwarding	../ccnd/ccnd_private.h	/^    struct ccn_forwarding *forwarding; \/**< detailed forwarding info *\/$/;"	m	struct:nameprefix_entry	typeref:struct:nameprefix_entry::ccn_forwarding
+fragment	../cmd/ccn_ccnbtoxml.c	/^    int fragment;$/;"	m	struct:callback_state	file:
+freeString	../lib/ccn_fetch.c	/^freeString(char * s) {$/;"	f	file:
+freshness	../include/ccn/ccn.h	/^    int freshness;$/;"	m	struct:ccn_signing_params
+fs	../cmd/ccn_fetch_test.c	/^	struct ccn_fetch_stream *fs;$/;"	m	struct:TestElemStruct	typeref:struct:TestElemStruct::ccn_fetch_stream	file:
+fs	../lib/ccn_fetch.c	/^	struct ccn_fetch_stream *fs;$/;"	m	struct:localClosure	typeref:struct:localClosure::ccn_fetch_stream	file:
+fstate	../cmd/ccn_splitccnb.c	/^struct fstate {$/;"	s	file:
+fstate	../cmd/ccnhexdumpdata.c	/^struct fstate {$/;"	s	file:
+get_ccndid	../libexec/ccndc.c	/^get_ccndid(struct ccn *h, const unsigned char *ccndid, size_t ccndid_storage_size)$/;"	f	file:
+get_dgram_source	../ccnd/ccnd.c	/^get_dgram_source(struct ccnd_handle *h, struct face *face,$/;"	f	file:
+get_my_data	../cmd/ccnslurp.c	/^static struct upcalldata *get_my_data(struct ccn_closure *selfp)$/;"	f	file:
+get_my_data	../lib/ccn_traverse.c	/^static struct ccn_traversal *get_my_data(struct ccn_closure *selfp)$/;"	f	file:
+get_outbound_faces	../ccnd/ccnd.c	/^get_outbound_faces(struct ccnd_handle *h,$/;"	f	file:
+gettime	../include/ccn/schedule.h	/^    ccn_gettime_action gettime;$/;"	m	struct:ccn_gettime
+globalNullString	../lib/ccn_fetch.c	/^static char *globalNullString = "";$/;"	v	file:
+gt	../lib/ccn_schedule.c	/^static struct ccn_gettime gt = {"getTOD", &my_gettime, 1000000, NULL};$/;"	v	typeref:struct:ccn_gettime	file:
+h	../cmd/ccncatchunks2.c	/^    struct ccn *h;$/;"	m	struct:mydata	typeref:struct:mydata::ccn	file:
+h	../include/ccn/ccn.h	/^    struct ccn *h;              \/**< The ccn library handle *\/$/;"	m	struct:ccn_upcall_info	typeref:struct:ccn_upcall_info::ccn
+h	../lib/ccn_fetch.c	/^	struct ccn *h;$/;"	m	struct:ccn_fetch	typeref:struct:ccn_fetch::ccn	file:
+h	../lib/ccn_seqwriter.c	/^    struct ccn *h;$/;"	m	struct:ccn_seqwriter	typeref:struct:ccn_seqwriter::ccn	file:
+handle_ccndid_response	../lib/ccn_client.c	/^handle_ccndid_response(struct ccn_closure *selfp,$/;"	f	file:
+handle_fatal_signal	../ccnd/ccnd.c	/^handle_fatal_signal(int sig)$/;"	f	file:
+handle_key	../lib/ccn_client.c	/^handle_key(struct ccn_closure *selfp,$/;"	f	file:
+handle_prefix_reg_reply	../lib/ccn_client.c	/^handle_prefix_reg_reply($/;"	f	file:
+handle_send_error	../ccnd/ccnd.c	/^handle_send_error(struct ccnd_handle *h, int errnum, struct face *face,$/;"	f	file:
+handle_simple_incoming_content	../lib/ccn_client.c	/^handle_simple_incoming_content($/;"	f	file:
+handlerstate	../cmd/dataresponsetest.c	/^struct handlerstate {$/;"	s	file:
+handlerstateitem	../cmd/dataresponsetest.c	/^    struct handlerstateitem {$/;"	s	struct:handlerstate	file:
+hash	../lib/hashtb.c	/^    size_t hash;$/;"	m	struct:node	file:
+hashes	../include/ccn/merklepathasn1.h	/^    STACK_OF(ASN1_OCTET_STRING) *hashes;$/;"	m	struct:MP_info_st
+hashtb	../lib/hashtb.c	/^struct hashtb {$/;"	s	file:
+hashtb_create	../lib/hashtb.c	/^hashtb_create(size_t item_size, const struct hashtb_param *param)$/;"	f
+hashtb_delete	../lib/hashtb.c	/^hashtb_delete(struct hashtb_enumerator *hte)$/;"	f
+hashtb_destroy	../lib/hashtb.c	/^hashtb_destroy(struct hashtb **htp)$/;"	f
+hashtb_end	../lib/hashtb.c	/^hashtb_end(struct hashtb_enumerator *hte)$/;"	f
+hashtb_enumerator	../include/ccn/hashtb.h	/^struct hashtb_enumerator {$/;"	s
+hashtb_finalize_proc	../include/ccn/hashtb.h	/^typedef void (*hashtb_finalize_proc)(struct hashtb_enumerator *);$/;"	t
+hashtb_get_param	../lib/hashtb.c	/^hashtb_get_param(struct hashtb *ht, struct hashtb_param *param)$/;"	f
+hashtb_hash	../lib/hashtb.c	/^hashtb_hash(const unsigned char *key, size_t key_size)$/;"	f
+hashtb_lookup	../lib/hashtb.c	/^hashtb_lookup(struct hashtb *ht, const void *key, size_t keysize)$/;"	f
+hashtb_n	../lib/hashtb.c	/^hashtb_n(struct hashtb *ht)$/;"	f
+hashtb_next	../lib/hashtb.c	/^hashtb_next(struct hashtb_enumerator *hte)$/;"	f
+hashtb_param	../include/ccn/hashtb.h	/^struct hashtb_param {$/;"	s
+hashtb_rehash	../lib/hashtb.c	/^hashtb_rehash(struct hashtb *ht, unsigned n_buckets)$/;"	f
+hashtb_seek	../lib/hashtb.c	/^hashtb_seek(struct hashtb_enumerator *hte, const void *key, size_t keysize, size_t extsize)$/;"	f
+hashtb_start	../lib/hashtb.c	/^hashtb_start(struct hashtb *ht, struct hashtb_enumerator *hte)$/;"	f
+heap	../lib/ccn_schedule.c	/^    struct ccn_schedule_heap_item *heap;$/;"	m	struct:ccn_schedule	typeref:struct:ccn_schedule::ccn_schedule_heap_item	file:
+heap_height	../lib/ccn_schedule.c	/^    int heap_height; \/* this is validated just before use *\/$/;"	m	struct:ccn_schedule	file:
+heap_insert	../lib/ccn_schedule.c	/^heap_insert(struct ccn_schedule_heap_item *heap, int micros,$/;"	f	file:
+heap_limit	../lib/ccn_schedule.c	/^    int heap_limit;$/;"	m	struct:ccn_schedule	file:
+heap_n	../lib/ccn_schedule.c	/^    int heap_n;$/;"	m	struct:ccn_schedule	file:
+heap_sift	../lib/ccn_schedule.c	/^heap_sift(struct ccn_schedule_heap_item *heap, int n)$/;"	f	file:
+help	../cmd/ccn_fetch_test.c	/^static char *help = "usage: ccn_fetch_test {switch | ccnName}*\\n\\$/;"	v	file:
+hexit	../lib/ccn_uri.c	/^hexit(int c)$/;"	f	file:
+hole_filled	../cmd/ccncatchunks2.c	/^hole_filled(struct ccn_closure *selfp,$/;"	f	file:
+holefiller	../cmd/ccncatchunks2.c	/^    struct ccn_scheduled_event *holefiller;$/;"	m	struct:mydata	typeref:struct:mydata::ccn_scheduled_event	file:
+holes	../cmd/ccncatchunks2.c	/^    intmax_t holes;$/;"	m	struct:mydata	file:
+ht	../include/ccn/hashtb.h	/^    struct hashtb *ht;$/;"	m	struct:hashtb_enumerator	typeref:struct:hashtb_enumerator::hashtb
+id	../lib/ccn_digest.c	/^    enum ccn_digest_id id;$/;"	m	struct:ccn_digest	typeref:enum:ccn_digest::ccn_digest_id	file:
+id	../lib/ccn_fetch.c	/^	char *id;$/;"	m	struct:ccn_fetch_stream	file:
+if_nametoindex	../libexec/udplink.c	/^unsigned if_nametoindex(const char *ifname) { $/;"	f
+imcoming_bulkdata	../lib/ccn_bulkdata.c	/^imcoming_bulkdata(struct ccn_closure *selfp,$/;"	f
+inbuf	../ccnd/ccnd_private.h	/^    struct ccn_charbuf *inbuf;$/;"	m	struct:face	typeref:struct:face::ccn_charbuf
+inbuf	../lib/ccn_client.c	/^    struct ccn_charbuf *inbuf;$/;"	m	struct:ccn	typeref:struct:ccn::ccn_charbuf	file:
+incoming_content	../cmd/ccnbuzz.c	/^incoming_content($/;"	f	file:
+incoming_content	../cmd/ccncatchunks.c	/^incoming_content($/;"	f
+incoming_content	../cmd/ccncatchunks2.c	/^incoming_content(struct ccn_closure *selfp,$/;"	f
+incoming_content	../cmd/ccnls.c	/^incoming_content($/;"	f
+incoming_content	../cmd/ccnrm.c	/^incoming_content($/;"	f
+incoming_content	../cmd/ccnsendchunks.c	/^incoming_content($/;"	f
+incoming_content	../cmd/ccnsimplecat.c	/^incoming_content(struct ccn_closure *selfp,$/;"	f
+incoming_content	../cmd/ccnslurp.c	/^incoming_content($/;"	f	file:
+incoming_content	../lib/ccn_traverse.c	/^incoming_content($/;"	f	file:
+incoming_content	../lib/smoketestclientlib.c	/^incoming_content(struct ccn_closure *selfp,$/;"	f
+incoming_content_action	../cmd/ccnrm.c	/^static struct ccn_closure incoming_content_action = {$/;"	v	typeref:struct:ccn_closure	file:
+incoming_content_action	../lib/smoketestclientlib.c	/^static struct ccn_closure incoming_content_action = {$/;"	v	typeref:struct:ccn_closure	file:
+incoming_interest	../cmd/ccnput.c	/^incoming_interest($/;"	f
+incoming_interest	../cmd/ccnsendchunks.c	/^incoming_interest($/;"	f
+incoming_interest	../libexec/ccndc.c	/^incoming_interest($/;"	f
+index	../include/ccn/coding.h	/^    int index;              \/**< matches enum ccn_dtag above *\/$/;"	m	struct:ccn_dict_entry
+index	../include/ccn/coding.h	/^    ssize_t index;          \/**< Number of bytes processed *\/$/;"	m	struct:ccn_skeleton_decoder
+indexbuf_obtain	../ccnd/ccnd.c	/^indexbuf_obtain(struct ccnd_handle *h)$/;"	f	file:
+indexbuf_release	../ccnd/ccnd.c	/^indexbuf_release(struct ccnd_handle *h, struct ccn_indexbuf *c)$/;"	f	file:
+init_all_chars_percent_encoded	../lib/encodedecodetest.c	/^static void init_all_chars_percent_encoded(void) {$/;"	f	file:
+init_face_flags	../ccnd/ccnd.c	/^init_face_flags(struct ccnd_handle *h, struct face *face, int setflags)$/;"	f	file:
+initialize_global_data	../libexec/ccndc.c	/^initialize_global_data(void) {$/;"	f	file:
+initialized	../lib/ccn_keystore.c	/^    int initialized;$/;"	m	struct:ccn_keystore	file:
+input_processed	../cmd/ccn_xmltoccnb.c	/^    size_t input_processed;$/;"	m	struct:base64_decoder	file:
+intdata	../include/ccn/ccn.h	/^    intptr_t intdata;   \/**< for client use *\/$/;"	m	struct:ccn_closure
+interest	../lib/ccn_fetch.c	/^	struct ccn_charbuf *interest;		\/\/ interest template$/;"	m	struct:ccn_fetch_stream	typeref:struct:ccn_fetch_stream::ccn_charbuf	file:
+interest_ccnb	../include/ccn/ccn.h	/^    const unsigned char *interest_ccnb;$/;"	m	struct:ccn_upcall_info
+interest_comps	../include/ccn/ccn.h	/^    struct ccn_indexbuf *interest_comps;$/;"	m	struct:ccn_upcall_info	typeref:struct:ccn_upcall_info::ccn_indexbuf
+interest_faceid	../ccnd/ccnd_private.h	/^    unsigned interest_faceid;       \/**< for self_reg internal client *\/$/;"	m	struct:ccnd_handle
+interest_filter	../lib/ccn_client.c	/^    struct interest_filter *interest_filter;$/;"	m	struct:ccn_reg_closure	typeref:struct:ccn_reg_closure::interest_filter	file:
+interest_filter	../lib/ccn_client.c	/^struct interest_filter { \/* keyed by components of name *\/$/;"	s	file:
+interest_filter	../lib/smoketestclientlib.c	/^static struct ccn_closure interest_filter = {$/;"	v	typeref:struct:ccn_closure	file:
+interest_filters	../lib/ccn_client.c	/^    struct hashtb *interest_filters;$/;"	m	struct:ccn	typeref:struct:ccn::hashtb	file:
+interest_handler	../cmd/dataresponsetest.c	/^interest_handler(struct ccn_closure *selfp,$/;"	f
+interest_msg	../ccnd/ccnd_private.h	/^    unsigned char *interest_msg; \/**< pending interest message *\/$/;"	m	struct:propagating_entry
+interest_msg	../lib/ccn_client.c	/^    unsigned char *interest_msg; \/* the interest message as sent *\/$/;"	m	struct:expressed_interest	file:
+interestbuf	../lib/ccn_client.c	/^    struct ccn_charbuf *interestbuf;$/;"	m	struct:ccn	typeref:struct:ccn::ccn_charbuf	file:
+interests_accepted	../ccnd/ccnd_private.h	/^    unsigned long interests_accepted;$/;"	m	struct:ccnd_handle
+interests_by_prefix	../lib/ccn_client.c	/^    struct hashtb *interests_by_prefix;$/;"	m	struct:ccn	typeref:struct:ccn::hashtb	file:
+interests_by_prefix	../lib/ccn_client.c	/^struct interests_by_prefix { \/* keyed by components of name prefix *\/$/;"	s	file:
+interests_dropped	../ccnd/ccnd_private.h	/^    unsigned long interests_dropped;$/;"	m	struct:ccnd_handle
+interests_possibly_pending	../lib/ccn_seqwriter.c	/^    unsigned char interests_possibly_pending;$/;"	m	struct:ccn_seqwriter	file:
+interests_sent	../ccnd/ccnd_private.h	/^    unsigned long interests_sent;$/;"	m	struct:ccnd_handle
+interests_sent	../cmd/ccncatchunks2.c	/^    intmax_t interests_sent;$/;"	m	struct:mydata	file:
+interests_stuffed	../ccnd/ccnd_private.h	/^    unsigned long interests_stuffed;$/;"	m	struct:ccnd_handle
+internal_client	../ccnd/ccnd_private.h	/^    struct ccn *internal_client;    \/**< internal client *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn
+internal_client_refresh	../ccnd/ccnd_private.h	/^    struct ccn_scheduled_event *internal_client_refresh;$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_scheduled_event
+ipproto	../include/ccn/sockcreate.h	/^    int ipproto; \/**< as per http:\/\/www.iana.org\/assignments\/protocol-numbers -$/;"	m	struct:ccn_sockdescr
+ipv4_faceid	../ccnd/ccnd_private.h	/^    unsigned ipv4_faceid;           \/**< wildcard IPv4, bound to port *\/$/;"	m	struct:ccnd_handle
+ipv6_faceid	../ccnd/ccnd_private.h	/^    unsigned ipv6_faceid;           \/**< wildcard IPv6, bound to port *\/$/;"	m	struct:ccnd_handle
+is_base64binary	../cmd/ccn_xmltoccnb.c	/^    int is_base64binary;$/;"	m	struct:ccn_encoder	file:
+is_ccnb_name	../ccnd/ccndsmoketest.c	/^is_ccnb_name(const char *s)$/;"	f	file:
+is_duplicate_flooded	../ccnd/ccnd.c	/^is_duplicate_flooded(struct ccnd_handle *h, unsigned char *msg,$/;"	f	file:
+is_final	../cmd/ccncatchunks2.c	/^is_final(struct ccn_upcall_info *info)$/;"	f	file:
+is_hexBinary	../cmd/ccn_xmltoccnb.c	/^    int is_hexBinary;$/;"	m	struct:ccn_encoder	file:
+is_left	../lib/ccn_signing.c	96;"	d	file:
+is_text	../cmd/ccn_xmltoccnb.c	/^    int is_text;$/;"	m	struct:ccn_encoder	file:
+is_text_encodable	../cmd/ccn_ccnbtoxml.c	/^is_text_encodable(unsigned char p[], size_t start, size_t length)$/;"	f	file:
+item_size	../lib/hashtb.c	/^    size_t item_size;           \/* Size of client's per-entry data *\/$/;"	m	struct:hashtb	file:
+items	../cmd/dataresponsetest.c	/^    } *items;$/;"	m	struct:handlerstate	typeref:struct:handlerstate::handlerstateitem	file:
+junk	../cmd/ccncatchunks2.c	/^    intmax_t junk;$/;"	m	struct:mydata	file:
+key	../ccnd/ccnd_private.h	/^    const unsigned char *key;   \/**< ccnb-encoded ContentObject *\/$/;"	m	struct:content_entry
+key	../include/ccn/hashtb.h	/^    const void *key;        \/* Key concatenated with extension data *\/$/;"	m	struct:hashtb_enumerator
+key_size	../ccnd/ccnd_private.h	/^    int key_size;               \/**< Size of fragment prior to Content *\/$/;"	m	struct:content_entry
+keys	../lib/ccn_client.c	/^    struct hashtb *keys;    \/* public keys, by pubid *\/$/;"	m	struct:ccn	typeref:struct:ccn::hashtb	file:
+keysize	../include/ccn/hashtb.h	/^    size_t keysize;$/;"	m	struct:hashtb_enumerator
+keysize	../lib/hashtb.c	/^    size_t keysize;$/;"	m	struct:node	file:
+keystores	../lib/ccn_client.c	/^    struct hashtb *keystores;   \/* unlocked private keys *\/$/;"	m	struct:ccn	typeref:struct:ccn::hashtb	file:
+lastcheck	../cmd/ccncatchunks2.c	/^    intmax_t lastcheck;$/;"	m	struct:mydata	file:
+lasttime	../lib/ccn_client.c	/^    struct timeval lasttime;     \/* time most recently expressed *\/$/;"	m	struct:expressed_interest	typeref:struct:expressed_interest::timeval	file:
+lasttime	../lib/ccn_schedule.c	/^    struct ccn_timeval lasttime; \/* actual time when we last checked  *\/$/;"	m	struct:ccn_schedule	typeref:struct:ccn_schedule::ccn_timeval	file:
+lastupdate	../ccnd/ccnd_stats.c	/^    unsigned lastupdate;$/;"	m	struct:ccnd_meter	file:
+len	../lib/ccn_fetch.c	/^	int len;			\/\/ the number of valid bytes$/;"	m	struct:ccn_fetch_buffer	file:
+length	../include/ccn/charbuf.h	/^    size_t length;$/;"	m	struct:ccn_charbuf
+length	../include/ccn/header.h	/^    uintmax_t length;$/;"	m	struct:ccn_header
+lg_bits	../include/ccn/bloom.h	/^    unsigned char lg_bits;  \/* 13 maximum (8 kilobits), 3 minimum (one byte) *\/$/;"	m	struct:ccn_bloom_wire
+lifetime	../include/ccn/face_mgmt.h	/^    int lifetime;$/;"	m	struct:ccn_face_instance
+lifetime	../include/ccn/reg_mgmt.h	/^    int lifetime;$/;"	m	struct:ccn_forwarding_entry
+lifetime_us	../lib/ccn_client.c	/^    int lifetime_us;             \/* interest lifetime in microseconds *\/$/;"	m	struct:expressed_interest	file:
+limit	../include/ccn/charbuf.h	/^    size_t limit;$/;"	m	struct:ccn_charbuf
+limit	../include/ccn/indexbuf.h	/^    size_t limit;$/;"	m	struct:ccn_indexbuf
+link	../cmd/ccn_ccnbtoxml.c	/^    struct ccn_decoder_stack_item *link;$/;"	m	struct:ccn_decoder_stack_item	typeref:struct:ccn_decoder_stack_item::ccn_decoder_stack_item	file:
+link	../cmd/ccn_xmltoccnb.c	/^    struct ccn_encoder_stack_item *link;$/;"	m	struct:ccn_encoder_stack_item	typeref:struct:ccn_encoder_stack_item::ccn_encoder_stack_item	file:
+link	../lib/hashtb.c	/^    struct node* link;$/;"	m	struct:node	typeref:struct:node::node	file:
+link_propagating_interest_to_nameprefix	../ccnd/ccnd.c	/^link_propagating_interest_to_nameprefix(struct ccnd_handle *h,$/;"	f	file:
+list	../lib/ccn_client.c	/^    struct expressed_interest *list;$/;"	m	struct:interests_by_prefix	typeref:struct:interests_by_prefix::expressed_interest	file:
+localClosure	../lib/ccn_fetch.c	/^struct localClosure {$/;"	s	file:
+localConnect	../lib/ccn_fetch.c	/^	int localConnect;$/;"	m	struct:ccn_fetch	file:
+local_scope	../lib/ccn_traverse.c	/^local_scope(struct ccn_charbuf *templ)$/;"	f	file:
+local_scope_rm_template	../cmd/ccnrm.c	/^local_scope_rm_template(void)$/;"	f
+local_scope_template	../libexec/ccndc.c	/^static struct ccn_charbuf *local_scope_template = NULL;$/;"	v	typeref:struct:ccn_charbuf	file:
+localif_for_mcast_addrinfo	../libexec/udplink.c	/^    struct addrinfo *localif_for_mcast_addrinfo;$/;"	m	struct:options	typeref:struct:options::addrinfo	file:
+localport	../libexec/udplink.c	/^    char localport[8];$/;"	m	struct:options	file:
+localsockname	../libexec/udplink.c	/^    const char *localsockname;$/;"	m	struct:options	file:
+logbreak	../ccnd/ccnd_private.h	/^    int logbreak;                   \/**< see ccn_msg() *\/$/;"	m	struct:ccnd_handle
+logger	../ccnd/android_main.c	/^logger(void *loggerdata, const char *format, va_list ap)$/;"	f	file:
+logger	../ccnd/ccnd_private.h	/^    ccnd_logger logger;             \/**< For debug output *\/$/;"	m	struct:ccnd_handle
+loggerdata	../ccnd/ccnd_private.h	/^    void *loggerdata;               \/**< Passed to logger *\/$/;"	m	struct:ccnd_handle
+loggerproc	../ccnd/ccnd.c	/^typedef void (*loggerproc)(void *, const char *, ...);$/;"	t	file:
+logging	../cmd/dataresponsetest.c	/^    int logging;$/;"	m	struct:options	file:
+logging	../libexec/udplink.c	/^    int logging;$/;"	m	struct:options	file:
+logpid	../ccnd/ccnd_private.h	/^    int logpid;                     \/**< see ccn_msg() *\/$/;"	m	struct:ccnd_handle
+logstream	../cmd/ccncatchunks2.c	/^static FILE* logstream = NULL;$/;"	v	file:
+logtime	../ccnd/ccnd_private.h	/^    unsigned long logtime;          \/**< see ccn_msg() *\/$/;"	m	struct:ccnd_handle
+magic	../cmd/ccnls.c	/^    int magic; \/* 856372 *\/$/;"	m	struct:upcalldata	file:
+magic	../cmd/ccnslurp.c	/^    int magic; \/* 856372 *\/$/;"	m	struct:upcalldata	file:
+magic	../include/ccn/ccn.h	/^    int magic;$/;"	m	struct:ccn_parsed_ContentObject
+magic	../include/ccn/ccn.h	/^    int magic;$/;"	m	struct:ccn_parsed_interest
+magic	../lib/ccn_client.c	/^    int magic;                   \/* for sanity checking *\/$/;"	m	struct:expressed_interest	file:
+magic	../lib/ccn_traverse.c	/^    int magic; \/* 68955871 *\/$/;"	m	struct:ccn_traversal	file:
+main	../ccnd/ccnd_main.c	/^main(int argc, char **argv)$/;"	f
+main	../ccnd/ccndsmoketest.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccn_ccnbtoxml.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccn_fetch_test.c	/^main(int argc, string *argv) {$/;"	f
+main	../cmd/ccn_splitccnb.c	/^main(int argc, char *argv[])$/;"	f
+main	../cmd/ccn_xmltoccnb.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnbasicconfig.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnbuzz.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnbx.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccncat.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccncatchunks.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccncatchunks2.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccndumpnames.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccndumppcap.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnget.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnhexdumpdata.c	/^main(int argc, char *argv[])$/;"	f
+main	../cmd/ccnls.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnput.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnrm.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnsendchunks.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnseqwriter.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnsimplecat.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccnslurp.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/ccntimefromdatetime.c	/^main(int argc, char **argv)$/;"	f
+main	../cmd/dataresponsetest.c	/^main (int argc, char *argv[]) {$/;"	f
+main	../lib/basicparsetest.c	/^main (int argc, char **argv)$/;"	f
+main	../lib/ccn_verifysig.c	/^main(int argc, char **argv)$/;"	f
+main	../lib/encodedecodetest.c	/^main (int argc, char *argv[]) {$/;"	f
+main	../lib/hashtbtest.c	/^main(int argc, char **argv)$/;"	f
+main	../lib/matrixtest.c	/^main(int argc, char **argv)$/;"	f
+main	../lib/signbenchtest.c	/^main(int argc, char **argv)$/;"	f
+main	../lib/skel_decode_test.c	/^main(int argc, char **argv)$/;"	f
+main	../lib/smoketestclientlib.c	/^main(int argc, char **argv)$/;"	f
+main	../libexec/ccndc.c	/^main(int argc, char **argv)$/;"	f
+main	../libexec/udplink.c	/^main (int argc, char * const argv[]) {$/;"	f
+make_connection	../ccnd/ccnd.c	/^make_connection(struct ccnd_handle *h,$/;"	f	file:
+make_data_template	../lib/ccn_fetch.c	/^make_data_template(int maxSuffix) {$/;"	f	file:
+make_partition	../cmd/ccnbuzz.c	/^make_partition(unsigned i, int lg_n)$/;"	f	file:
+make_template	../cmd/ccnbuzz.c	/^make_template(struct mydata *md, struct ccn_upcall_info *info, struct ccn_bloom *b)$/;"	f
+make_template	../cmd/ccncat.c	/^make_template(int allow_stale, int scope)$/;"	f
+make_template	../cmd/ccncatchunks.c	/^make_template(struct mydata *md, struct ccn_upcall_info *info)$/;"	f
+make_template	../cmd/ccncatchunks2.c	/^make_template(struct mydata *md)$/;"	f
+make_template	../cmd/ccnsimplecat.c	/^make_template(struct mydata *md, struct ccn_upcall_info *info)$/;"	f
+mark_stale	../ccnd/ccnd.c	/^mark_stale(struct ccnd_handle *h, struct content_entry *content)$/;"	f	file:
+match_components	../cmd/dataresponsetest.c	/^match_components(unsigned char *msg1, struct ccn_indexbuf *comp1,$/;"	f
+match_interests	../ccnd/ccnd.c	/^match_interests(struct ccnd_handle *h, struct content_entry *content,$/;"	f	file:
+matched_comps	../include/ccn/ccn.h	/^    int matched_comps;$/;"	m	struct:ccn_upcall_info
+max	../lib/ccn_fetch.c	/^	int max;			\/\/ the buffer size$/;"	m	struct:ccn_fetch_buffer	file:
+maxBufs	../lib/ccn_fetch.c	/^	int maxBufs;			\/\/ max number of buffers allowed$/;"	m	struct:ccn_fetch_stream	file:
+maxSegs	../cmd/ccn_fetch_test.c	/^	int maxSegs;$/;"	m	struct:MyParms	file:
+maxStreams	../lib/ccn_fetch.c	/^	int maxStreams;$/;"	m	struct:ccn_fetch	file:
+max_stale	../ccnd/ccnd_private.h	/^    ccn_accession_t max_stale;      \/**< largest accession of stale content *\/$/;"	m	struct:ccnd_handle
+max_suffix_comps	../include/ccn/ccn.h	/^    int max_suffix_comps;$/;"	m	struct:ccn_parsed_interest
+maxwindow	../cmd/ccncatchunks2.c	/^    unsigned maxwindow;$/;"	m	struct:mydata	file:
+mcast_ttl	../include/ccn/sockcreate.h	/^    int mcast_ttl;              \/**< may be needed for multicast *\/$/;"	m	struct:ccn_sockdescr
+meta	../lib/ccn_header.c	/^const unsigned char meta[8] = {CCN_MARKER_CONTROL, '.', 'M', 'E', 'T', 'A', '.', 'M'};$/;"	v
+meter	../ccnd/ccnd_private.h	/^    struct ccnd_meter *meter[CCND_FACE_METER_N];$/;"	m	struct:face	typeref:struct:face::ccnd_meter
+meterHz	../ccnd/ccnd_stats.c	/^static const unsigned meterHz = 7; \/* 1\/ln(8\/7) would give RC const of 1 sec *\/$/;"	v	file:
+method	../include/ccn/bloom.h	/^    unsigned char method;   \/* allow for various hashing algorithms *\/$/;"	m	struct:ccn_bloom_wire
+micros	../include/ccn/schedule.h	/^    unsigned micros;$/;"	m	struct:ccn_timeval
+micros_per_base	../include/ccn/schedule.h	/^    unsigned micros_per_base;  \/* e.g., 1000000 for seconds, microseconds *\/$/;"	m	struct:ccn_gettime
+min_stale	../ccnd/ccnd_private.h	/^    ccn_accession_t min_stale;      \/**< smallest accession of stale content *\/$/;"	m	struct:ccnd_handle
+min_suffix_comps	../include/ccn/ccn.h	/^    int min_suffix_comps;$/;"	m	struct:ccn_parsed_interest
+min_usec	../ccnd/ccnd_private.h	/^    unsigned min_usec;               \/**< minimum delay for this queue *\/$/;"	m	struct:content_queue
+mtu	../ccnd/ccnd_private.h	/^    int mtu;                        \/**< Target size for stuffing interests *\/$/;"	m	struct:ccnd_handle
+multicastttl	../libexec/udplink.c	/^    int multicastttl;$/;"	m	struct:options	file:
+my_gettime	../lib/ccn_schedule.c	/^my_gettime(const struct ccn_gettime *self, struct ccn_timeval *result)$/;"	f	file:
+mydata	../cmd/ccnbuzz.c	/^struct mydata {$/;"	s	file:
+mydata	../cmd/ccncatchunks.c	/^struct mydata {$/;"	s	file:
+mydata	../cmd/ccncatchunks2.c	/^struct mydata {$/;"	s	file:
+mydata	../cmd/ccnrm.c	/^struct mydata {$/;"	s	file:
+mydata	../cmd/ccnrm.c	/^} mydata = {0, NULL};$/;"	v	typeref:struct:mydata	file:
+mydata	../cmd/ccnsendchunks.c	/^struct mydata {$/;"	s	file:
+mydata	../cmd/ccnsimplecat.c	/^struct mydata {$/;"	s	file:
+mygettime	../cmd/ccncatchunks2.c	/^mygettime(const struct ccn_gettime *self, struct ccn_timeval *result)$/;"	f	file:
+myticker	../cmd/ccncatchunks2.c	/^static struct ccn_gettime myticker = {$/;"	v	typeref:struct:ccn_gettime	file:
+n	../include/ccn/indexbuf.h	/^    size_t n;$/;"	m	struct:ccn_indexbuf
+n	../lib/ccn_bloom.c	/^    int n;$/;"	m	struct:ccn_bloom	file:
+n	../lib/hashtb.c	/^    int n;                      \/* Number of entries *\/$/;"	m	struct:hashtb	file:
+nBufs	../lib/ccn_fetch.c	/^	int nBufs;				\/\/ the number of buffers allocated$/;"	m	struct:ccn_fetch_stream	file:
+nStreams	../lib/ccn_fetch.c	/^	int nStreams;$/;"	m	struct:ccn_fetch	file:
+n_buckets	../lib/hashtb.c	/^    unsigned n_buckets;$/;"	m	struct:hashtb	file:
+n_excl	../cmd/ccnls.c	/^    int n_excl;$/;"	m	struct:upcalldata	file:
+n_excl	../cmd/ccnslurp.c	/^    int n_excl;$/;"	m	struct:upcalldata	file:
+n_excl	../lib/ccn_traverse.c	/^    int n_excl;$/;"	m	struct:ccn_traversal	file:
+n_hash	../include/ccn/bloom.h	/^    unsigned char n_hash;   \/* number of hash functions to employ *\/$/;"	m	struct:ccn_bloom_wire
+n_stale	../ccnd/ccnd_private.h	/^    unsigned long n_stale;          \/**< Number of stale content objects *\/$/;"	m	struct:ccnd_handle
+name	../cmd/ccncatchunks2.c	/^    struct ccn_charbuf *name;$/;"	m	struct:mydata	typeref:struct:mydata::ccn_charbuf	file:
+name	../include/ccn/coding.h	/^    const char *name;       \/**< textual name of dtag *\/$/;"	m	struct:ccn_dict_entry
+name	../lib/ccn_fetch.c	/^	struct ccn_charbuf *name;			\/\/ interest name (without seq#)$/;"	m	struct:ccn_fetch_stream	typeref:struct:ccn_fetch_stream::ccn_charbuf	file:
+name_ncomps	../include/ccn/ccn.h	/^    int name_ncomps;$/;"	m	struct:ccn_parsed_ContentObject
+name_prefix	../include/ccn/reg_mgmt.h	/^    struct ccn_charbuf *name_prefix;$/;"	m	struct:ccn_forwarding_entry	typeref:struct:ccn_forwarding_entry::ccn_charbuf
+name_prefix	../lib/ccn_bulkdata.c	/^    struct ccn_charbuf *name_prefix;$/;"	m	struct:bulkdata	typeref:struct:bulkdata::ccn_charbuf	file:
+namecompare	../cmd/ccnls.c	/^namecompare(const void *a, const void *b)$/;"	f	file:
+namecompare	../cmd/ccnslurp.c	/^namecompare(const void *a, const void *b)$/;"	f	file:
+namecompare	../lib/ccn_traverse.c	/^namecompare(const void *a, const void *b)$/;"	f	file:
+nameindex	../cmd/ccn_ccnbtoxml.c	/^    size_t nameindex; \/* byte index into stringstack *\/$/;"	m	struct:ccn_decoder_stack_item	file:
+nameprefix_entry	../ccnd/ccnd_private.h	/^struct nameprefix_entry {$/;"	s
+nameprefix_for_pe	../ccnd/ccnd.c	/^nameprefix_for_pe(struct ccnd_handle *h, struct propagating_entry *pe)$/;"	f	file:
+nameprefix_longest_match	../ccnd/ccnd.c	/^nameprefix_longest_match(struct ccnd_handle *h, const unsigned char *msg,$/;"	f
+nameprefix_seek	../ccnd/ccnd.c	/^nameprefix_seek(struct ccnd_handle *h, struct hashtb_enumerator *e,$/;"	f	file:
+nameprefix_tab	../ccnd/ccnd_private.h	/^    struct hashtb *nameprefix_tab;  \/**< keyed by name prefix components *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::hashtb
+nb	../lib/ccn_seqwriter.c	/^    struct ccn_charbuf *nb;$/;"	m	struct:ccn_seqwriter	typeref:struct:ccn_seqwriter::ccn_charbuf	file:
+ncomps	../ccnd/ccnd_private.h	/^    int ncomps;                 \/**< Number of name components plus one *\/$/;"	m	struct:content_entry
+neighbor_ccnb	../ccnd/ccnd_private.h	/^    struct ccn_charbuf *neighbor_ccnb; \/**< for neighbor service discovery *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_charbuf
+nest	../include/ccn/coding.h	/^    int nest;               \/**< Element nesting *\/$/;"	m	struct:ccn_skeleton_decoder
+newStringCopy	../lib/ccn_fetch.c	/^newStringCopy(const char *src) {$/;"	f	file:
+next	../ccnd/ccnd_private.h	/^    struct ccn_forwarding *next;$/;"	m	struct:ccn_forwarding	typeref:struct:ccn_forwarding::ccn_forwarding
+next	../ccnd/ccnd_private.h	/^    struct propagating_entry *next;$/;"	m	struct:propagating_entry	typeref:struct:propagating_entry::propagating_entry
+next	../cmd/dataresponsetest.c	/^    int next;$/;"	m	struct:handlerstate	file:
+next	../lib/ccn_bulkdata.c	/^    struct pending *next;$/;"	m	struct:pending	typeref:struct:pending::pending	file:
+next	../lib/ccn_client.c	/^    struct expressed_interest *next; \/* link to next in list *\/$/;"	m	struct:expressed_interest	typeref:struct:expressed_interest::expressed_interest	file:
+next	../lib/ccn_fetch.c	/^	struct ccn_fetch_buffer *next;$/;"	m	struct:ccn_fetch_buffer	typeref:struct:ccn_fetch_buffer::ccn_fetch_buffer	file:
+next	../lib/ccn_fetch.c	/^	struct localClosure *next;$/;"	m	struct:localClosure	typeref:struct:localClosure::localClosure	file:
+next	../libexec/ccndc.c	/^    struct prefix_face_list_item *next;$/;"	m	struct:prefix_face_list_item	typeref:struct:prefix_face_list_item::prefix_face_list_item	file:
+next_child_at_level	../ccnd/ccnd.c	/^next_child_at_level(struct ccnd_handle *h,$/;"	f	file:
+next_expected	../lib/ccn_bulkdata.c	/^    uintmax_t next_expected;        \/* smallest undelivered sequence number *\/$/;"	m	struct:bulkdata	file:
+nfds	../ccnd/ccnd_private.h	/^    nfds_t nfds;                    \/**< number of entries in fds array *\/$/;"	m	struct:ccnd_handle
+no_name	../libexec/ccndc.c	/^static struct ccn_charbuf *no_name = NULL;$/;"	v	typeref:struct:ccn_charbuf	file:
+node	../include/ccn/merklepathasn1.h	/^    ASN1_INTEGER *node;$/;"	m	struct:MP_info_st
+node	../lib/hashtb.c	/^struct node {$/;"	s	file:
+node_lr	../lib/ccn_signing.c	97;"	d	file:
+nointerest	../cmd/dataresponsetest.c	/^    int nointerest;$/;"	m	struct:options	file:
+note_content_from	../ccnd/ccnd.c	/^note_content_from(struct ccnd_handle *h,$/;"	f	file:
+notice	../ccnd/ccnd_private.h	/^    struct ccn_seqwriter *notice;   \/**< for notices of status changes *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_seqwriter
+notice_push	../ccnd/ccnd_private.h	/^    struct ccn_scheduled_event *notice_push;$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_scheduled_event
+now	../lib/ccn_client.c	/^    struct timeval now;$/;"	m	struct:ccn	typeref:struct:ccn::timeval	file:
+now	../lib/ccn_schedule.c	/^    int now;         \/* internal micros corresponding to lasttime  *\/$/;"	m	struct:ccn_schedule	file:
+nrun	../ccnd/ccnd_private.h	/^    unsigned nrun;                   \/**< # sent since last randomized delay *\/$/;"	m	struct:content_queue
+nseen	../cmd/ccnrm.c	/^    int nseen;$/;"	m	struct:mydata	file:
+numval	../cmd/ccn_ccnbtoxml.c	/^    size_t numval;$/;"	m	struct:ccn_decoder	file:
+numval	../include/ccn/coding.h	/^    size_t numval;          \/**< Current numval, meaning depends on state *\/$/;"	m	struct:ccn_skeleton_decoder
+nv	../lib/ccn_seqwriter.c	/^    struct ccn_charbuf *nv;$/;"	m	struct:ccn_seqwriter	typeref:struct:ccn_seqwriter::ccn_charbuf	file:
+offset	../include/ccn/ccn.h	/^    unsigned short offset[CCN_PCO_E+1];$/;"	m	struct:ccn_parsed_ContentObject
+offset	../include/ccn/ccn.h	/^    unsigned short offset[CCN_PI_E+1];$/;"	m	struct:ccn_parsed_interest
+oldformatcontent	../ccnd/ccnd_private.h	/^    unsigned long oldformatcontent;$/;"	m	struct:ccnd_handle
+oldformatcontentgrumble	../ccnd/ccnd_private.h	/^    unsigned long oldformatcontentgrumble;$/;"	m	struct:ccnd_handle
+oldformatinterestgrumble	../ccnd/ccnd_private.h	/^    unsigned long oldformatinterestgrumble;$/;"	m	struct:ccnd_handle
+oldformatinterests	../ccnd/ccnd_private.h	/^    unsigned long oldformatinterests;$/;"	m	struct:ccnd_handle
+on_error_exit	../libexec/ccndc.c	/^on_error_exit(int res, int lineno, const char *msg)$/;"	f	file:
+ooo	../cmd/ccncatchunks2.c	/^    struct ooodata ooo[PIPELIMIT];$/;"	m	struct:mydata	typeref:struct:mydata::ooodata	file:
+ooo_base	../cmd/ccncatchunks2.c	/^    unsigned ooo_base;$/;"	m	struct:mydata	file:
+ooo_count	../cmd/ccncatchunks2.c	/^    unsigned ooo_count;$/;"	m	struct:mydata	file:
+ooodata	../cmd/ccncatchunks2.c	/^struct ooodata {$/;"	s	file:
+open_local	../ccnd/ccndsmoketest.c	/^open_local(struct sockaddr_un *sa, const char *verb)$/;"	f	file:
+open_socket	../ccnd/ccndsmoketest.c	/^open_socket(const char *host, const char *portstr, int sock_type)$/;"	f	file:
+openudata	../cmd/ccn_xmltoccnb.c	/^    struct ccn_charbuf *openudata;$/;"	m	struct:ccn_encoder	typeref:struct:ccn_encoder::ccn_charbuf	file:
+option	../cmd/ccnls.c	/^    unsigned option;$/;"	m	struct:upcalldata	file:
+options	../cmd/dataresponsetest.c	/^static struct options {$/;"	s	file:
+options	../cmd/dataresponsetest.c	/^} options = {0, 0, 0};$/;"	v	typeref:struct:options	file:
+options	../libexec/udplink.c	/^static struct options {$/;"	s	file:
+options	../libexec/udplink.c	/^} options = {NULL, NULL, NULL, "", "", 0, 0, 0};$/;"	v	typeref:struct:options	file:
+orderpref	../include/ccn/ccn.h	/^    int orderpref;$/;"	m	struct:ccn_parsed_interest
+orders	../include/ccn/hashtb.h	/^    int orders;                    \/* default is 0 *\/$/;"	m	struct:hashtb_param
+osrc	../ccnd/ccnd_private.h	/^    unsigned osrc;               \/**< and of older matching content *\/$/;"	m	struct:nameprefix_entry
+out	../cmd/ccn_fetch_test.c	/^	FILE *out;$/;"	m	struct:TestElemStruct	file:
+outbound	../ccnd/ccnd_private.h	/^    struct ccn_indexbuf *outbound; \/**< in order of use *\/$/;"	m	struct:propagating_entry	typeref:struct:propagating_entry::ccn_indexbuf
+outbuf	../ccnd/ccnd_private.h	/^    struct ccn_charbuf *outbuf;$/;"	m	struct:face	typeref:struct:face::ccn_charbuf
+outbuf	../lib/ccn_client.c	/^    struct ccn_charbuf *outbuf;$/;"	m	struct:ccn	typeref:struct:ccn::ccn_charbuf	file:
+outbufindex	../ccnd/ccnd_private.h	/^    size_t outbufindex;$/;"	m	struct:face
+outbufindex	../lib/ccn_client.c	/^    size_t outbufindex;$/;"	m	struct:ccn	file:
+outfile	../cmd/ccn_xmltoccnb.c	/^    FILE *outfile;$/;"	m	struct:ccn_encoder	file:
+outgoing_content	../lib/smoketestclientlib.c	/^outgoing_content(struct ccn_closure *selfp,$/;"	f
+output	../cmd/ccn_xmltoccnb.c	/^    unsigned char *output;$/;"	m	struct:base64_decoder	file:
+output	../cmd/ccnrm.c	/^    FILE *output;$/;"	m	struct:mydata	file:
+output_size	../cmd/ccn_xmltoccnb.c	/^    size_t output_size;$/;"	m	struct:base64_decoder	file:
+outstanding	../cmd/ccnsendchunks.c	/^    int outstanding;$/;"	m	struct:mydata	file:
+outstanding	../lib/ccn_client.c	/^    int outstanding;             \/* number currently outstanding (0 or 1) *\/$/;"	m	struct:expressed_interest	file:
+p	../include/ccn/ccn.h	/^    ccn_handler p;      \/**< client-supplied handler *\/$/;"	m	struct:ccn_closure
+param	../lib/hashtb.c	/^    struct hashtb_param param;  \/* saved client parameters *\/$/;"	m	struct:hashtb	typeref:struct:hashtb::hashtb_param	file:
+parent	../ccnd/ccnd_private.h	/^    struct nameprefix_entry *parent; \/**< link to next-shorter prefix *\/$/;"	m	struct:nameprefix_entry	typeref:struct:nameprefix_entry::nameprefix_entry
+parent	../lib/ccn_bulkdata.c	/^    struct bulkdata *parent;$/;"	m	struct:pending	typeref:struct:pending::bulkdata	file:
+parent	../lib/ccn_fetch.c	/^	struct ccn_fetch *parent;$/;"	m	struct:ccn_fetch_stream	typeref:struct:ccn_fetch_stream::ccn_fetch	file:
+parent_of	../lib/ccn_signing.c	99;"	d	file:
+parsed_KeyName	../lib/ccn_buf_decoder.c	/^struct parsed_KeyName {$/;"	s	file:
+partial	../cmd/ccn_xmltoccnb.c	/^    unsigned partial;$/;"	m	struct:base64_decoder	file:
+passive_templ	../cmd/ccnslurp.c	/^static struct ccn_charbuf *passive_templ;$/;"	v	typeref:struct:ccn_charbuf	file:
+path	../lib/encodedecodetest.c	/^struct path {$/;"	s	file:
+path_create	../lib/encodedecodetest.c	/^struct path * path_create(char * strpath) {$/;"	f
+path_destroy	../lib/encodedecodetest.c	/^void path_destroy(struct path **path) {$/;"	f
+pco	../include/ccn/ccn.h	/^    struct ccn_parsed_ContentObject *pco;$/;"	m	struct:ccn_upcall_info	typeref:struct:ccn_upcall_info::ccn_parsed_ContentObject
+pcobuf	../lib/ccn_client.c	/^    struct ccn_parsed_ContentObject *pcobuf;$/;"	m	struct:simple_get_data	typeref:struct:simple_get_data::ccn_parsed_ContentObject	file:
+pe_head	../ccnd/ccnd_private.h	/^    struct propagating_entry pe_head; \/**< list head for propagating entries *\/$/;"	m	struct:nameprefix_entry	typeref:struct:nameprefix_entry::propagating_entry
+pe_next_usec	../ccnd/ccnd.c	/^pe_next_usec(struct ccnd_handle *h,$/;"	f	file:
+pending	../lib/ccn_bulkdata.c	/^struct pending {$/;"	s	file:
+pending_interests	../ccnd/ccnd_private.h	/^    int pending_interests;$/;"	m	struct:face
+phase	../cmd/ccn_xmltoccnb.c	/^    int phase;$/;"	m	struct:base64_decoder	file:
+pi	../include/ccn/ccn.h	/^    struct ccn_parsed_interest *pi;$/;"	m	struct:ccn_upcall_info	typeref:struct:ccn_upcall_info::ccn_parsed_interest
+pkts_recvd	../cmd/ccncatchunks2.c	/^    intmax_t pkts_recvd;$/;"	m	struct:mydata	file:
+pktseq	../ccnd/ccnd_private.h	/^    unsigned short pktseq;     \/**< sequence number for sent packets *\/$/;"	m	struct:face
+port	../include/ccn/sockcreate.h	/^    const char *port;           \/**< service name or number *\/$/;"	m	struct:ccn_sockdescr
+portstr	../ccnd/ccnd_private.h	/^    const char *portstr;            \/**< "main" port number *\/$/;"	m	struct:ccnd_handle
+pos	../lib/ccn_fetch.c	/^	intmax_t pos;		\/\/ the base byte position for this segment$/;"	m	struct:ccn_fetch_buffer	file:
+post_face_notice	../ccnd/ccnd_internal_client.c	/^post_face_notice(struct ccnd_handle *ccnd, unsigned faceid)$/;"	f	file:
+prefix	../cmd/ccn_splitccnb.c	/^    char *prefix;$/;"	m	struct:fstate	file:
+prefix	../cmd/ccnhexdumpdata.c	/^    char *prefix;$/;"	m	struct:fstate	file:
+prefix	../libexec/ccndc.c	/^    struct ccn_charbuf *prefix;$/;"	m	struct:prefix_face_list_item	typeref:struct:prefix_face_list_item::ccn_charbuf	file:
+prefix_comps	../include/ccn/ccn.h	/^    int prefix_comps;$/;"	m	struct:ccn_parsed_interest
+prefix_comps	../lib/ccn_bulkdata.c	/^    int prefix_comps;$/;"	m	struct:bulkdata	file:
+prefix_face_list_destroy	../libexec/ccndc.c	/^static void prefix_face_list_destroy(struct prefix_face_list_item **pflpp)$/;"	f	file:
+prefix_face_list_item	../libexec/ccndc.c	/^struct prefix_face_list_item {$/;"	s	file:
+prefix_face_list_item_create	../libexec/ccndc.c	/^static struct prefix_face_list_item *prefix_face_list_item_create(struct ccn_charbuf *prefix,$/;"	f	file:
+prepare_poll_fds	../ccnd/ccnd.c	/^prepare_poll_fds(struct ccnd_handle *h)$/;"	f	file:
+prev	../ccnd/ccnd_private.h	/^    struct propagating_entry *prev;$/;"	m	struct:propagating_entry	typeref:struct:propagating_entry::propagating_entry
+prev	../lib/ccn_bulkdata.c	/^    struct pending *prev;           \/* links for doubly-linked list *\/$/;"	m	struct:pending	typeref:struct:pending::pending	file:
+print_percent_escaped	../cmd/ccn_ccnbtoxml.c	/^print_percent_escaped(const unsigned char *data, size_t size)$/;"	f	file:
+print_summary	../cmd/ccncatchunks2.c	/^print_summary(struct mydata *md)$/;"	f
+printraw	../ccnd/ccndsmoketest.c	/^printraw(char *p, int n)$/;"	f	file:
+printraw	../lib/smoketestclientlib.c	/^void printraw(const void *r, int n)$/;"	f
+priv	../include/ccn/hashtb.h	/^    void *priv[3];$/;"	m	struct:hashtb_enumerator
+private_key	../lib/ccn_keystore.c	/^    EVP_PKEY *private_key;$/;"	m	struct:ccn_keystore	file:
+process_command_tokens	../libexec/ccndc.c	/^process_command_tokens(struct prefix_face_list_item *pfltail,$/;"	f	file:
+process_data	../cmd/ccn_ccnbtoxml.c	/^process_data(struct ccn_decoder *d, unsigned char *data, size_t n)$/;"	f	file:
+process_fd	../cmd/ccn_ccnbtoxml.c	/^process_fd(struct ccn_decoder *d, int fd)$/;"	f	file:
+process_fd	../cmd/ccn_splitccnb.c	/^process_fd(int fd, struct fstate *perfilestate)$/;"	f	file:
+process_fd	../cmd/ccn_xmltoccnb.c	/^process_fd(int fd, FILE *outfile, int flags, const struct ccn_dict *dtags)$/;"	f	file:
+process_fd	../cmd/ccndumppcap.c	/^process_fd(pcap_dumper_t *pcap_out, int fd, int content_only,$/;"	f	file:
+process_fd	../cmd/ccnhexdumpdata.c	/^process_fd(int fd, struct fstate *perfilestate)$/;"	f	file:
+process_fd	../lib/skel_decode_test.c	/^process_fd(int fd, int flags)$/;"	f	file:
+process_file	../cmd/ccn_ccnbtoxml.c	/^process_file(char *path, int formatting_flags, const struct ccn_dict *dtags)$/;"	f	file:
+process_file	../cmd/ccn_splitccnb.c	/^process_file(char *path, struct fstate *perfilestate)$/;"	f	file:
+process_file	../cmd/ccn_xmltoccnb.c	/^process_file(char *path, int flags, const struct ccn_dict *dtags)$/;"	f	file:
+process_file	../cmd/ccnhexdumpdata.c	/^process_file(char *path, struct fstate *perfilestate)$/;"	f	file:
+process_file	../lib/skel_decode_test.c	/^process_file(char *path, int flags)$/;"	f	file:
+process_incoming_content	../ccnd/ccnd.c	/^process_incoming_content(struct ccnd_handle *h, struct face *face,$/;"	f	file:
+process_incoming_interest	../ccnd/ccnd.c	/^process_incoming_interest(struct ccnd_handle *h, struct face *face,$/;"	f	file:
+process_incoming_link_message	../ccnd/ccnd.c	/^process_incoming_link_message(struct ccnd_handle *h,$/;"	f	file:
+process_input	../ccnd/ccnd.c	/^process_input(struct ccnd_handle *h, int fd)$/;"	f	file:
+process_input_buffer	../ccnd/ccnd.c	/^process_input_buffer(struct ccnd_handle *h, struct face *face)$/;"	f	file:
+process_input_message	../ccnd/ccnd.c	/^process_input_message(struct ccnd_handle *h, struct face *face,$/;"	f	file:
+process_internal_client_buffer	../ccnd/ccnd.c	/^process_internal_client_buffer(struct ccnd_handle *h)$/;"	f	file:
+process_options	../libexec/udplink.c	/^void process_options(int argc, char * const argv[], struct options *opt) {$/;"	f
+process_prefix_face_list_item	../libexec/ccndc.c	/^process_prefix_face_list_item(struct ccn *h,$/;"	f
+process_split_file	../cmd/ccn_ccnbtoxml.c	/^process_split_file(char *base, char *path, int formatting_flags,$/;"	f	file:
+process_test	../cmd/ccn_splitccnb.c	/^process_test(unsigned char *data, size_t n, struct fstate *perfilestate)$/;"	f	file:
+process_test	../cmd/ccndumppcap.c	/^process_test(pcap_dumper_t *pcap_out, int content_only,$/;"	f	file:
+process_test	../cmd/ccnhexdumpdata.c	/^process_test(unsigned char *data, size_t n, struct fstate *perfilestate)$/;"	f	file:
+process_test	../lib/skel_decode_test.c	/^process_test(unsigned char *data, size_t n, int flags)$/;"	f	file:
+progname	../ccnd/ccnd_private.h	/^    const char *progname;           \/**< our name, for locating helpers *\/$/;"	m	struct:ccnd_handle
+promote_outbound	../ccnd/ccnd.c	/^promote_outbound(struct propagating_entry *pe, unsigned faceid)$/;"	f	file:
+propagate_interest	../ccnd/ccnd.c	/^propagate_interest(struct ccnd_handle *h,$/;"	f	file:
+propagating_entry	../ccnd/ccnd_private.h	/^struct propagating_entry {$/;"	s
+propagating_tab	../ccnd/ccnd_private.h	/^    struct hashtb *propagating_tab; \/**< keyed by nonce *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::hashtb
+pubid	../include/ccn/ccn.h	/^    unsigned char pubid[32];$/;"	m	struct:ccn_signing_params
+pubkey_digest	../lib/ccn_keystore.c	/^    unsigned char pubkey_digest[SHA256_DIGEST_LENGTH];$/;"	m	struct:ccn_keystore	file:
+pubkey_digest_length	../lib/ccn_keystore.c	/^    ssize_t pubkey_digest_length;$/;"	m	struct:ccn_keystore	file:
+public_key	../lib/ccn_keystore.c	/^    EVP_PKEY *public_key;$/;"	m	struct:ccn_keystore	file:
+q	../ccnd/ccnd_private.h	/^    struct content_queue *q[CCN_CQ_N]; \/**< outgoing content, per delay class *\/$/;"	m	struct:face	typeref:struct:face::content_queue
+qsort_compare_dict_indices	../lib/ccn_extend_dict.c	/^qsort_compare_dict_indices(const void *x, const void *y)$/;"	f	file:
+qsort_compare_dict_names	../lib/ccn_extend_dict.c	/^qsort_compare_dict_names(const void *x, const void *y)$/;"	f	file:
+query_srv	../libexec/ccndc.c	/^int query_srv(const unsigned char *domain, int domain_size,$/;"	f
+rand_usec	../ccnd/ccnd_private.h	/^    unsigned rand_usec;              \/**< randomization range *\/$/;"	m	struct:content_queue
+randomize_content_delay	../ccnd/ccnd.c	/^randomize_content_delay(struct ccnd_handle *h, struct content_queue *q)$/;"	f	file:
+rate	../ccnd/ccnd_stats.c	/^    unsigned rate; \/** a scale factor applies *\/$/;"	m	struct:ccnd_meter	file:
+raw_data	../cmd/ccncatchunks2.c	/^    unsigned char *raw_data;        \/* content that has arrived out-of-order *\/$/;"	m	struct:ooodata	file:
+raw_data_size	../cmd/ccncatchunks2.c	/^    size_t raw_data_size;           \/* its size (plus 1) in bytes *\/$/;"	m	struct:ooodata	file:
+rawbuf	../ccnd/ccndsmoketest.c	/^char rawbuf[1024*1024];$/;"	v
+rawbuf	../lib/ccn_verifysig.c	/^static unsigned char rawbuf[8801];$/;"	v	file:
+rawbuf	../lib/smoketestclientlib.c	/^static unsigned char rawbuf[1024*1024];$/;"	v	file:
+rawlen	../lib/smoketestclientlib.c	/^static ssize_t rawlen;$/;"	v	file:
+readPosition	../lib/ccn_fetch.c	/^	intmax_t readPosition;	\/\/ the read position (always assigned)$/;"	m	struct:ccn_fetch_stream	file:
+readSeg	../lib/ccn_fetch.c	/^	seg_t readSeg;			\/\/ the segment for the readPosition$/;"	m	struct:ccn_fetch_stream	file:
+readStart	../lib/ccn_fetch.c	/^	intmax_t readStart;		\/\/ the read position at segment start$/;"	m	struct:ccn_fetch_stream	file:
+read_configfile	../libexec/ccndc.c	/^read_configfile(const char *filename, struct prefix_face_list_item *pfltail)$/;"	f	file:
+read_full	../cmd/ccnput.c	/^read_full(int fd, unsigned char *buf, size_t size)$/;"	f	file:
+read_full	../cmd/ccnsendchunks.c	/^read_full(int fd, unsigned char *buf, size_t size)$/;"	f
+ready	../ccnd/ccnd_private.h	/^    unsigned ready;                  \/**< # that have waited enough *\/$/;"	m	struct:content_queue
+ready	../lib/ccn_digest.c	/^    short ready;$/;"	m	struct:ccn_digest	file:
+reap	../ccnd/ccnd.c	/^reap($/;"	f	file:
+reap_needed	../ccnd/ccnd.c	/^reap_needed(struct ccnd_handle *h, int init_delay_usec)$/;"	f	file:
+reaper	../ccnd/ccnd_private.h	/^    struct ccn_scheduled_event *reaper;$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_scheduled_event
+reconnect	../cmd/dataresponsetest.c	/^    int reconnect;$/;"	m	struct:options	file:
+record_connection	../ccnd/ccnd.c	/^record_connection(struct ccnd_handle *h, int fd,$/;"	f	file:
+recv_fd	../ccnd/ccnd_private.h	/^    int recv_fd;                \/**< socket for receiving *\/$/;"	m	struct:face
+recvcount	../ccnd/ccnd_private.h	/^    unsigned recvcount;         \/**< for activity level monitoring *\/$/;"	m	struct:face
+recving	../include/ccn/sockcreate.h	/^    int recving;    \/**< file descriptor to use for input (recv) *\/$/;"	m	struct:ccn_sockets
+refcount	../include/ccn/ccn.h	/^    int refcount;       \/**< client should not update this directly *\/$/;"	m	struct:ccn_closure
+refcount	../lib/hashtb.c	/^    int refcount;               \/* Number of open enumerators *\/$/;"	m	struct:hashtb	file:
+refresh_us	../lib/ccn_client.c	/^    int refresh_us;$/;"	m	struct:ccn	file:
+register_new_face	../ccnd/ccnd.c	/^register_new_face(struct ccnd_handle *h, struct face *face)$/;"	f	file:
+register_unregister_prefix	../libexec/ccndc.c	/^register_unregister_prefix(struct ccn *h,$/;"	f	file:
+remotehostname	../libexec/udplink.c	/^    const char *remotehostname;$/;"	m	struct:options	file:
+remoteifindex	../libexec/udplink.c	/^    unsigned int remoteifindex;$/;"	m	struct:options	file:
+remoteport	../libexec/udplink.c	/^    char remoteport[8];$/;"	m	struct:options	file:
+remove_content	../ccnd/ccnd.c	/^remove_content(struct ccnd_handle *h, struct content_entry *content)$/;"	f	file:
+reorder_outbound_using_history	../ccnd/ccnd.c	/^reorder_outbound_using_history(struct ccnd_handle *h,$/;"	f	file:
+replace_interest_msg	../lib/ccn_client.c	/^replace_interest_msg(struct expressed_interest *interest,$/;"	f	file:
+replan_propagation	../ccnd/ccnd.c	/^replan_propagation(struct ccnd_handle *h, struct propagating_entry *pe)$/;"	f	file:
+report	../cmd/ccncatchunks2.c	/^    struct ccn_scheduled_event *report;$/;"	m	struct:mydata	typeref:struct:mydata::ccn_scheduled_event	file:
+reporter	../cmd/ccncatchunks2.c	/^reporter(struct ccn_schedule *sched, void *clienth, $/;"	f	file:
+reqBusy	../lib/ccn_fetch.c	/^	int reqBusy;			\/\/ the number of requests busy$/;"	m	struct:ccn_fetch_stream	file:
+reqSeg	../lib/ccn_fetch.c	/^	seg_t reqSeg;$/;"	m	struct:localClosure	file:
+requests	../lib/ccn_fetch.c	/^	struct localClosure *requests;	\/\/ segment requests in process$/;"	m	struct:ccn_fetch_stream	typeref:struct:ccn_fetch_stream::localClosure	file:
+res	../lib/ccn_client.c	/^    int res;$/;"	m	struct:simple_get_data	file:
+reschedule_event	../lib/ccn_schedule.c	/^reschedule_event($/;"	f	file:
+reserved	../include/ccn/bloom.h	/^    unsigned char reserved; \/* must be 0 for now *\/$/;"	m	struct:ccn_bloom_wire
+resolveVersion	../cmd/ccn_fetch_test.c	/^	int resolveVersion;$/;"	m	struct:MyParms	file:
+resolve_templ	../lib/ccn_versioning.c	/^resolve_templ(struct ccn_charbuf *templ, unsigned const char *vcomp, int size)$/;"	f	file:
+resp404	../ccnd/ccnd_stats.c	/^static const char *resp404 =$/;"	v	file:
+resp405	../ccnd/ccnd_stats.c	/^static const char *resp405 =$/;"	v	file:
+result_size	../cmd/ccn_xmltoccnb.c	/^    size_t result_size;$/;"	m	struct:base64_decoder	file:
+resultbuf	../lib/ccn_client.c	/^    struct ccn_charbuf *resultbuf;$/;"	m	struct:simple_get_data	typeref:struct:simple_get_data::ccn_charbuf	file:
+retErr	../cmd/ccn_fetch_test.c	/^retErr(string msg) {$/;"	f	file:
+root_digest	../include/ccn/header.h	/^    struct ccn_charbuf *root_digest;$/;"	m	struct:ccn_header	typeref:struct:ccn_header::ccn_charbuf
+row	../lib/ccn_matrix.c	/^    uint_least64_t row;$/;"	m	struct:ccn_matrix_key	file:
+row_max	../include/ccn/matrix.h	/^    uint_least64_t row_max;$/;"	m	struct:ccn_matrix_bounds
+row_min	../include/ccn/matrix.h	/^    uint_least64_t row_min;$/;"	m	struct:ccn_matrix_bounds
+rrun	../ccnd/ccnd_private.h	/^    unsigned rrun;$/;"	m	struct:face
+rseq	../ccnd/ccnd_private.h	/^    uintmax_t rseq;$/;"	m	struct:face
+rtt	../cmd/ccncatchunks2.c	/^    unsigned rtt;$/;"	m	struct:mydata	file:
+rtte	../cmd/ccncatchunks2.c	/^    unsigned rtte;$/;"	m	struct:mydata	file:
+runTest	../cmd/ccn_fetch_test.c	/^runTest(struct MyParms *p) {$/;"	f	file:
+running	../ccnd/ccnd_private.h	/^    int running;                    \/**< true while should be running *\/$/;"	m	struct:ccnd_handle
+running	../lib/ccn_client.c	/^    int running;$/;"	m	struct:ccn	file:
+s	../include/ccn/schedule.h	/^    long s;$/;"	m	struct:ccn_timeval
+saved_schema	../cmd/ccn_ccnbtoxml.c	/^    int saved_schema;$/;"	m	struct:ccn_decoder_stack_item	file:
+saved_schema_state	../cmd/ccn_ccnbtoxml.c	/^    int saved_schema_state;$/;"	m	struct:ccn_decoder_stack_item	file:
+savedss	../cmd/ccn_ccnbtoxml.c	/^    size_t savedss;$/;"	m	struct:ccn_decoder_stack_item	file:
+scan_buckets	../lib/hashtb.c	/^scan_buckets(struct hashtb *ht, unsigned b)$/;"	f	file:
+sched	../ccnd/ccnd_private.h	/^    struct ccn_schedule *sched;     \/**< our schedule *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_schedule
+sched	../cmd/ccncatchunks2.c	/^    struct ccn_schedule *sched;$/;"	m	struct:mydata	typeref:struct:mydata::ccn_schedule	file:
+schema	../cmd/ccn_ccnbtoxml.c	/^    int schema;$/;"	m	struct:ccn_decoder	file:
+scope	../include/ccn/ccn.h	/^    int scope;$/;"	m	struct:ccn_parsed_interest
+scratch_charbuf	../ccnd/ccnd_private.h	/^    struct ccn_charbuf *scratch_charbuf; \/**< one-slot scratch cache *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_charbuf
+scratch_indexbuf	../ccnd/ccnd_private.h	/^    struct ccn_indexbuf *scratch_indexbuf; \/**< one-slot scratch cache *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_indexbuf
+scratch_indexbuf	../lib/ccn_client.c	/^    struct ccn_indexbuf *scratch_indexbuf;$/;"	m	struct:ccn	typeref:struct:ccn::ccn_indexbuf	file:
+scrub_sockaddr	../ccnd/ccnd.c	/^scrub_sockaddr(struct sockaddr *addr, socklen_t addrlen,$/;"	f	file:
+sec	../ccnd/ccnd_private.h	/^    long sec;                       \/**< cached gettime seconds *\/$/;"	m	struct:ccnd_handle
+seed	../ccnd/ccnd_private.h	/^    unsigned short seed[3];         \/**< for PRNG *\/$/;"	m	struct:ccnd_handle
+seed	../include/ccn/bloom.h	/^    unsigned char seed[4];  \/* can seed hashes differently *\/$/;"	m	struct:ccn_bloom_wire
+seek_forwarding	../ccnd/ccnd.c	/^seek_forwarding(struct ccnd_handle *h,$/;"	f	file:
+seg	../lib/ccn_fetch.c	/^	seg_t seg;			\/\/ the seg for this buffer (< 0 if unassigned)$/;"	m	struct:ccn_fetch_buffer	file:
+segSize	../lib/ccn_fetch.c	/^	int segSize;			\/\/ the segment size (-1 if variable, 0 if unknown)$/;"	m	struct:ccn_fetch_stream	file:
+seg_t	../lib/ccn_fetch.c	/^typedef intmax_t seg_t;$/;"	t	file:
+segment_prefix	../cmd/ccn_splitccnb.c	/^segment_prefix(char *path)$/;"	f	file:
+segment_prefix	../cmd/ccnhexdumpdata.c	/^segment_prefix(char *path)$/;"	f	file:
+segnum	../cmd/ccn_splitccnb.c	/^    int segnum;$/;"	m	struct:fstate	file:
+segnum	../cmd/ccnhexdumpdata.c	/^    int segnum;$/;"	m	struct:fstate	file:
+segsAhead	../lib/ccn_fetch.c	/^	int segsAhead;$/;"	m	struct:ccn_fetch_stream	file:
+segsRead	../lib/ccn_fetch.c	/^	seg_t segsRead;$/;"	m	struct:ccn_fetch_stream	file:
+segsRequested	../lib/ccn_fetch.c	/^	seg_t segsRequested;$/;"	m	struct:ccn_fetch_stream	file:
+send_ccnb_file	../ccnd/ccndsmoketest.c	/^send_ccnb_file(int sock, FILE *msgs, const char *filename, int is_dgram)$/;"	f	file:
+send_content	../ccnd/ccnd.c	/^send_content(struct ccnd_handle *h, struct face *face, struct content_entry *content)$/;"	f	file:
+send_http_response	../ccnd/ccnd_stats.c	/^send_http_response(struct ccnd_handle *h, struct face *face,$/;"	f	file:
+send_queue	../ccnd/ccnd_private.h	/^    struct ccn_indexbuf *send_queue; \/**< accession numbers of pending content *\/$/;"	m	struct:content_queue	typeref:struct:content_queue::ccn_indexbuf
+send_remote_unencapsulated	../libexec/udplink.c	/^send_remote_unencapsulated(int s, struct addrinfo *r, unsigned char *buf, size_t start, size_t length) {$/;"	f
+sender	../ccnd/ccnd_private.h	/^    struct ccn_scheduled_event *sender;$/;"	m	struct:content_queue	typeref:struct:content_queue::ccn_scheduled_event
+sendface	../ccnd/ccnd_private.h	/^    unsigned sendface;          \/**< faceid for sending (maybe == faceid) *\/$/;"	m	struct:face
+sending	../include/ccn/sockcreate.h	/^    int sending;    \/**< file descriptor to use for output (send) *\/$/;"	m	struct:ccn_sockets
+sending_fd	../ccnd/ccnd.c	/^sending_fd(struct ccnd_handle *h, struct face *face)$/;"	f	file:
+sendtime	../cmd/ccncatchunks2.c	/^    unsigned sendtime;$/;"	m	struct:mydata	file:
+sendtime_slot	../cmd/ccncatchunks2.c	/^    unsigned sendtime_slot;$/;"	m	struct:mydata	file:
+sent	../ccnd/ccnd_private.h	/^    int sent;                   \/**< leading faceids of outbound processed *\/$/;"	m	struct:propagating_entry
+seqfunc	../lib/ccn_bulkdata.c	/^    ccn_seqfunc *seqfunc;           \/* the sequence number scheme *\/$/;"	m	struct:bulkdata	file:
+seqfunc_param	../lib/ccn_bulkdata.c	/^    void *seqfunc_param;            \/* parameters thereto, if needed *\/$/;"	m	struct:bulkdata	file:
+seqnum	../lib/ccn_seqwriter.c	/^    uintmax_t seqnum;$/;"	m	struct:ccn_seqwriter	file:
+sequenced_name	../cmd/ccncatchunks2.c	/^sequenced_name(struct mydata *md, uintmax_t seq)$/;"	f	file:
+sequenced_name	../lib/ccn_fetch.c	/^sequenced_name(struct ccn_charbuf *basename, seg_t seq) {$/;"	f	file:
+seqw_incoming_interest	../lib/ccn_seqwriter.c	/^seqw_incoming_interest($/;"	f	file:
+seqw_next_cob	../lib/ccn_seqwriter.c	/^seqw_next_cob(struct ccn_seqwriter *w)$/;"	f	file:
+service_ccnb	../ccnd/ccnd_private.h	/^    struct ccn_charbuf *service_ccnb; \/**< for local service discovery *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_charbuf
+set_content_timer	../ccnd/ccnd.c	/^set_content_timer(struct ccnd_handle *h, struct content_entry *content,$/;"	f	file:
+set_multicast_socket_options	../lib/ccn_sockcreate.c	/^set_multicast_socket_options(int socket_r, int socket_w,$/;"	f	file:
+set_multicast_sockopt	../libexec/udplink.c	/^set_multicast_sockopt(int socket_r, int socket_w, struct addrinfo *ai, struct options *opt)$/;"	f
+set_stdout	../cmd/ccn_ccnbtoxml.c	/^set_stdout(struct ccn_decoder *d, enum callback_kind kind, void *data)$/;"	f	file:
+setpos	../lib/hashtb.c	/^setpos(struct hashtb_enumerator *hte, struct node **pp)$/;"	f	file:
+setup_multicast	../ccnd/ccnd.c	/^setup_multicast(struct ccnd_handle *h, struct ccn_face_instance *face_instance,$/;"	f	file:
+sha256_ctx	../lib/ccn_digest.c	/^    SHA256_CTX sha256_ctx;$/;"	m	struct:ccn_digest	file:
+shutdown_client_fd	../ccnd/ccnd.c	/^shutdown_client_fd(struct ccnd_handle *h, int fd)$/;"	f	file:
+sibling_of	../lib/ccn_signing.c	98;"	d	file:
+simple_get_data	../lib/ccn_client.c	/^struct simple_get_data {$/;"	s	file:
+size	../ccnd/ccnd_private.h	/^    int size;                   \/**< Size of ContentObject *\/$/;"	m	struct:content_entry
+size	../ccnd/ccnd_private.h	/^    unsigned size;              \/**< size in bytes of interest_msg *\/$/;"	m	struct:propagating_entry
+size	../cmd/dataresponsetest.c	/^        size_t	size;$/;"	m	struct:handlerstate::handlerstateitem	file:
+size	../include/ccn/ccn.h	/^    size_t size;$/;"	m	struct:ccn_buf_decoder
+size	../lib/ccn_client.c	/^    size_t size;                 \/* its size in bytes *\/$/;"	m	struct:expressed_interest	file:
+sk_ASN1_OCTET_STRING_delete	../include/ccn/merklepathasn1.h	44;"	d
+sk_ASN1_OCTET_STRING_delete_ptr	../include/ccn/merklepathasn1.h	45;"	d
+sk_ASN1_OCTET_STRING_dup	../include/ccn/merklepathasn1.h	48;"	d
+sk_ASN1_OCTET_STRING_find	../include/ccn/merklepathasn1.h	42;"	d
+sk_ASN1_OCTET_STRING_find_ex	../include/ccn/merklepathasn1.h	43;"	d
+sk_ASN1_OCTET_STRING_free	../include/ccn/merklepathasn1.h	35;"	d
+sk_ASN1_OCTET_STRING_insert	../include/ccn/merklepathasn1.h	46;"	d
+sk_ASN1_OCTET_STRING_is_sorted	../include/ccn/merklepathasn1.h	53;"	d
+sk_ASN1_OCTET_STRING_new	../include/ccn/merklepathasn1.h	33;"	d
+sk_ASN1_OCTET_STRING_new_null	../include/ccn/merklepathasn1.h	34;"	d
+sk_ASN1_OCTET_STRING_num	../include/ccn/merklepathasn1.h	36;"	d
+sk_ASN1_OCTET_STRING_pop	../include/ccn/merklepathasn1.h	51;"	d
+sk_ASN1_OCTET_STRING_pop_free	../include/ccn/merklepathasn1.h	49;"	d
+sk_ASN1_OCTET_STRING_push	../include/ccn/merklepathasn1.h	40;"	d
+sk_ASN1_OCTET_STRING_set	../include/ccn/merklepathasn1.h	38;"	d
+sk_ASN1_OCTET_STRING_set_cmp_func	../include/ccn/merklepathasn1.h	47;"	d
+sk_ASN1_OCTET_STRING_shift	../include/ccn/merklepathasn1.h	50;"	d
+sk_ASN1_OCTET_STRING_sort	../include/ccn/merklepathasn1.h	52;"	d
+sk_ASN1_OCTET_STRING_unshift	../include/ccn/merklepathasn1.h	41;"	d
+sk_ASN1_OCTET_STRING_value	../include/ccn/merklepathasn1.h	37;"	d
+sk_ASN1_OCTET_STRING_zero	../include/ccn/merklepathasn1.h	39;"	d
+skiplinks	../ccnd/ccnd_private.h	/^    struct ccn_indexbuf *skiplinks; \/**< skiplist for content-ordered ops *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_indexbuf
+skiplinks	../ccnd/ccnd_private.h	/^    struct ccn_indexbuf *skiplinks; \/**< skiplist for name-ordered ops *\/$/;"	m	struct:content_entry	typeref:struct:content_entry::ccn_indexbuf
+sock	../lib/ccn_client.c	/^    int sock;$/;"	m	struct:ccn	file:
+source_address	../include/ccn/sockcreate.h	/^    const char *source_address; \/**< may be needed for multicast *\/$/;"	m	struct:ccn_sockdescr
+sp_flags	../include/ccn/ccn.h	/^    int sp_flags;$/;"	m	struct:ccn_signing_params
+sparse_straggler_entry	../ccnd/ccnd_private.h	/^struct sparse_straggler_entry {$/;"	s
+sparse_straggler_tab	../ccnd/ccnd_private.h	/^    struct hashtb *sparse_straggler_tab; \/* keyed by accession *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::hashtb
+split_my_excludes	../cmd/ccnslurp.c	/^split_my_excludes(struct ccn_closure *selfp)$/;"	f	file:
+split_my_excludes	../lib/ccn_traverse.c	/^split_my_excludes(struct ccn_closure *selfp)$/;"	f	file:
+src	../ccnd/ccnd_private.h	/^    unsigned src;                \/**< faceid of recent content source *\/$/;"	m	struct:nameprefix_entry
+src	../cmd/ccn_fetch_test.c	/^	string src;$/;"	m	struct:MyParms	file:
+sstate	../cmd/ccn_ccnbtoxml.c	/^    int sstate;$/;"	m	struct:ccn_decoder	file:
+stack	../cmd/ccn_ccnbtoxml.c	/^    struct ccn_decoder_stack_item *stack;$/;"	m	struct:ccn_decoder	typeref:struct:ccn_decoder::ccn_decoder_stack_item	file:
+start	../cmd/ccn_xmltoccnb.c	/^    size_t start;$/;"	m	struct:ccn_encoder_stack_item	file:
+start	../include/ccn/header.h	/^    uintmax_t start;$/;"	m	struct:ccn_header
+startClock	../lib/ccn_fetch.c	/^	TimeMarker startClock;$/;"	m	struct:localClosure	file:
+startTime	../cmd/ccn_fetch_test.c	/^	uint64_t startTime;$/;"	m	struct:TestElemStruct	file:
+start_ccnd	../ccnd/android_main.c	/^start_ccnd(void)$/;"	f
+start_tv	../cmd/ccncatchunks2.c	/^    struct timeval start_tv;$/;"	m	struct:mydata	typeref:struct:mydata::timeval	file:
+starttime	../ccnd/ccnd_private.h	/^    long starttime;                 \/**< ccnd start time, in seconds *\/$/;"	m	struct:ccnd_handle
+starttime_usec	../ccnd/ccnd_private.h	/^    unsigned starttime_usec;        \/**< ccnd start time fractional part *\/$/;"	m	struct:ccnd_handle
+state	../cmd/ccn_ccnbtoxml.c	/^    int state;$/;"	m	struct:ccn_decoder	file:
+state	../include/ccn/coding.h	/^    int state;              \/**< Decoder state *\/$/;"	m	struct:ccn_skeleton_decoder
+stdiologger	../ccnd/ccnd_main.c	/^stdiologger(void *loggerdata, const char *format, va_list ap)$/;"	f	file:
+stop_tv	../cmd/ccncatchunks2.c	/^    struct timeval stop_tv;$/;"	m	struct:mydata	typeref:struct:mydata::timeval	file:
+store	../include/ccn/face_mgmt.h	/^    struct ccn_charbuf *store;$/;"	m	struct:ccn_face_instance	typeref:struct:ccn_face_instance::ccn_charbuf
+store	../include/ccn/reg_mgmt.h	/^    unsigned char store[48];$/;"	m	struct:ccn_forwarding_entry
+streams	../lib/ccn_fetch.c	/^	struct ccn_fetch_stream **streams;$/;"	m	struct:ccn_fetch	typeref:struct:ccn_fetch::ccn_fetch_stream	file:
+string	../cmd/ccn_fetch_test.c	/^typedef char *string;$/;"	t	file:
+stringstack	../cmd/ccn_ccnbtoxml.c	/^    struct ccn_charbuf *stringstack;$/;"	m	struct:ccn_decoder	typeref:struct:ccn_decoder::ccn_charbuf	file:
+stuff_and_send	../ccnd/ccnd.c	/^stuff_and_send(struct ccnd_handle *h, struct face *face,$/;"	f	file:
+subdirs	../Android.mk	/^subdirs := $(addprefix $(LOCAL_PATH)\/,$(addsuffix \/Android.mk, \\$/;"	m
+surplus	../ccnd/ccnd_private.h	/^    int surplus;                \/**< sends since last successful recv *\/$/;"	m	struct:face
+sz	../lib/ccn_digest.c	/^    unsigned short sz;$/;"	m	struct:ccn_digest	file:
+tagdict	../cmd/ccn_ccnbtoxml.c	/^    const struct ccn_dict_entry *tagdict;$/;"	m	struct:ccn_decoder	typeref:struct:ccn_decoder::ccn_dict_entry	file:
+tagdict	../cmd/ccn_xmltoccnb.c	/^    const struct ccn_dict_entry *tagdict;$/;"	m	struct:ccn_encoder	typeref:struct:ccn_encoder::ccn_dict_entry	file:
+tagdict_count	../cmd/ccn_ccnbtoxml.c	/^    int tagdict_count;$/;"	m	struct:ccn_decoder	file:
+tagdict_count	../cmd/ccn_xmltoccnb.c	/^    int tagdict_count;$/;"	m	struct:ccn_encoder	file:
+tagstate	../cmd/ccn_ccnbtoxml.c	/^    int tagstate;$/;"	m	struct:ccn_decoder	file:
+tap	../ccnd/ccnd_private.h	/^    struct ccn_indexbuf *tap;    \/**< faceids to forward to as tap*\/$/;"	m	struct:nameprefix_entry	typeref:struct:nameprefix_entry::ccn_indexbuf
+tap	../lib/ccn_client.c	/^    int tap;$/;"	m	struct:ccn	file:
+target	../lib/ccn_client.c	/^    int target;                  \/* how many we want outstanding (0 or 1) *\/$/;"	m	struct:expressed_interest	file:
+templ	../cmd/ccncatchunks2.c	/^    struct ccn_charbuf *templ;$/;"	m	struct:mydata	typeref:struct:mydata::ccn_charbuf	file:
+template_ccnb	../include/ccn/ccn.h	/^    struct ccn_charbuf *template_ccnb;$/;"	m	struct:ccn_signing_params	typeref:struct:ccn_signing_params::ccn_charbuf
+test1	../cmd/ccn_ccnbtoxml.c	/^unsigned char test1[] = {$/;"	v
+testtick	../lib/ccn_schedule.c	/^testtick(struct ccn_schedule *sched)$/;"	f	file:
+ticktock	../ccnd/ccnd_private.h	/^    struct ccn_gettime ticktock;    \/**< our time generator *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_gettime
+time_has_passed	../lib/ccn_schedule.c	/^    int time_has_passed; \/* to prevent too-frequent time syscalls *\/$/;"	m	struct:ccn_schedule	file:
+timeout	../lib/ccn_client.c	/^    int timeout;$/;"	m	struct:ccn	file:
+timeoutSeg	../lib/ccn_fetch.c	/^	seg_t timeoutSeg;		\/\/ the lowest timeout segment seen$/;"	m	struct:ccn_fetch_stream	file:
+timeoutUSecs	../lib/ccn_fetch.c	/^	intmax_t timeoutUSecs;	\/\/ microseconds for interest timeout$/;"	m	struct:ccn_fetch_stream	file:
+timeouts	../cmd/ccncatchunks2.c	/^    intmax_t timeouts;$/;"	m	struct:mydata	file:
+timeoutsSeen	../lib/ccn_fetch.c	/^	intmax_t timeoutsSeen;$/;"	m	struct:ccn_fetch_stream	file:
+token_index	../include/ccn/coding.h	/^    size_t token_index;     \/**< Starting index of most-recent token *\/$/;"	m	struct:ccn_skeleton_decoder
+toss_white	../cmd/ccn_xmltoccnb.c	/^    int toss_white;$/;"	m	struct:ccn_encoder	file:
+total	../ccnd/ccnd_stats.c	/^    uintmax_t total;$/;"	m	struct:ccnd_meter	file:
+total_flood_control	../ccnd/ccnd_stats.c	/^    long total_flood_control;      \/* done propagating, still recorded *\/$/;"	m	struct:ccnd_stats	file:
+total_interest_counts	../ccnd/ccnd_stats.c	/^    long total_interest_counts;$/;"	m	struct:ccnd_stats	file:
+tst	../lib/ccn_schedule.c	/^static struct ccn_schedule_heap_item tst[7];$/;"	v	typeref:struct:ccn_schedule_heap_item	file:
+tt_name	../lib/skel_decode_test.c	/^static const char *tt_name[8] = {$/;"	v	file:
+tv_earlier	../lib/ccn_client.c	/^tv_earlier(const struct timeval *a, const struct timeval *b)$/;"	f	file:
+type	../include/ccn/ccn.h	/^    enum ccn_content_type type;$/;"	m	struct:ccn_parsed_ContentObject	typeref:enum:ccn_parsed_ContentObject::ccn_content_type
+type	../include/ccn/ccn.h	/^    enum ccn_content_type type;$/;"	m	struct:ccn_signing_params	typeref:enum:ccn_signing_params::ccn_content_type
+udplink_fatal	../libexec/udplink.c	/^udplink_fatal(int line, char *format, ...)$/;"	f
+udplink_note	../libexec/udplink.c	/^udplink_note(char *format, ...)$/;"	f
+udplink_print_data	../libexec/udplink.c	/^udplink_print_data(char *source, unsigned char *data, int start, int length, int logging)$/;"	f
+unlink_at_exit	../ccnd/ccnd.c	/^unlink_at_exit(const char *path)$/;"	f	file:
+unlink_this_at_exit	../ccnd/ccnd.c	/^static const char *unlink_this_at_exit = NULL;$/;"	v	file:
+unsol	../ccnd/ccnd_private.h	/^    struct ccn_indexbuf *unsol;     \/**< unsolicited content *\/$/;"	m	struct:ccnd_handle	typeref:struct:ccnd_handle::ccn_indexbuf
+unverified	../cmd/ccncatchunks2.c	/^    intmax_t unverified;$/;"	m	struct:mydata	file:
+upcalldata	../cmd/ccnls.c	/^struct upcalldata {$/;"	s	file:
+upcalldata	../cmd/ccnslurp.c	/^struct upcalldata {$/;"	s	file:
+update_epoch	../lib/ccn_schedule.c	/^update_epoch(struct ccn_schedule *sched)$/;"	f	file:
+update_forward_to	../ccnd/ccnd.c	/^update_forward_to(struct ccnd_handle *h, struct nameprefix_entry *npe)$/;"	f	file:
+update_rtt	../cmd/ccncatchunks2.c	/^update_rtt(struct mydata *md, int incoming, unsigned slot)$/;"	f	file:
+update_time	../lib/ccn_schedule.c	/^update_time(struct ccn_schedule *sched)$/;"	f	file:
+usage	../cmd/ccn_ccnbtoxml.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccn_xmltoccnb.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnbasicconfig.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnbuzz.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnbx.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccncat.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccncatchunks.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccncatchunks2.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccndumpnames.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccndumppcap.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnget.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnls.c	/^usage(const char *prog)$/;"	f
+usage	../cmd/ccnput.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnrm.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnsendchunks.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnseqwriter.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnsimplecat.c	/^usage(const char *progname)$/;"	f	file:
+usage	../cmd/ccnslurp.c	/^usage(const char *prog)$/;"	f
+usage	../libexec/ccndc.c	/^usage(const char *progname)$/;"	f	file:
+usage	../libexec/udplink.c	/^usage(char *name) {$/;"	f
+use_decimal	../cmd/ccncatchunks2.c	/^    int use_decimal;$/;"	m	struct:mydata	file:
+usec	../ccnd/ccnd_private.h	/^    int usec;                   \/**< usec until timeout *\/$/;"	m	struct:propagating_entry
+usec	../ccnd/ccnd_private.h	/^    unsigned usec;                  \/**< cached gettime microseconds *\/$/;"	m	struct:ccnd_handle
+usec	../ccnd/ccnd_private.h	/^    unsigned usec;               \/**< response-time prediction *\/$/;"	m	struct:nameprefix_entry
+verbose	../libexec/ccndc.c	/^int verbose = 0;$/;"	v
+verbose_error	../lib/ccn_client.c	/^    int verbose_error;$/;"	m	struct:ccn	file:
+wanted_pub	../lib/ccn_client.c	/^    struct ccn_charbuf *wanted_pub; \/* waiting for this pub to arrive *\/$/;"	m	struct:expressed_interest	typeref:struct:expressed_interest::ccn_charbuf	file:
+warn	../cmd/ccnls.c	/^    unsigned warn;$/;"	m	struct:upcalldata	file:
+warn	../cmd/ccnslurp.c	/^    unsigned warn;$/;"	m	struct:upcalldata	file:
+warn	../lib/ccn_traverse.c	/^    unsigned warn;$/;"	m	struct:ccn_traversal	file:
+what	../ccnd/ccnd_stats.c	/^    char what[8];$/;"	m	struct:ccnd_meter	file:
+wire	../lib/ccn_bloom.c	/^    struct ccn_bloom_wire *wire;$/;"	m	struct:ccn_bloom	typeref:struct:ccn_bloom::ccn_bloom_wire	file:
+write_segment	../cmd/ccn_splitccnb.c	/^write_segment(unsigned char *data, size_t s, struct fstate *perfilestate)$/;"	f	file:
+write_to_stream	../ccnd/ccndsmoketest.c	/^write_to_stream(FILE *outstream, const void *rawbuf, size_t rawlen)$/;"	f
+x	../cmd/dataresponsetest.c	/^        struct ccn_parsed_ContentObject x;$/;"	m	struct:handlerstate::handlerstateitem	typeref:struct:handlerstate::handlerstateitem::ccn_parsed_ContentObject	file:
+x	../lib/ccn_bulkdata.c	/^    uintmax_t x;                    \/* sequence number for this item *\/$/;"	m	struct:pending	file:
+zeroLenSeg	../lib/ccn_fetch.c	/^	seg_t zeroLenSeg;		\/\/ the lowest zero len segment seen$/;"	m	struct:ccn_fetch_stream	file:
