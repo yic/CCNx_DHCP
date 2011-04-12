@@ -3614,6 +3614,11 @@ process_incoming_interest(struct ccnd_handle *h, struct face *face,
                     if (face->q[c] != NULL)
                         k = ccn_indexbuf_member(face->q[c]->send_queue, content->accession);
                 if (k == -1) {
+                    if (face->flags & CCN_FACE_MCAST) {
+                        ccnd_msg(h, "multicast ContentObject to %u (accession %llu)",
+                                face->faceid, (unsigned long long)content->accession);
+                    }
+
                     k = face_send_queue_insert(h, face, content);
                     if (k >= 0) {
                         if (h->debug & (32 | 8))
