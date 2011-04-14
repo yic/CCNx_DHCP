@@ -250,6 +250,7 @@ main(int argc, char **argv)
         temp->length = 0;
         ccn_charbuf_append(temp, buf, read_res);
         temp->length = 0;
+        printf("---%s\b", ccn_charbuf_as_string(name));
         res = ccn_encode_ContentObject(temp,
                                        name,
                                        signed_info,
@@ -257,6 +258,7 @@ main(int argc, char **argv)
                                        read_res,
                                        NULL,
                                        ccn_keystore_private_key(keystore));
+        printf("---%s\b", ccn_charbuf_as_string(name));
         if (res != 0) {
             fprintf(stderr, "Failed to encode ContentObject (res == %d)\n", res);
             exit(1);
