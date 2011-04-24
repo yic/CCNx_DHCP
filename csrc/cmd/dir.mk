@@ -31,6 +31,7 @@ PROGRAMS = $(INSTALLED_PROGRAMS) \
     ccnseqwriter \
     ccn_fetch_test \
     ccndhcpserver \
+    ccndhcpclient \
     $(PCAP_PROGRAMS)
 
 EXPAT_PROGRAMS = ccn_xmltoccnb
@@ -43,7 +44,7 @@ CSRC =  ccn_ccnbtoxml.c ccn_splitccnb.c ccn_xmltoccnb.c ccnbasicconfig.c \
        ccndumpnames.c ccndumppcap.c ccnget.c ccnhexdumpdata.c \
        ccnls.c ccnput.c ccnrm.c ccnsendchunks.c ccnseqwriter.c \
        ccn_fetch_test.c ccnslurp.c dataresponsetest.c \
-       ccndhcpserver.c
+       ccndhcpserver.c ccndhcpclient.c
 
 default all: $(PROGRAMS)
 # Don't try to build broken programs right now.
@@ -161,6 +162,9 @@ ccndumppcap: ccndumppcap.o
 ccndhcpserver: ccndhcpserver.o
 	$(CC) $(CFLAGS) -o $@ ccndhcpserver.o $(LDLIBS) $(OPENSSL_LIBS) -lcrypto
 
+ccndhcpclient: ccndhcpclient.o
+	$(CC) $(CFLAGS) -o $@ ccndhcpclient.o $(LDLIBS) $(OPENSSL_LIBS) -lcrypto
+
 clean:
 	rm -f *.o libccn.a libccn.1.$(SHEXT) $(PROGRAMS) depend
 	rm -rf *.dSYM $(DEBRIS) *% *~
@@ -234,3 +238,4 @@ dataresponsetest.o: dataresponsetest.c ../include/ccn/ccn.h \
   ../include/ccn/coding.h ../include/ccn/charbuf.h \
   ../include/ccn/indexbuf.h
 ccndhcpserver.o: ccndhcpserver.c ../include/ccn/ccn.h
+ccndhcpclient.o: ccndhcpclient.c ../include/ccn/ccn.h
