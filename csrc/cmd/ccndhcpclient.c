@@ -14,8 +14,6 @@
 
 #include <ccn/ccn.h>
 #include <ccn/uri.h>
-#include <ccn/face_mgmt.h>
-#include <ccn/reg_mgmt.h>
 #include <ccn/charbuf.h>
 #include <ccn/ccn_dhcp.h>
 
