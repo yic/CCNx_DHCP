@@ -24,6 +24,8 @@
 #define CCN_DHCP_LIFETIME ((~0U) >> 1)
 #define CCN_DHCP_MCASTTTL (-1)
 
+#define CCN_DHCP_CONTENT_URI "ccnx:/local/dhcp/content"
+
 int register_prefix(struct ccn *h, struct ccn_charbuf *local_scope_template,
         struct ccn_charbuf *no_name, struct ccn_charbuf *name_prefix,
         struct ccn_face_instance *face_instance)
@@ -230,6 +232,33 @@ void join_dhcp_group(struct ccn *h)
     ccn_face_instance_destroy(&nfi);
 }
 
+void put_dhcp_content(struct ccn *h)
+{
+    struct ccn_charbuf *name = ccn_charbuf_create();
+    struct ccn_charbuf *temp = ccn_charbuf_create();
+    struct ccn_signing_params sp = CCN_SIGNING_PARAMS_INIT;
+    char buf[] = "this is a test string";
+    int res;
+
+    ccn_name_from_uri(name, CCN_DHCP_CONTENT_URI);
+    sp.type = CCN_CONTENT_DATA;
+
+    res = ccn_sign_content(h, temp, name, &sp, buf, strlen(buf));
+    if (res != 0) {
+        fprintf(stderr, "Failed to encode ContentObject (res == %d)\n", res);
+        exit(1);
+    }
+
+    res = ccn_put(h, temp->buf, temp->length);
+    if (res < 0) {
+        fprintf(stderr, "ccn_put failed (res == %d)\n", res);
+        exit(1);
+    }
+
+    ccn_charbuf_destroy(&name);
+    ccn_charbuf_destroy(&temp);
+}
+
 int main(int argc, char **argv)
 {
     struct ccn *h = NULL;
@@ -243,6 +272,7 @@ int main(int argc, char **argv)
     }
 
     join_dhcp_group(h);
+    put_dhcp_content(h);
 
     ccn_destroy(&h);
     exit(res < 0);
