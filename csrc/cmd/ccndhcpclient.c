@@ -24,6 +24,8 @@
 #define CCN_DHCP_LIFETIME ((~0U) >> 1)
 #define CCN_DHCP_MCASTTTL (-1)
 
+#define CCN_DHCP_CONTENT_URI "ccnx:/local/dhcp/content"
+
 int register_prefix(struct ccn *h, struct ccn_charbuf *local_scope_template,
         struct ccn_charbuf *no_name, struct ccn_charbuf *name_prefix,
         struct ccn_face_instance *face_instance)
@@ -230,6 +232,28 @@ void join_dhcp_group(struct ccn *h)
     ccn_face_instance_destroy(&nfi);
 }
 
+void get_dhcp_content(struct ccn *h)
+{
+    struct ccn_charbuf *name = ccn_charbuf_create();
+    struct ccn_charbuf *resultbuf = ccn_charbuf_create();
+    struct ccn_parsed_ContentObject pcobuf = {0};
+    int res;
+    const unsigned char *ptr;
+    size_t length;
+
+    ccn_name_from_uri(name, CCN_DHCP_CONTENT_URI);
+    res = ccn_get(h, name, NULL, 3000, resultbuf, &pcobuf, NULL, 0);
+    if (res >= 0) {
+        ptr = resultbuf->buf;
+        length = resultbuf->length;
+        ccn_content_get_value(ptr, length, &pcobuf, &ptr, &length);
+    }
+    printf("---%s---\n", ptr);
+
+    ccn_charbuf_destroy(&name);
+    ccn_charbuf_destroy(&resultbuf);
+}
+
 int main(int argc, char **argv)
 {
     struct ccn *h = NULL;
@@ -243,6 +267,7 @@ int main(int argc, char **argv)
     }
 
     join_dhcp_group(h);
+    get_dhcp_content(h);
 
     ccn_destroy(&h);
     exit(res < 0);
