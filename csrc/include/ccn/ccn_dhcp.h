@@ -18,6 +18,8 @@ struct ccn_dhcp_content {
 
 void join_dhcp_group(struct ccn *h);
 
+void add_new_face(struct ccn *h, struct ccn_charbuf *prefix, const char *address, const char *port);
+
 struct ccn_dhcp_content *ccn_dhcp_content_parse(const unsigned char *p, size_t size);
 
 void ccn_dhcp_content_destroy(struct ccn_dhcp_content **dc);

@@ -26,7 +26,7 @@ void put_dhcp_content(struct ccn *h)
     struct ccn_dhcp_content *dc = calloc(1, sizeof(*dc));
     int res;
 
-    char *prefix = "/";
+    char *prefix = "ccnx:/";
     char *host = "mario";
     char *port = "9695";
 

@@ -112,7 +112,7 @@ struct ccn_face_instance *create_face(struct ccn *h, struct ccn_charbuf *local_s
     ccn_charbuf_destroy(&temp);
     ccn_charbuf_destroy(&resultbuf);
     ccn_charbuf_destroy(&name);
-    return (new_face_instance);
+    return new_face_instance;
 }
 
 static int get_ccndid(struct ccn *h, struct ccn_charbuf *local_scope_template,
@@ -145,7 +145,8 @@ static int get_ccndid(struct ccn *h, struct ccn_charbuf *local_scope_template,
     return (ccndid_result_size);
 }
 
-struct ccn_face_instance *construct_face(const unsigned char *ccndid, size_t ccndid_size)
+struct ccn_face_instance *construct_face(const unsigned char *ccndid, size_t ccndid_size,
+        const char *address, const char *port)
 {
     struct ccn_face_instance *fi = calloc(1, sizeof(*fi));
     char rhostnamebuf[NI_MAXHOST];
@@ -157,7 +158,7 @@ struct ccn_face_instance *construct_face(const unsigned char *ccndid, size_t ccn
     int host_off = -1;
     int port_off = -1;
 
-    getaddrinfo(CCN_DHCP_ADDR, CCN_DHCP_PORT, &hints, &raddrinfo);
+    getaddrinfo(address, port, &hints, &raddrinfo);
     getnameinfo(raddrinfo->ai_addr, raddrinfo->ai_addrlen,
             rhostnamebuf, sizeof(rhostnamebuf),
             rhostportbuf, sizeof(rhostportbuf),
@@ -171,9 +172,9 @@ struct ccn_face_instance *construct_face(const unsigned char *ccndid, size_t ccn
 
     ccn_charbuf_append(store, "newface", strlen("newface") + 1);
     host_off = store->length;
-    ccn_charbuf_append(store, CCN_DHCP_ADDR, strlen(CCN_DHCP_ADDR) + 1);
+    ccn_charbuf_append(store, rhostnamebuf, strlen(rhostnamebuf) + 1);
     port_off = store->length;
-    ccn_charbuf_append(store, CCN_DHCP_PORT, strlen(CCN_DHCP_PORT) + 1);
+    ccn_charbuf_append(store, rhostportbuf, strlen(rhostportbuf) + 1);
 
     char *b = (char *)store->buf;
     fi->action = b;
@@ -213,13 +214,36 @@ void join_dhcp_group(struct ccn *h)
     ccn_name_from_uri(prefix, CCN_DHCP_URI);
 
     ccndid_size = get_ccndid(h, local_scope_template, ccndid, sizeof(ccndid_storage));
-    fi = construct_face(ccndid, ccndid_size);
+    fi = construct_face(ccndid, ccndid_size, CCN_DHCP_ADDR, CCN_DHCP_PORT);
     nfi = create_face(h, local_scope_template, no_name, fi);
     register_prefix(h, local_scope_template, no_name, prefix, nfi);
 
     ccn_charbuf_destroy(&local_scope_template);
     ccn_charbuf_destroy(&no_name);
     ccn_charbuf_destroy(&prefix);
+    ccn_face_instance_destroy(&fi);
+    ccn_face_instance_destroy(&nfi);
+}
+
+void add_new_face(struct ccn *h, struct ccn_charbuf *prefix, const char *address, const char *port)
+{
+    struct ccn_charbuf *local_scope_template = ccn_charbuf_create();
+    struct ccn_charbuf *no_name = ccn_charbuf_create();
+    unsigned char ccndid_storage[32] = {0};
+    const unsigned char *ccndid = ccndid_storage;
+    size_t ccndid_size = 0;
+    struct ccn_face_instance *fi;
+    struct ccn_face_instance *nfi;
+
+    init_data(local_scope_template, no_name);
+
+    ccndid_size = get_ccndid(h, local_scope_template, ccndid, sizeof(ccndid_storage));
+    fi = construct_face(ccndid, ccndid_size, address, port);
+    nfi = create_face(h, local_scope_template, no_name, fi);
+    register_prefix(h, local_scope_template, no_name, prefix, nfi);
+
+    ccn_charbuf_destroy(&local_scope_template);
+    ccn_charbuf_destroy(&no_name);
     ccn_face_instance_destroy(&fi);
     ccn_face_instance_destroy(&nfi);
 }

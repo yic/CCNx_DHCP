@@ -17,7 +17,7 @@
 #include <ccn/charbuf.h>
 #include <ccn/ccn_dhcp.h>
 
-void get_dhcp_content(struct ccn *h)
+struct ccn_dhcp_content *get_dhcp_content(struct ccn *h)
 {
     struct ccn_charbuf *name = ccn_charbuf_create();
     struct ccn_charbuf *resultbuf = ccn_charbuf_create();
@@ -34,19 +34,17 @@ void get_dhcp_content(struct ccn *h)
         length = resultbuf->length;
         ccn_content_get_value(ptr, length, &pcobuf, &ptr, &length);
         dc = ccn_dhcp_content_parse(ptr, length);
-        printf("---%s---\n", dc->name_prefix->buf);
-        printf("---%s---\n", dc->address);
-        printf("---%s---\n", dc->port);
     }
 
     ccn_charbuf_destroy(&name);
     ccn_charbuf_destroy(&resultbuf);
-    ccn_dhcp_content_destroy(&dc);
+    return dc;
 }
 
 int main(int argc, char **argv)
 {
     struct ccn *h = NULL;
+    struct ccn_dhcp_content *dc;
     int res;
 
     h = ccn_create();
@@ -57,8 +55,10 @@ int main(int argc, char **argv)
     }
 
     join_dhcp_group(h);
-    get_dhcp_content(h);
+    dc = get_dhcp_content(h);
+    add_new_face(h, dc->name_prefix, dc->address, dc->port);
 
+    ccn_dhcp_content_destroy(&dc);
     ccn_destroy(&h);
     exit(res < 0);
 }
