@@ -35,7 +35,7 @@ void put_dhcp_content(struct ccn *h)
     sp.type = CCN_CONTENT_DATA;
 
     dc->name_prefix = ccn_charbuf_create();
-    ccn_charbuf_append(dc->name_prefix, prefix, strlen(prefix));
+    ccn_name_from_uri(dc->name_prefix, prefix);
     dc->address = host;
     dc->port = port;
     ccnb_append_dhcp_content(body, dc);

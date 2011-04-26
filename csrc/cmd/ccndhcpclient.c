@@ -34,6 +34,7 @@ void get_dhcp_content(struct ccn *h)
         length = resultbuf->length;
         ccn_content_get_value(ptr, length, &pcobuf, &ptr, &length);
         dc = ccn_dhcp_content_parse(ptr, length);
+        printf("---%s---\n", dc->name_prefix->buf);
         printf("---%s---\n", dc->address);
         printf("---%s---\n", dc->port);
     }

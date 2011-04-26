@@ -239,15 +239,15 @@ struct ccn_dhcp_content *ccn_dhcp_content_parse(const unsigned char *p, size_t s
 
     if (ccn_buf_match_dtag(d, CCN_DTAG_DHCPContent)) {
         ccn_buf_advance(d);
-//      if (ccn_buf_match_dtag(d, CCN_DTAG_Name)) {
-//          result->name_prefix = ccn_charbuf_create();
-//          start = d->decoder.token_index;
-//          ccn_parse_Name(d, NULL);
-//          end = d->decoder.token_index;
-//          ccn_charbuf_append(result->name_prefix, p + start, end - start);
-//      }
-//      else
-//          result->name_prefix = NULL;
+        if (ccn_buf_match_dtag(d, CCN_DTAG_Name)) {
+            result->name_prefix = ccn_charbuf_create();
+            start = d->decoder.token_index;
+            ccn_parse_Name(d, NULL);
+            end = d->decoder.token_index;
+            ccn_charbuf_append(result->name_prefix, p + start, end - start);
+        }
+        else
+            result->name_prefix = NULL;
 
         host_off = ccn_parse_tagged_string(d, CCN_DTAG_Host, store);
         port_off = ccn_parse_tagged_string(d, CCN_DTAG_Port, store);
@@ -281,8 +281,8 @@ int ccnb_append_dhcp_content(struct ccn_charbuf *c, const struct ccn_dhcp_conten
     int res;
     res = ccnb_element_begin(c, CCN_DTAG_DHCPContent);
 
-//  if (dc->name_prefix != NULL && dc->name_prefix->length > 0)
-//      res |= ccn_charbuf_append(c, dc->name_prefix->buf, dc->name_prefix->length);
+    if (dc->name_prefix != NULL && dc->name_prefix->length > 0)
+        res |= ccn_charbuf_append(c, dc->name_prefix->buf, dc->name_prefix->length);
 
     if (dc->address != NULL)
         res |= ccnb_tagged_putf(c, CCN_DTAG_Host, "%s", dc->address);
