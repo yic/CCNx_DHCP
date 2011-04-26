@@ -25,6 +25,7 @@ void get_dhcp_content(struct ccn *h)
     int res;
     const unsigned char *ptr;
     size_t length;
+    struct ccn_dhcp_content *dc;
 
     ccn_name_from_uri(name, CCN_DHCP_CONTENT_URI);
     res = ccn_get(h, name, NULL, 3000, resultbuf, &pcobuf, NULL, 0);
@@ -32,11 +33,14 @@ void get_dhcp_content(struct ccn *h)
         ptr = resultbuf->buf;
         length = resultbuf->length;
         ccn_content_get_value(ptr, length, &pcobuf, &ptr, &length);
+        dc = ccn_dhcp_content_parse(ptr, length);
+        printf("---%s---\n", dc->address);
+        printf("---%s---\n", dc->port);
     }
-    printf("---%s---\n", ptr);
 
     ccn_charbuf_destroy(&name);
     ccn_charbuf_destroy(&resultbuf);
+    ccn_dhcp_content_destroy(&dc);
 }
 
 int main(int argc, char **argv)

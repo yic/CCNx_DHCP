@@ -223,3 +223,73 @@ void join_dhcp_group(struct ccn *h)
     ccn_face_instance_destroy(&fi);
     ccn_face_instance_destroy(&nfi);
 }
+
+struct ccn_dhcp_content *ccn_dhcp_content_parse(const unsigned char *p, size_t size)
+{
+    struct ccn_buf_decoder decoder;
+    struct ccn_buf_decoder *d = ccn_buf_decoder_start(&decoder, p, size);
+    struct ccn_charbuf *store = ccn_charbuf_create();
+    struct ccn_dhcp_content *result = calloc(1, sizeof(*result));
+    size_t start;
+    size_t end;
+    int host_off = -1;
+    int port_off = -1;
+
+    result->store = store;
+
+    if (ccn_buf_match_dtag(d, CCN_DTAG_DHCPContent)) {
+        ccn_buf_advance(d);
+//      if (ccn_buf_match_dtag(d, CCN_DTAG_Name)) {
+//          result->name_prefix = ccn_charbuf_create();
+//          start = d->decoder.token_index;
+//          ccn_parse_Name(d, NULL);
+//          end = d->decoder.token_index;
+//          ccn_charbuf_append(result->name_prefix, p + start, end - start);
+//      }
+//      else
+//          result->name_prefix = NULL;
+
+        host_off = ccn_parse_tagged_string(d, CCN_DTAG_Host, store);
+        port_off = ccn_parse_tagged_string(d, CCN_DTAG_Port, store);
+    }
+    else
+        d->decoder.state = -__LINE__;
+
+    if (d->decoder.index != size || !CCN_FINAL_DSTATE(d->decoder.state))
+        ccn_dhcp_content_destroy(&result);
+    else {
+        char *b = (char *)store->buf;
+        result->address = (host_off == -1) ? NULL : b + host_off;
+        result->port = (port_off == -1) ? NULL : b + port_off;
+    }
+
+    return result;
+}
+
+void ccn_dhcp_content_destroy(struct ccn_dhcp_content **dc)
+{
+    if (*dc != NULL) {
+        ccn_charbuf_destroy(&(*dc)->name_prefix);
+        ccn_charbuf_destroy(&(*dc)->store);
+        free(*dc);
+        *dc = NULL;
+    }
+}
+
+int ccnb_append_dhcp_content(struct ccn_charbuf *c, const struct ccn_dhcp_content *dc)
+{
+    int res;
+    res = ccnb_element_begin(c, CCN_DTAG_DHCPContent);
+
+//  if (dc->name_prefix != NULL && dc->name_prefix->length > 0)
+//      res |= ccn_charbuf_append(c, dc->name_prefix->buf, dc->name_prefix->length);
+
+    if (dc->address != NULL)
+        res |= ccnb_tagged_putf(c, CCN_DTAG_Host, "%s", dc->address);
+    if (dc->port != NULL)
+        res |= ccnb_tagged_putf(c, CCN_DTAG_Port, "%s", dc->port);
+
+    res |= ccnb_element_end(c);
+    return res;
+}
+

@@ -22,13 +22,25 @@ void put_dhcp_content(struct ccn *h)
     struct ccn_charbuf *name = ccn_charbuf_create();
     struct ccn_charbuf *resultbuf = ccn_charbuf_create();
     struct ccn_signing_params sp = CCN_SIGNING_PARAMS_INIT;
-    char buf[] = "this is a test string";
+    struct ccn_charbuf *body = ccn_charbuf_create();
+    struct ccn_dhcp_content *dc = calloc(1, sizeof(*dc));
     int res;
+
+    char *prefix = "/";
+    char *host = "mario";
+    char *port = "9695";
+
 
     ccn_name_from_uri(name, CCN_DHCP_CONTENT_URI);
     sp.type = CCN_CONTENT_DATA;
 
-    res = ccn_sign_content(h, resultbuf, name, &sp, buf, strlen(buf));
+    dc->name_prefix = ccn_charbuf_create();
+    ccn_charbuf_append(dc->name_prefix, prefix, strlen(prefix));
+    dc->address = host;
+    dc->port = port;
+    ccnb_append_dhcp_content(body, dc);
+
+    res = ccn_sign_content(h, resultbuf, name, &sp, body->buf, body->length);
     if (res != 0) {
         fprintf(stderr, "Failed to encode ContentObject (res == %d)\n", res);
         exit(1);
@@ -40,8 +52,10 @@ void put_dhcp_content(struct ccn *h)
         exit(1);
     }
 
+    ccn_charbuf_destroy(&body);
     ccn_charbuf_destroy(&name);
     ccn_charbuf_destroy(&resultbuf);
+    ccn_dhcp_content_destroy(&dc);
 }
 
 int main(int argc, char **argv)
