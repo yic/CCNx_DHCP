@@ -4,6 +4,7 @@
 
 #define CCN_DHCP_URI "ccnx:/local/dhcp"
 #define CCN_DHCP_CONTENT_URI "ccnx:/local/dhcp/content"
+#define CCN_DHCP_CONFIG "ccn_dhcp.config"
 #define CCN_DHCP_ADDR "224.0.0.66"
 #define CCN_DHCP_PORT "60006"
 #define CCN_DHCP_LIFETIME ((~0U) >> 1)
