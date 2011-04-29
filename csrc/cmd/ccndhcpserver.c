@@ -18,7 +18,7 @@
 #include <ccn/charbuf.h>
 #include <ccn/ccn_dhcp.h>
 
-struct ccn_dhcp_content *read_config_file(const char *filename)
+int read_config_file(const char *filename, struct ccn_dhcp_entry *tail)
 {
     char *uri;
     char *host;
@@ -29,7 +29,8 @@ struct ccn_dhcp_content *read_config_file(const char *filename)
     char *cp;
     char *last = NULL;
     const char *seps = " \t\n";
-    struct ccn_dhcp_content *result = calloc(1, sizeof(*result));
+    struct ccn_dhcp_entry *de = tail;
+    int count = 0;
 
     cfg = fopen(filename, "r");
     if (cfg == NULL) {
@@ -53,19 +54,26 @@ struct ccn_dhcp_content *read_config_file(const char *filename)
         if (uri == NULL)    /* blank line */
             continue;
 
+        de->next = calloc(1, sizeof(*de));
+        de = de->next;
+        memset(de, 0, sizeof(*de));
+        de->next = NULL;
+        de->store = NULL;
+
         host = strtok_r(NULL, seps, &last);
         port = strtok_r(NULL, seps, &last);
 
-        result->name_prefix = ccn_charbuf_create();
-        ccn_name_from_uri(result->name_prefix, uri);
-        result->address = host;
-        result->port = port;
-        break;
+        de->name_prefix = ccn_charbuf_create();
+        ccn_name_from_uri(de->name_prefix, uri);
+        memcpy((void *)de->address, host, strlen(host));
+        memcpy((void *)de->port, port, strlen(port));
+
+        count ++;
     }
 
     fclose(cfg);
 
-    return result;
+    return count;
 }
 
 void put_dhcp_content(struct ccn *h)
@@ -74,14 +82,16 @@ void put_dhcp_content(struct ccn *h)
     struct ccn_charbuf *resultbuf = ccn_charbuf_create();
     struct ccn_signing_params sp = CCN_SIGNING_PARAMS_INIT;
     struct ccn_charbuf *body = ccn_charbuf_create();
-    struct ccn_dhcp_content *dc;
+    struct ccn_dhcp_entry de_storage = {0};
+    struct ccn_dhcp_entry *de = &de_storage;
+    int entry_count;
     int res;
 
     ccn_name_from_uri(name, CCN_DHCP_CONTENT_URI);
     sp.type = CCN_CONTENT_DATA;
 
-    dc = read_config_file(CCN_DHCP_CONFIG);
-    ccnb_append_dhcp_content(body, dc);
+    entry_count = read_config_file(CCN_DHCP_CONFIG, de);
+    ccnb_append_dhcp_content(body, entry_count, de->next);
 
     res = ccn_sign_content(h, resultbuf, name, &sp, body->buf, body->length);
     if (res != 0) {
@@ -98,7 +108,7 @@ void put_dhcp_content(struct ccn *h)
     ccn_charbuf_destroy(&body);
     ccn_charbuf_destroy(&name);
     ccn_charbuf_destroy(&resultbuf);
-    ccn_dhcp_content_destroy(&dc);
+    ccn_dhcp_content_destroy(de->next);
 }
 
 int main(int argc, char **argv)

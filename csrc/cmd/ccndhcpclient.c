@@ -17,7 +17,7 @@
 #include <ccn/charbuf.h>
 #include <ccn/ccn_dhcp.h>
 
-struct ccn_dhcp_content *get_dhcp_content(struct ccn *h)
+int get_dhcp_content(struct ccn *h, struct ccn_dhcp_entry *tail)
 {
     struct ccn_charbuf *name = ccn_charbuf_create();
     struct ccn_charbuf *resultbuf = ccn_charbuf_create();
@@ -25,7 +25,7 @@ struct ccn_dhcp_content *get_dhcp_content(struct ccn *h)
     int res;
     const unsigned char *ptr;
     size_t length;
-    struct ccn_dhcp_content *dc;
+    int count = 0;
 
     ccn_name_from_uri(name, CCN_DHCP_CONTENT_URI);
     res = ccn_get(h, name, NULL, 3000, resultbuf, &pcobuf, NULL, 0);
@@ -33,19 +33,23 @@ struct ccn_dhcp_content *get_dhcp_content(struct ccn *h)
         ptr = resultbuf->buf;
         length = resultbuf->length;
         ccn_content_get_value(ptr, length, &pcobuf, &ptr, &length);
-        dc = ccn_dhcp_content_parse(ptr, length);
+        count = ccn_dhcp_content_parse(ptr, length, tail);
     }
 
     ccn_charbuf_destroy(&name);
     ccn_charbuf_destroy(&resultbuf);
-    return dc;
+
+    return count;
 }
 
 int main(int argc, char **argv)
 {
     struct ccn *h = NULL;
-    struct ccn_dhcp_content *dc;
+    struct ccn_dhcp_entry de_storage = {0};
+    struct ccn_dhcp_entry *de = &de_storage;
     int res;
+    int count;
+    int i;
 
     h = ccn_create();
     res = ccn_connect(h, NULL);
@@ -55,10 +59,15 @@ int main(int argc, char **argv)
     }
 
     join_dhcp_group(h);
-    dc = get_dhcp_content(h);
-    add_new_face(h, dc->name_prefix, dc->address, dc->port);
+    count = get_dhcp_content(h, de);
+    for (i = 0; i < count; i ++)
+    {
+        de = de->next;
+        add_new_face(h, de->name_prefix, de->address, de->port);
+    }
 
-    ccn_dhcp_content_destroy(&dc);
+    de = &de_storage;
+    ccn_dhcp_content_destroy(de->next);
     ccn_destroy(&h);
     exit(res < 0);
 }
