@@ -2,7 +2,7 @@ DHCP group: 224.0.0.66
 DHCP port: 60006
 DHCP prefix: ccnx:/local/dhcp
 DHCP content name: ccnx:/local/dhcp/content
-DHCP configuration file: ccn_dhcp.config
+DHCP configuration file: specified by -f parameter, ./ccn_dhcp.config by default
 
 DHCP Server:
 1. Join DHCP group

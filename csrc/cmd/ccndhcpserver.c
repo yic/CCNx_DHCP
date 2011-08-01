@@ -18,6 +18,15 @@
 #include <ccn/charbuf.h>
 #include <ccn/ccn_dhcp.h>
 
+static void usage(const char *progname)
+{
+    fprintf(stderr,
+            "%s [-f config_file]\n"
+            "./ccn_dhcp.config is read by default if no config file is specified\n"
+            , progname);
+    exit(1);
+}
+
 int read_config_file(const char *filename, struct ccn_dhcp_entry *tail)
 {
     char *uri;
@@ -85,7 +94,7 @@ int read_config_file(const char *filename, struct ccn_dhcp_entry *tail)
 /*
  * Publish DHCP content
  */
-int put_dhcp_content(struct ccn *h)
+int put_dhcp_content(struct ccn *h, const char *config_file)
 {
     struct ccn_charbuf *name = ccn_charbuf_create();
     struct ccn_charbuf *resultbuf = ccn_charbuf_create();
@@ -99,7 +108,7 @@ int put_dhcp_content(struct ccn *h)
     ccn_name_from_uri(name, CCN_DHCP_CONTENT_URI);
     sp.type = CCN_CONTENT_DATA;
 
-    entry_count = read_config_file(CCN_DHCP_CONFIG, de);
+    entry_count = read_config_file(config_file, de);
 
     res = ccnb_append_dhcp_content(body, entry_count, de->next);
     if (res < 0) {
@@ -138,6 +147,18 @@ int main(int argc, char **argv)
 {
     struct ccn *h = NULL;
     int res;
+    const char *config_file = CCN_DHCP_CONFIG;
+
+    while ((res = getopt(argc, argv, "f:h")) != -1) {
+        switch (res) {
+            case 'f':
+                config_file = optarg;
+                break;
+            case 'h':
+            default:
+                usage(argv[0]);
+        }
+    }
 
     h = ccn_create();
     res = ccn_connect(h, NULL);
@@ -152,7 +173,7 @@ int main(int argc, char **argv)
         exit(1);
     }
 
-    res = put_dhcp_content(h);
+    res = put_dhcp_content(h, config_file);
     if (res < 0) {
         ccn_perror(h, "Cannot publish DHCP content.");
         exit(1);
