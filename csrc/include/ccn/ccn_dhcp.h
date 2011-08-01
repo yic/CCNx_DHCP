@@ -18,9 +18,9 @@ struct ccn_dhcp_entry {
     struct ccn_dhcp_entry *next;
 };
 
-void join_dhcp_group(struct ccn *h);
+int join_dhcp_group(struct ccn *h);
 
-void add_new_face(struct ccn *h, struct ccn_charbuf *prefix, const char *address, const char *port);
+int add_new_face(struct ccn *h, struct ccn_charbuf *prefix, const char *address, const char *port);
 
 int ccn_dhcp_content_parse(const unsigned char *p, size_t size, struct ccn_dhcp_entry *tail);
 

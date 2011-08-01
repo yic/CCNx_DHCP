@@ -18,6 +18,55 @@
 #include <ccn/charbuf.h>
 #include <ccn/ccn_dhcp.h>
 
+void ccndhcp_warn(int lineno, const char *format, ...)
+{
+    struct timeval t;
+    va_list ap;
+    va_start(ap, format);
+    gettimeofday(&t, NULL);
+    fprintf(stderr, "%d.%06d ccndhcp[%d]:%d: ", (int)t.tv_sec, (unsigned)t.tv_usec, (int)getpid(), lineno);
+    vfprintf(stderr, format, ap);
+    va_end(ap);
+}
+
+void ccndhcp_fatal(int lineno, const char *format, ...)
+{
+    struct timeval t;
+    va_list ap;
+    va_start(ap, format);
+    gettimeofday(&t, NULL);
+    fprintf(stderr, "%d.%06d ccndhcp[%d]:%d: ", (int)t.tv_sec, (unsigned)t.tv_usec, (int)getpid(), lineno);
+    vfprintf(stderr, format, ap);
+    va_end(ap);
+    exit(1);
+}
+
+#define ON_ERROR_EXIT(resval, msg) on_error_exit((resval), __LINE__, msg)
+
+static void on_error_exit(int res, int lineno, const char *msg)
+{
+    if (res >= 0)
+        return;
+    ccndhcp_fatal(lineno, "fatal error, res = %d, %s\n", res, msg);
+}
+
+#define ON_ERROR_CLEANUP(resval) \
+{           \
+    if ((resval) < 0) { \
+        ccndhcp_warn (__LINE__, "OnError cleanup\n"); \
+        goto cleanup; \
+    } \
+}
+
+#define ON_NULL_CLEANUP(resval) \
+{           \
+    if ((resval) == NULL) { \
+        ccndhcp_warn(__LINE__, "OnNull cleanup\n"); \
+        goto cleanup; \
+    } \
+}
+
+
 /*
  * Bind a prefix to a face
  */
@@ -63,9 +112,13 @@ int register_prefix(struct ccn *h, struct ccn_charbuf *local_scope_template,
 
     /* send Interest, get Data */
     res = ccn_get(h, name, local_scope_template, 1000, resultbuf, &pcobuf, NULL, 0);
-    ccn_content_get_value(resultbuf->buf, resultbuf->length, &pcobuf, &ptr, &length);
+    ON_ERROR_CLEANUP(res);
+
+    res = ccn_content_get_value(resultbuf->buf, resultbuf->length, &pcobuf, &ptr, &length);
+    ON_ERROR_CLEANUP(res);
     /* extract new forwarding entry from Data */
     new_forwarding_entry = ccn_forwarding_entry_parse(ptr, length);
+    ON_NULL_CLEANUP(new_forwarding_entry);
 
     res = new_forwarding_entry->faceid;
 
@@ -76,7 +129,17 @@ int register_prefix(struct ccn *h, struct ccn_charbuf *local_scope_template,
     ccn_charbuf_destroy(&name);
     ccn_charbuf_destroy(&prefixreg);
 
-    return (res);
+    return res;
+
+cleanup:
+    ccn_forwarding_entry_destroy(&new_forwarding_entry);
+    ccn_charbuf_destroy(&signed_info);
+    ccn_charbuf_destroy(&temp);
+    ccn_charbuf_destroy(&resultbuf);
+    ccn_charbuf_destroy(&name);
+    ccn_charbuf_destroy(&prefixreg);
+
+    return -1;
 }
 
 /*
@@ -114,9 +177,12 @@ struct ccn_face_instance *create_face(struct ccn *h, struct ccn_charbuf *local_s
     ccn_name_append(name, temp->buf, temp->length);
     /* send Interest to retrieve Data that contains the newly created face */
     res = ccn_get(h, name, local_scope_template, 1000, resultbuf, &pcobuf, NULL, 0);
+    ON_ERROR_CLEANUP(res);
 
     /* decode Data to get the actual face instance */
-    ccn_content_get_value(resultbuf->buf, resultbuf->length, &pcobuf, &ptr, &length);
+    res = ccn_content_get_value(resultbuf->buf, resultbuf->length, &pcobuf, &ptr, &length);
+    ON_ERROR_CLEANUP(res);
+
     new_face_instance = ccn_face_instance_parse(ptr, length);
 
     ccn_charbuf_destroy(&newface);
@@ -126,13 +192,22 @@ struct ccn_face_instance *create_face(struct ccn *h, struct ccn_charbuf *local_s
     ccn_charbuf_destroy(&name);
 
     return new_face_instance;
+
+cleanup:
+    ccn_charbuf_destroy(&newface);
+    ccn_charbuf_destroy(&signed_info);
+    ccn_charbuf_destroy(&temp);
+    ccn_charbuf_destroy(&resultbuf);
+    ccn_charbuf_destroy(&name);
+
+    return NULL;
 }
 
 /*
  * Get ccnd id
  */
 static int get_ccndid(struct ccn *h, struct ccn_charbuf *local_scope_template,
-        const unsigned char *ccndid, size_t ccndid_storage_size)
+        const unsigned char *ccndid)
 {
     struct ccn_charbuf *name = NULL;
     struct ccn_charbuf *resultbuf = NULL;
@@ -140,20 +215,25 @@ static int get_ccndid(struct ccn *h, struct ccn_charbuf *local_scope_template,
     char ccndid_uri[] = "ccnx:/%C1.M.S.localhost/%C1.M.SRV/ccnd/KEY";
     const unsigned char *ccndid_result;
     static size_t ccndid_result_size;
+    int res;
 
     name = ccn_charbuf_create();
     resultbuf = ccn_charbuf_create();
 
-    ccn_name_from_uri(name, ccndid_uri);
+    res = ccn_name_from_uri(name, ccndid_uri);
+    ON_ERROR_EXIT(res, "Unable to parse service locator URI for ccnd key\n");
+
     /* get Data */
-    ccn_get(h, name, local_scope_template, 4500, resultbuf, &pcobuf, NULL, 0);
+    res = ccn_get(h, name, local_scope_template, 4500, resultbuf, &pcobuf, NULL, 0);
+    ON_ERROR_EXIT(res, "Unable to get key from ccnd\n");
 
     /* extract from Data */
-    ccn_ref_tagged_BLOB(CCN_DTAG_PublisherPublicKeyDigest,
+    res = ccn_ref_tagged_BLOB(CCN_DTAG_PublisherPublicKeyDigest,
             resultbuf->buf,
             pcobuf.offset[CCN_PCO_B_PublisherPublicKeyDigest],
             pcobuf.offset[CCN_PCO_E_PublisherPublicKeyDigest],
             &ccndid_result, &ccndid_result_size);
+    ON_ERROR_EXIT(res, "Unable to parse ccnd response for ccnd id\n");
 
     memcpy((void *)ccndid, ccndid_result, ccndid_result_size);
 
@@ -179,13 +259,23 @@ struct ccn_face_instance *construct_face(const unsigned char *ccndid, size_t ccn
     struct ccn_charbuf *store = ccn_charbuf_create();
     int host_off = -1;
     int port_off = -1;
+    int res;
 
-    getaddrinfo(address, port, &hints, &raddrinfo);
-    getnameinfo(raddrinfo->ai_addr, raddrinfo->ai_addrlen,
+    res = getaddrinfo(address, port, &hints, &raddrinfo);
+    if (res != 0 || raddrinfo == NULL) {
+        fprintf(stderr, "Error: getaddrinfo\n");
+        return NULL;
+    }
+
+    res = getnameinfo(raddrinfo->ai_addr, raddrinfo->ai_addrlen,
             rhostnamebuf, sizeof(rhostnamebuf),
             rhostportbuf, sizeof(rhostportbuf),
             NI_NUMERICHOST | NI_NUMERICSERV);
     freeaddrinfo(raddrinfo);
+    if (res != 0) {
+        fprintf(stderr, "Error: getnameinfo\n");
+        return NULL;
+    }
 
     fi->store = store;
     fi->descr.ipproto = IPPROTO_UDP;
@@ -227,7 +317,7 @@ void init_data(struct ccn_charbuf *local_scope_template,
 /*
  * Create a newface on the given address and port, bind the prefix to the face
  */
-void add_new_face(struct ccn *h, struct ccn_charbuf *prefix, const char *address, const char *port)
+int add_new_face(struct ccn *h, struct ccn_charbuf *prefix, const char *address, const char *port)
 {
     struct ccn_charbuf *local_scope_template = ccn_charbuf_create();
     struct ccn_charbuf *no_name = ccn_charbuf_create();
@@ -236,34 +326,59 @@ void add_new_face(struct ccn *h, struct ccn_charbuf *prefix, const char *address
     size_t ccndid_size = 0;
     struct ccn_face_instance *fi;
     struct ccn_face_instance *nfi;
+    int res;
 
     init_data(local_scope_template, no_name);
 
-    ccndid_size = get_ccndid(h, local_scope_template, ccndid, sizeof(ccndid_storage));
+    ccndid_size = get_ccndid(h, local_scope_template, ccndid);
+    if (ccndid_size != sizeof(ccndid_storage))
+    {
+        fprintf(stderr, "Incorrect size for ccnd id in response\n");
+        ON_ERROR_CLEANUP(-1);
+    }
+
     /* construct a face instance for new face request */
     fi = construct_face(ccndid, ccndid_size, address, port);
+    ON_NULL_CLEANUP(fi);
+
     /* send new face request to actually create a new face */
     nfi = create_face(h, local_scope_template, no_name, fi);
+    ON_NULL_CLEANUP(nfi);
+
     /* bind prefix to the new face */
-    register_prefix(h, local_scope_template, no_name, prefix, nfi);
+    res = register_prefix(h, local_scope_template, no_name, prefix, nfi);
+    ON_ERROR_CLEANUP(res);
 
     ccn_charbuf_destroy(&local_scope_template);
     ccn_charbuf_destroy(&no_name);
     ccn_face_instance_destroy(&fi);
     ccn_face_instance_destroy(&nfi);
+
+    return 0;
+
+cleanup:
+    ccn_charbuf_destroy(&local_scope_template);
+    ccn_charbuf_destroy(&no_name);
+    ccn_face_instance_destroy(&fi);
+    ccn_face_instance_destroy(&nfi);
+
+    return -1;
 }
 
 /*
  * Create a face on the multicast address and port, bind the DHCP prefix to the face
  */
-void join_dhcp_group(struct ccn *h)
+int join_dhcp_group(struct ccn *h)
 {
+    int res;
     struct ccn_charbuf *prefix = ccn_charbuf_create();
 
     ccn_name_from_uri(prefix, CCN_DHCP_URI);
-    add_new_face(h, prefix, CCN_DHCP_ADDR, CCN_DHCP_PORT);
+    res = add_new_face(h, prefix, CCN_DHCP_ADDR, CCN_DHCP_PORT);
 
     ccn_charbuf_destroy(&prefix);
+
+    return res;
 }
 
 int ccn_dhcp_content_parse(const unsigned char *p, size_t size, struct ccn_dhcp_entry *tail)

@@ -119,11 +119,16 @@ int main(int argc, char **argv)
     h = ccn_create();
     res = ccn_connect(h, NULL);
     if (res < 0) {
-        ccn_perror(h, "ccn_connect");
+        ccn_perror(h, "Cannot connect to ccnd.");
         exit(1);
     }
 
-    join_dhcp_group(h);
+    res = join_dhcp_group(h);
+    if (res < 0) {
+        ccn_perror(h, "Cannot join DHCP group.");
+        exit(1);
+    }
+
     put_dhcp_content(h);
 
     ccn_destroy(&h);
