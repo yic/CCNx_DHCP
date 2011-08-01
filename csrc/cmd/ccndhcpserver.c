@@ -31,6 +31,7 @@ int read_config_file(const char *filename, struct ccn_dhcp_entry *tail)
     const char *seps = " \t\n";
     struct ccn_dhcp_entry *de = tail;
     int count = 0;
+    int res = 0;
 
     cfg = fopen(filename, "r");
     if (cfg == NULL) {
@@ -64,7 +65,12 @@ int read_config_file(const char *filename, struct ccn_dhcp_entry *tail)
         port = strtok_r(NULL, seps, &last);
 
         de->name_prefix = ccn_charbuf_create();
-        ccn_name_from_uri(de->name_prefix, uri);
+        res = ccn_name_from_uri(de->name_prefix, uri);
+        if (res < 0) {
+            fprintf(stderr, "Bad URI format: %s\n", uri);
+            exit(1);
+        }
+
         memcpy((void *)de->address, host, strlen(host));
         memcpy((void *)de->port, port, strlen(port));
 
@@ -76,7 +82,10 @@ int read_config_file(const char *filename, struct ccn_dhcp_entry *tail)
     return count;
 }
 
-void put_dhcp_content(struct ccn *h)
+/*
+ * Publish DHCP content
+ */
+int put_dhcp_content(struct ccn *h)
 {
     struct ccn_charbuf *name = ccn_charbuf_create();
     struct ccn_charbuf *resultbuf = ccn_charbuf_create();
@@ -91,24 +100,38 @@ void put_dhcp_content(struct ccn *h)
     sp.type = CCN_CONTENT_DATA;
 
     entry_count = read_config_file(CCN_DHCP_CONFIG, de);
-    ccnb_append_dhcp_content(body, entry_count, de->next);
+
+    res = ccnb_append_dhcp_content(body, entry_count, de->next);
+    if (res < 0) {
+        fprintf(stderr, "Error appending DHCP content.\n");
+        goto cleanup;
+    }
 
     res = ccn_sign_content(h, resultbuf, name, &sp, body->buf, body->length);
-    if (res != 0) {
-        fprintf(stderr, "Failed to encode ContentObject (res == %d)\n", res);
-        exit(1);
+    if (res < 0) {
+        fprintf(stderr, "Failed to encode ContentObject.\n");
+        goto cleanup;
     }
 
     res = ccn_put(h, resultbuf->buf, resultbuf->length);
     if (res < 0) {
-        fprintf(stderr, "ccn_put failed (res == %d)\n", res);
-        exit(1);
+        fprintf(stderr, "ccn_put failed.\n");
+        goto cleanup;
     }
 
     ccn_charbuf_destroy(&body);
     ccn_charbuf_destroy(&name);
     ccn_charbuf_destroy(&resultbuf);
     ccn_dhcp_content_destroy(de->next);
+
+    return 0;
+cleanup:
+    ccn_charbuf_destroy(&body);
+    ccn_charbuf_destroy(&name);
+    ccn_charbuf_destroy(&resultbuf);
+    ccn_dhcp_content_destroy(de->next);
+
+    return -1;
 }
 
 int main(int argc, char **argv)
@@ -129,7 +152,11 @@ int main(int argc, char **argv)
         exit(1);
     }
 
-    put_dhcp_content(h);
+    res = put_dhcp_content(h);
+    if (res < 0) {
+        ccn_perror(h, "Cannot publish DHCP content.");
+        exit(1);
+    }
 
     ccn_destroy(&h);
     exit(res < 0);
