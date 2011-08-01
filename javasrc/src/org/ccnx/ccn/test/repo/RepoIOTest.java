@@ -21,7 +21,6 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.TreeMap;
-import java.util.logging.Level;
 
 import org.ccnx.ccn.CCNHandle;
 import org.ccnx.ccn.config.ConfigurationException;
@@ -135,13 +134,15 @@ public class RepoIOTest extends RepoTestBase {
 	
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
-		Log.setLevel(Log.FAC_NETMANAGER, Level.FINEST);
-		Log.setLevel(Log.FAC_IO, Level.FINEST);
+
+		RepoTestBase.setUpBeforeClass();
+
 		_testPrefix = testHelper.getTestNamespace("testRepoIO");
 
 		_testStream += "-" + rand.nextInt(10000);
 		_testObj += "-" + rand.nextInt(10000);
-		RepoTestBase.setUpBeforeClass();
+		
+		
 		byte value = 1;
 		for (int i = 0; i < data.length; i++)
 			data[i] = value++;
@@ -153,18 +154,12 @@ public class RepoIOTest extends RepoTestBase {
 		ros.close();
 		CCNStringObject so = new CCNStringObject(ContentName.fromNative(_testPrefix, _testObj), "Initial string value", SaveType.REPOSITORY, putHandle);
 		so.save();
+		
+		// We sync the file here mainly to be sure to save the default public key in the repository for the first time
+		// We'll need this (of course) for future tests.
+		RepositoryControl.localRepoSync(getHandle, so);
 		so.close();
 		
-		// Need to save key also for first time sync test. Actually we need this for the policy
-		// test too since the repo needs to locate the key to verify the policy test file
-		KeyLocator locator = 
-			putHandle.keyManager().getKeyLocator(putHandle.keyManager().getDefaultKeyID()); 
-		putHandle.keyManager().publishSelfSignedKeyToRepository(
-		               locator.name().name(), 
-		               putHandle.keyManager().getDefaultPublicKey(), null, 
-		               SystemConfiguration.getDefaultTimeout());
-		
-
 		// Floss content into ccnd for tests involving content not already in repo when we start
 		IOTestFlosser floss = new IOTestFlosser();
 		
@@ -175,7 +170,7 @@ public class RepoIOTest extends RepoTestBase {
 		// So we can test saving keys in the sync tests we build our first sync object (a stream) with
 		// an alternate key and the second one (a CCNNetworkObject) with an alternate key locater that is
 		// accessed through a link.
-		CreateUserData testUsers = new CreateUserData(testHelper.getClassChildName(USER_NAMESPACE), 2, false, null, putHandle);
+		CreateUserData testUsers = new CreateUserData(testHelper.getClassChildName(USER_NAMESPACE), 2, false, null);
 		String [] userNames = testUsers.friendlyNames().toArray(new String[2]);
 		CCNHandle userHandle = testUsers.getHandleForUser(userNames[0]);
 				
@@ -340,8 +335,7 @@ public class RepoIOTest extends RepoTestBase {
 		FileInputStream fis = new FileInputStream(_topdir + policyFile);
 		PolicyXML pxml = BasicPolicy.createPolicyXML(fis);
 		fis.close();
-		ContentName basePolicy = BasicPolicy.getPolicyName(ContentName.fromNative(_globalPrefix), _repoName);
-		ContentName policyName = new ContentName(basePolicy, Interest.generateNonce());
+		ContentName policyName = BasicPolicy.getPolicyName(ContentName.fromNative(_globalPrefix));
 		PolicyObject po = new PolicyObject(policyName, pxml, SaveType.REPOSITORY, putHandle);
 		po.save();
 		Thread.sleep(4000);

@@ -38,7 +38,7 @@ import android.util.Log;
  * the user of the services.
  */
 public abstract class CCNxWrapper {
-	public String TAG = "CCNx Wrapper";
+	public String TAG = "CCNxWrapper";
 	
 	private static final int DEFAULT_WAIT_FOR_READY = 60000;
 	
@@ -68,15 +68,14 @@ public abstract class CCNxWrapper {
 	
 	private IStatusCallback _cb = new IStatusCallback.Stub() {
 		public void status(int st){
+			Log.d(TAG,"Received a status update.. " + status.name());
 			synchronized(_lock) {
-				status = SERVICE_STATUS.fromOrdinal(st);
+				setStatus(SERVICE_STATUS.fromOrdinal(st));
 				if(SERVICE_STATUS.SERVICE_FINISHED.equals(status)){
-					status = SERVICE_STATUS.SERVICE_OFF;
+					setStatus(SERVICE_STATUS.SERVICE_OFF);
 				}
-				_lock.notifyAll();
 			}
 			issueCallback();
-			Log.d(TAG,"Received a status update.. " + status.name());
 		}
 	};
 	
@@ -95,11 +94,15 @@ public abstract class CCNxWrapper {
 	/**
 	 * Start the service.  If the service is running we will not try to start it
 	 * we will only try to bind to it
-	 * @return true if we are bound, false if we are not, some error occured
+	 * @return true if we are bound, false if we are not, some error occurred
 	 */
 	public boolean startService(){
+		Log.d(TAG,"startService()");
 		if(!isRunning()){
 			_ctx.startService(getStartIntent());
+		} else {
+			setStatus(SERVICE_STATUS.SERVICE_RUNNING);
+			issueCallback();
 		}
 		bindService();
 		return isBound();
@@ -130,7 +133,9 @@ public abstract class CCNxWrapper {
 					iService = ICCNxService.Stub.asInterface(binder);
 					try {
 						iService.registerStatusCallback(_cb);
-						status = SERVICE_STATUS.fromOrdinal(iService.getStatus());
+						SERVICE_STATUS st = SERVICE_STATUS.fromOrdinal(iService.getStatus());
+						Log.i(TAG,"bindService sets status: " + st);
+						setStatus(st);
 					} catch (RemoteException e) {
 						// Did the service crash?
 						e.printStackTrace();
@@ -140,7 +145,7 @@ public abstract class CCNxWrapper {
 			}
 
 			public void onServiceDisconnected(ComponentName name) {
-				Log.d(TAG, " Service Disconnected");
+				Log.i(TAG, " Service Disconnected");
 				synchronized(iServiceLock) {
 					iService = null;
 				}
@@ -276,5 +281,13 @@ public abstract class CCNxWrapper {
 	
 	public SERVICE_STATUS getStatus(){
 		return status;
+	}
+	
+	protected void setStatus(SERVICE_STATUS st) {
+		Log.i(TAG,"setStatus = " + st);
+		synchronized(_lock) {
+			status = st;
+			_lock.notifyAll();
+		}
 	}
 }

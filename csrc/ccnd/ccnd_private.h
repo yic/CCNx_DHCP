@@ -1,6 +1,6 @@
 /**
  * @file ccnd_private.h
- * 
+ *
  * Private definitions for ccnd - the CCNx daemon.
  * Data structures are described here so that logging and status
  * routines can be compiled separately.
@@ -342,13 +342,18 @@ void ccnd_meter_bump(struct ccnd_handle *h, struct ccnd_meter *m, unsigned amt);
 unsigned ccnd_meter_rate(struct ccnd_handle *h, struct ccnd_meter *m);
 uintmax_t ccnd_meter_total(struct ccnd_meter *m);
 
+
 /**
+ * Refer to doc/technical/Registration.txt for the meaning of these flags.
+ *
  * @def CCN_FORW_ACTIVE         1
  * @def CCN_FORW_CHILD_INHERIT  2
  * @def CCN_FORW_ADVERTISE      4
  * @def CCN_FORW_LAST           8
  * @def CCN_FORW_CAPTURE       16
  * @def CCN_FORW_LOCAL         32
+ * @def CCN_FORW_TAP           64
+ * @def CCN_FORW_CAPTURE_OK   128
  */
 #define CCN_FORW_PFXO (CCN_FORW_ADVERTISE | CCN_FORW_CAPTURE | CCN_FORW_LOCAL)
 #define CCN_FORW_REFRESHED      (1 << 16) /**< private to ccnd */
@@ -399,6 +404,12 @@ int ccnd_req_prefixreg(struct ccnd_handle *h,
 int ccnd_req_selfreg(struct ccnd_handle *h,
                      const unsigned char *msg, size_t size,
                      struct ccn_charbuf *reply_body);
+
+/**
+ * URIs for prefixes served by the internal client
+ */
+#define CCNDID_LOCAL_URI "ccnx:/%C1.M.S.localhost/%C1.M.SRV/ccnd/KEY"
+#define CCNDID_NEIGHBOR_URI "ccnx:/%C1.M.S.neighborhood/%C1.M.SRV/ccnd/KEY"
 
 /*
  * The internal client calls this with the argument portion ARG of

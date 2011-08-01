@@ -19,4 +19,7 @@ log
 testdir
 testdir/
 version
+local
+local/
+local.subdirs
 tags

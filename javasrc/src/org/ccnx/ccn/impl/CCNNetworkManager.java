@@ -23,7 +23,6 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.NotYetConnectedException;
 import java.util.ArrayList;
-import java.util.SortedMap;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.TreeMap;
@@ -32,6 +31,7 @@ import java.util.concurrent.RejectedExecutionException;
 import java.util.concurrent.Semaphore;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 
 import org.ccnx.ccn.CCNFilterListener;
@@ -84,6 +84,12 @@ public class CCNNetworkManager implements Runnable {
 	public static final int THREAD_LIFE = 8;	// in seconds
 	public static final int MAX_PAYLOAD = 8800; // number of bytes in UDP payload
 	
+	// These are to make log messages from CCNNetworkManager intelligable when
+	// there are multiple managers running
+	protected final static AtomicInteger _managerIdCount = new AtomicInteger(0);
+	protected final int _managerId;
+	protected final String _managerIdString;
+	
 	/**
 	 *  Definitions for which network protocol to use.  This allows overriding
 	 *  the current default.
@@ -134,8 +140,7 @@ public class CCNNetworkManager implements Runnable {
 	protected Timer _periodicTimer = null;
 	protected Object _timersSetupLock = new Object();
 	protected Boolean _timersSetup = false;
-	protected TreeMap<ContentName, RegisteredPrefix> _registeredPrefixes 
-	= new TreeMap<ContentName, RegisteredPrefix>();
+	protected TreeMap<ContentName, RegisteredPrefix> _registeredPrefixes = new TreeMap<ContentName, RegisteredPrefix>();
 
 	/**
 	 * Keep track of prefixes that are actually registered with ccnd (as opposed to Filters used
@@ -499,7 +504,7 @@ public class CCNNetworkManager implements Runnable {
 				// Data is already pending, this interest is already consumed, cannot add obj
 				_stats.increment(StatsEnum.ContentObjectsIgnored);
 				if (Log.isLoggable(Log.FAC_NETMANAGER, Level.WARNING))
-					Log.warning(Log.FAC_NETMANAGER, "{0} is not handled - data already pending", obj);
+					Log.warning(Log.FAC_NETMANAGER, "{0} is not handled - data already pending", obj.name());
 				return false;
 			}
 		}
@@ -594,6 +599,7 @@ public class CCNNetworkManager implements Runnable {
 					}
 				}
 			} catch (Exception ex) {
+				_stats.increment(StatsEnum.DeliverContentFailed);
 				Log.warning(Log.FAC_NETMANAGER, "failed to deliver data: {0}", ex);
 				Log.warningStackTrace(ex);
 			}
@@ -689,6 +695,7 @@ public class CCNNetworkManager implements Runnable {
 						Log.finer(Log.FAC_NETMANAGER, "Filter callback skipped (no interests) for: {0}", prefix);
 				}
 			} catch (RuntimeException ex) {
+				_stats.increment(StatsEnum.DeliverInterestFailed);
 				Log.warning(Log.FAC_NETMANAGER, "failed to deliver interest: {0}", ex);
 				Log.warningStackTrace(ex);
 			}
@@ -740,10 +747,13 @@ public class CCNNetworkManager implements Runnable {
 	 * @throws IOException if the port is invalid
 	 */
 	public CCNNetworkManager(KeyManager keyManager) throws IOException {
+		_managerId = _managerIdCount.incrementAndGet();
+		_managerIdString = "NetworkManager " + _managerId + ": ";
+		
 		if (null == keyManager) {
 			// Unless someone gives us one later, we won't be able to register filters. Log this.
 			if( Log.isLoggable(Log.FAC_NETMANAGER, Level.INFO) )
-				Log.info(Log.FAC_NETMANAGER, "CCNNetworkManager: being created with null KeyManager. Must set KeyManager later to be able to register filters.");
+				Log.info(Log.FAC_NETMANAGER, formatMessage("CCNNetworkManager: being created with null KeyManager. Must set KeyManager later to be able to register filters."));
 		}
 
 		_keyManager = keyManager;
@@ -754,20 +764,20 @@ public class CCNNetworkManager implements Runnable {
 			try {
 				_port = new Integer(portval);
 			} catch (Exception ex) {
-				throw new IOException("Invalid port '" + portval + "' specified in " + PROP_AGENT_PORT);
+				throw new IOException(formatMessage("Invalid port '" + portval + "' specified in " + PROP_AGENT_PORT));
 			}
-			Log.warning(Log.FAC_NETMANAGER, "Non-standard CCN agent port " + _port + " per property " + PROP_AGENT_PORT);
+			Log.warning(Log.FAC_NETMANAGER, formatMessage("Non-standard CCN agent port " + _port + " per property " + PROP_AGENT_PORT));
 		}
 		String hostval = System.getProperty(PROP_AGENT_HOST);
 		if (null != hostval && hostval.length() > 0) {
 			_host = hostval;
-			Log.warning(Log.FAC_NETMANAGER, "Non-standard CCN agent host " + _host + " per property " + PROP_AGENT_HOST);
+			Log.warning(Log.FAC_NETMANAGER, formatMessage("Non-standard CCN agent host " + _host + " per property " + PROP_AGENT_HOST));
 		}
 		
 		_protocol = SystemConfiguration.AGENT_PROTOCOL;
 
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.INFO) )
-			Log.info(Log.FAC_NETMANAGER, "Contacting CCN agent at " + _host + ":" + _port);
+			Log.info(Log.FAC_NETMANAGER, formatMessage("Contacting CCN agent at " + _host + ":" + _port));
 
 		String tapname = System.getProperty(PROP_TAP);
 		if (null == tapname) {
@@ -790,7 +800,7 @@ public class CCNNetworkManager implements Runnable {
 		_threadpool = (ThreadPoolExecutor)Executors.newCachedThreadPool();
 		_threadpool.setKeepAliveTime(THREAD_LIFE, TimeUnit.SECONDS);
 		_threadpool.setMaximumPoolSize(SystemConfiguration.MAX_DISPATCH_THREADS);
-		_thread = new Thread(this, "CCNNetworkManager");
+		_thread = new Thread(this, "CCNNetworkManager " + _managerId);
 		_thread.start();
 	}
 
@@ -798,10 +808,14 @@ public class CCNNetworkManager implements Runnable {
 	 * Shutdown the connection to ccnd and all threads associated with this network manager
 	 */
 	public void shutdown() {
-		Log.info(Log.FAC_NETMANAGER, "Shutdown requested");
+		Log.info(Log.FAC_NETMANAGER, formatMessage("Shutdown requested"));
+//		Thread.dumpStack();
+		
 		_run = false;
 		if (_periodicTimer != null)
 			_periodicTimer.cancel();
+		if (_thread != null)
+			_thread.interrupt();
 		if (null != _channel) {
 			try {
 				setTap(null);
@@ -815,6 +829,18 @@ public class CCNNetworkManager implements Runnable {
 				// Ignore since we're shutting down
 			}
 
+		}
+	}
+	
+	@Override
+	protected void finalize() throws Throwable {
+		try {
+			if (_run) {
+				Log.warning(Log.FAC_NETMANAGER, formatMessage("Shutdown from finalize"));
+			}
+			shutdown();
+		} finally {
+			super.finalize();
 		}
 	}
 
@@ -849,7 +875,7 @@ public class CCNNetworkManager implements Runnable {
 			_tapStreamOut = new FileOutputStream(new File(pathname + "_out"));
 			_tapStreamIn = new FileOutputStream(new File(pathname + "_in"));
 			if( Log.isLoggable(Log.FAC_NETMANAGER, Level.INFO) )
-				Log.info(Log.FAC_NETMANAGER, "Tap writing to {0}", pathname);
+				Log.info(Log.FAC_NETMANAGER, formatMessage("Tap writing to {0}"), pathname);
 		}
 	}
 
@@ -879,7 +905,7 @@ public class CCNNetworkManager implements Runnable {
 		if (doFetch) {
 			sentID = fetchCCNDId(this, _keyManager);
 			if (null == sentID) {
-				Log.severe(Log.FAC_NETMANAGER, "getCCNDId: call to fetchCCNDId returned null.");
+				Log.severe(Log.FAC_NETMANAGER, formatMessage("getCCNDId: call to fetchCCNDId returned null."));
 				return null;
 			}
 		}
@@ -920,7 +946,7 @@ public class CCNNetworkManager implements Runnable {
 		try {
 			write(co);
 		} catch (ContentEncodingException e) {
-			Log.warning(Log.FAC_NETMANAGER, "Exception in lowest-level put for object {0}! {1}", co.name(), e);
+			Log.warning(Log.FAC_NETMANAGER, formatMessage("Exception in lowest-level put for object {0}! {1}"), co.name(), e);
 		}
 		return co;
 	}
@@ -942,18 +968,18 @@ public class CCNNetworkManager implements Runnable {
 		_stats.increment(StatsEnum.Gets);
 
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINE) )
-			Log.fine(Log.FAC_NETMANAGER, "get: {0} with timeout: {1}", interest, timeout);
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("get: {0} with timeout: {1}"), interest, timeout);
 		InterestRegistration reg = new InterestRegistration(this, interest, null, null);
 		expressInterest(reg);
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINEST) )
-			Log.finest(Log.FAC_NETMANAGER, "blocking for {0} on {1}", interest.name(), reg.sema);
+			Log.finest(Log.FAC_NETMANAGER, formatMessage("blocking for {0} on {1}"), interest.name(), reg.sema);
 		// Await data to consume the interest
 		if (timeout == SystemConfiguration.NO_TIMEOUT)
 			reg.sema.acquire(); // currently no timeouts
 		else
 			reg.sema.tryAcquire(timeout, TimeUnit.MILLISECONDS);
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINEST) )
-			Log.finest(Log.FAC_NETMANAGER, "unblocked for {0} on {1}", interest.name(), reg.sema);
+			Log.finest(Log.FAC_NETMANAGER, formatMessage("unblocked for {0} on {1}"), interest.name(), reg.sema);
 		// Typically the main processing thread will have registered the interest
 		// which must be undone here, but no harm if never registered
 		unregisterInterest(reg);
@@ -975,11 +1001,11 @@ public class CCNNetworkManager implements Runnable {
 		// TODO - use of "caller" should be reviewed - don't believe this is currently serving
 		// serving any useful purpose.
 		if (null == callbackListener) {
-			throw new NullPointerException("expressInterest: callbackListener cannot be null");
+			throw new NullPointerException(formatMessage("expressInterest: callbackListener cannot be null"));
 		}		
 
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINE) )
-			Log.fine(Log.FAC_NETMANAGER, "expressInterest: {0}", interest);
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("expressInterest: {0}"), interest);
 		InterestRegistration reg = new InterestRegistration(this, interest, callbackListener, caller);
 		expressInterest(reg);
 	}
@@ -1008,12 +1034,12 @@ public class CCNNetworkManager implements Runnable {
 		if (null == callbackListener) {
 			// TODO - use of "caller" should be reviewed - don't believe this is currently serving
 			// serving any useful purpose.
-			throw new NullPointerException("cancelInterest: callbackListener cannot be null");
+			throw new NullPointerException(formatMessage("cancelInterest: callbackListener cannot be null"));
 		}
 		_stats.increment(StatsEnum.CancelInterest);
 
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINE) )
-			Log.fine(Log.FAC_NETMANAGER, "cancelInterest: {0}", interest.name());
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("cancelInterest: {0}"), interest.name());
 		// Remove interest from repeated presentation to the network.
 		unregisterInterest(caller, interest, callbackListener);
 	}
@@ -1050,10 +1076,10 @@ public class CCNNetworkManager implements Runnable {
 			Integer registrationFlags) throws IOException {
 
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINE) )
-			Log.fine(Log.FAC_NETMANAGER, "setInterestFilter: {0}", filter);
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("setInterestFilter: {0}"), filter);
 		if ((null == _keyManager) || (!_keyManager.initialized() || (null == _keyManager.getDefaultKeyID()))) {
-			Log.warning(Log.FAC_NETMANAGER, "Cannot set interest filter -- key manager not ready!");
-			throw new IOException("Cannot set interest filter -- key manager not ready!");
+			Log.warning(Log.FAC_NETMANAGER, formatMessage("Cannot set interest filter -- key manager not ready!"));
+			throw new IOException(formatMessage("Cannot set interest filter -- key manager not ready!"));
 		}
 		// TODO - use of "caller" should be reviewed - don't believe this is currently serving
 		// serving any useful purpose.
@@ -1085,7 +1111,7 @@ public class CCNNetworkManager implements Runnable {
 					}
 				}
 			} catch (CCNDaemonException e) {
-				Log.warning(Log.FAC_NETMANAGER, "setInterestFilter: unexpected CCNDaemonException: " + e.getMessage());
+				Log.warning(Log.FAC_NETMANAGER, formatMessage("setInterestFilter: unexpected CCNDaemonException: " + e.getMessage()));
 				throw new IOException(e.getMessage());
 			}
 		}
@@ -1094,6 +1120,22 @@ public class CCNNetworkManager implements Runnable {
 		synchronized (_myFilters) {
 			_myFilters.add(filter, newOne);
 		}
+	}
+	
+	/**
+	 * Get current list of prefixes that are actually registered on the face associated with this
+	 * netmanager
+	 * 
+	 * @return the list of prefixes as an ArrayList of ContentNames
+	 */
+	public ArrayList<ContentName> getRegisteredPrefixes() {
+		ArrayList<ContentName> prefixes = new ArrayList<ContentName>();
+		synchronized (_registeredPrefixes) {
+			for (ContentName name : _registeredPrefixes.keySet()) {
+				prefixes.add(name);
+			}
+		}
+		return prefixes;
 	}
 
 	/**
@@ -1116,7 +1158,7 @@ public class CCNNetworkManager implements Runnable {
 		// to understand this.  This isn't a problem for now because the lifetime we request when we register a 
 		// prefix we use Integer.MAX_VALUE as the requested lifetime.
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINE) )
-			Log.fine(Log.FAC_NETMANAGER, "setInterestFilter: entry.lifetime: " + entry.getLifetime() + " entry.faceID: " + entry.getFaceID());
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("setInterestFilter: entry.lifetime: " + entry.getLifetime() + " entry.faceID: " + entry.getFaceID()));
     }
 
 	/**
@@ -1130,7 +1172,7 @@ public class CCNNetworkManager implements Runnable {
 		// TODO - use of "caller" should be reviewed - don't believe this is currently serving
 		// serving any useful purpose.
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINE) )
-			Log.fine(Log.FAC_NETMANAGER, "cancelInterestFilter: {0}", filter);
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("cancelInterestFilter: {0}"), filter);
 		Filter newOne = new Filter(this, filter, callbackListener, caller);
 		Entry<Filter> found = null;
 		synchronized (_myFilters) {
@@ -1161,7 +1203,7 @@ public class CCNNetworkManager implements Runnable {
 									prefix._wasClosing = true;
 									_prefixMgr.unRegisterPrefix(filter, prefix, entry.getFaceID());
 								} catch (CCNDaemonException e) {
-									Log.warning(Log.FAC_NETMANAGER, "cancelInterestFilter failed with CCNDaemonException: " + e.getMessage());
+									Log.warning(Log.FAC_NETMANAGER, formatMessage("cancelInterestFilter failed with CCNDaemonException: " + e.getMessage()));
 								}
 							} else
 								prefix._refCount--;
@@ -1207,7 +1249,7 @@ public class CCNNetworkManager implements Runnable {
 		WirePacket packet = new WirePacket(data);
 		writeInner(packet);
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINEST) )
-			Log.finest(Log.FAC_NETMANAGER, "Wrote content object: {0}", data.name());
+			Log.finest(Log.FAC_NETMANAGER, formatMessage("Wrote content object: {0}"), data.name());
 	}
 
 	/**
@@ -1229,13 +1271,13 @@ public class CCNNetworkManager implements Runnable {
 			synchronized (_channel) {
 				int result = _channel.write(datagram);
 				if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINEST) )
-					Log.finest(Log.FAC_NETMANAGER, "Wrote datagram (" + datagram.position() + " bytes, result " + result + ")");
+					Log.finest(Log.FAC_NETMANAGER, formatMessage("Wrote datagram (" + datagram.position() + " bytes, result " + result + ")"));
 				
 				if( result < bytes.length ) {
 					_stats.increment(StatsEnum.WriteUnderflows);
 					if( Log.isLoggable(Log.FAC_NETMANAGER, Level.INFO) )
 						Log.info(Log.FAC_NETMANAGER, 
-								"Wrote datagram {0} bytes to channel, but packet was {1} bytes",
+								formatMessage("Wrote datagram {0} bytes to channel, but packet was {1} bytes"),
 								result,
 								bytes.length);
 				}
@@ -1244,7 +1286,7 @@ public class CCNNetworkManager implements Runnable {
 					try {
 						_tapStreamOut.write(bytes);
 					} catch (IOException io) {
-						Log.warning(Log.FAC_NETMANAGER, "Unable to write packet to tap stream for debugging");
+						Log.warning(Log.FAC_NETMANAGER, formatMessage("Unable to write packet to tap stream for debugging"));
 					}
 				}
 			}
@@ -1253,7 +1295,7 @@ public class CCNNetworkManager implements Runnable {
 
 			// We do not see errors on send typically even if 
 			// agent is gone, so log each but do not track
-			Log.warning(Log.FAC_NETMANAGER, "Error sending packet: " + io.toString());
+			Log.warning(Log.FAC_NETMANAGER, formatMessage("Error sending packet: " + io.toString()));
 		}
 	}
 
@@ -1265,7 +1307,7 @@ public class CCNNetworkManager implements Runnable {
 		// Add to standing interests table
 		setupTimers();
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINEST) )
-			Log.finest(Log.FAC_NETMANAGER, "registerInterest for {0}, and obj is " + _myInterests.hashCode(), reg.interest.name());
+			Log.finest(Log.FAC_NETMANAGER, formatMessage("registerInterest for {0}, and obj is " + _myInterests.hashCode()), reg.interest.name());
 		synchronized (_myInterests) {
 			_myInterests.add(reg.interest, reg);
 		}
@@ -1298,12 +1340,12 @@ public class CCNNetworkManager implements Runnable {
 	 */
 	public void run() {
 		if (! _run) {
-			Log.warning(Log.FAC_NETMANAGER, "CCNNetworkManager run() called after shutdown");
+			Log.warning(Log.FAC_NETMANAGER, formatMessage("CCNNetworkManager run() called after shutdown"));
 			return;
 		}
 		//WirePacket packet = new WirePacket();
 		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.INFO) )
-			Log.info(Log.FAC_NETMANAGER, "CCNNetworkManager processing thread started for port: " + _port);
+			Log.info(Log.FAC_NETMANAGER, formatMessage("CCNNetworkManager processing thread started for port: " + _port));
 		while (_run) {
 			try {
 				boolean wasConnected = _channel.isConnected();
@@ -1318,7 +1360,7 @@ public class CCNNetworkManager implements Runnable {
 					_stats.increment(StatsEnum.ReceiveObject);
 					ContentObject co = (ContentObject)packet;
 					if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINER) )
-						Log.finer(Log.FAC_NETMANAGER, "Data from net for port: " + _port + " {0}", co.name());
+						Log.finer(Log.FAC_NETMANAGER, formatMessage("Data from net for port: " + _port + " {0}"), co.name());
 
 					//	SystemConfiguration.logObject("Data from net:", co);
 
@@ -1329,20 +1371,22 @@ public class CCNNetworkManager implements Runnable {
 					_stats.increment(StatsEnum.ReceiveInterest);
 					Interest interest = (Interest)	packet;
 					if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINEST) )
-						Log.finest(Log.FAC_NETMANAGER, "Interest from net for port: " + _port + " {0}", interest);
+						Log.finest(Log.FAC_NETMANAGER, formatMessage("Interest from net for port: " + _port + " {0}"), interest);
 					InterestRegistration oInterest = new InterestRegistration(this, interest, null, null);
 					deliverInterest(oInterest);
 					// External interests never go back to network
-				} // for interests
+				}  else { // for interests
+					_stats.increment(StatsEnum.ReceiveUnknown);
+				}
 			} catch (Exception ex) {
-				_stats.increment(StatsEnum.ReceiveUnknown);
-				Log.severe(Log.FAC_NETMANAGER, "Processing thread failure (UNKNOWN): " + ex.getMessage() + " for port: " + _port);
+				_stats.increment(StatsEnum.ReceiveErrors);
+				Log.severe(Log.FAC_NETMANAGER, formatMessage("Processing thread failure (UNKNOWN): " + ex.getMessage() + " for port: " + _port));
                 Log.warningStackTrace(ex);
 			}
 		}
 
 		_threadpool.shutdown();
-		Log.info(Log.FAC_NETMANAGER, "Shutdown complete for port: " + _port);
+		Log.info(Log.FAC_NETMANAGER, formatMessage("Shutdown complete for port: " + _port));
 	}
 
 	/**
@@ -1357,13 +1401,13 @@ public class CCNNetworkManager implements Runnable {
 			for (Filter filter : _myFilters.getValues(ireg.interest.name())) {
 				if (filter.owner != ireg.owner) {
 					if( Log.isLoggable(Log.FAC_NETMANAGER, Level.FINER) )
-						Log.finer(Log.FAC_NETMANAGER, "Schedule delivery for interest: {0}", ireg.interest);
+						Log.finer(Log.FAC_NETMANAGER, formatMessage("Schedule delivery for interest: {0}"), ireg.interest);
 					if (filter.add(ireg.interest)) {
 						try {
 							_threadpool.execute(filter);
 						} catch (RejectedExecutionException ree) {
 							// TODO - we should probably do something smarter here
-							Log.severe(Log.FAC_NETMANAGER, "Dispatch thread overflow!!");
+							Log.severe(Log.FAC_NETMANAGER, formatMessage("Dispatch thread overflow!!"));
 						}
 					}
 				}
@@ -1386,7 +1430,7 @@ public class CCNNetworkManager implements Runnable {
 						_threadpool.execute(ireg);
 					} catch (RejectedExecutionException ree) {
 						// TODO - we should probably do something smarter here
-						Log.severe(Log.FAC_NETMANAGER, "Dispatch thread overflow!!");
+						Log.severe(Log.FAC_NETMANAGER, formatMessage("Dispatch thread overflow!!"));
 					}				
 				}
 			}
@@ -1400,7 +1444,7 @@ public class CCNNetworkManager implements Runnable {
 			i.scope(1);
 			ContentObject c = mgr.get(i, SystemConfiguration.CCNDID_DISCOVERY_TIMEOUT);
 			if (null == c) {
-				String msg = ("fetchCCNDId: ccndID discovery failed due to timeout.");
+				String msg = formatMessage("fetchCCNDId: ccndID discovery failed due to timeout.");
 				Log.severe(Log.FAC_NETMANAGER, msg);
 				throw new IOException(msg);
 			}
@@ -1410,12 +1454,12 @@ public class CCNNetworkManager implements Runnable {
 			if (null != keyManager) {
 				ContentVerifier v = new ContentObject.SimpleVerifier(sentID, keyManager);
 				if (!v.verify(c)) {
-					String msg = ("fetchCCNDId: ccndID discovery reply failed to verify.");
+					String msg = formatMessage("fetchCCNDId: ccndID discovery reply failed to verify.");
 					Log.severe(Log.FAC_NETMANAGER, msg);
 					throw new IOException(msg);
 				}
 			} else {
-				Log.severe(Log.FAC_NETMANAGER, "fetchCCNDId: do not have a KeyManager. Cannot verify ccndID.");
+				Log.severe(Log.FAC_NETMANAGER, formatMessage("fetchCCNDId: do not have a KeyManager. Cannot verify ccndID."));
 				return null;
 			}
 			return sentID;
@@ -1425,7 +1469,7 @@ public class CCNNetworkManager implements Runnable {
 		} catch (IOException e) {
 			String reason = e.getMessage();
 			Log.warningStackTrace(e);
-			String msg = ("fetchCCNDId: Unexpected IOException in ccndID discovery Interest reason: " + reason);
+			String msg = formatMessage("fetchCCNDId: Unexpected IOException in ccndID discovery Interest reason: " + reason);
 			Log.severe(Log.FAC_NETMANAGER, msg);
 			throw new IOException(msg);
 		}
@@ -1486,10 +1530,13 @@ public class CCNNetworkManager implements Runnable {
 		DeliverInterest ("calls", "The number of calls to deliverInterest"),
 		DeliverContent ("calls", "The number of calls to cancelInterest"),
 		DeliverContentMatchingInterests ("calls", "Count of the calls to threadpool.execute in handleData()"),
+		DeliverContentFailed ("calls", "The number of content deliveries that failed"),
+		DeliverInterestFailed ("calls", "The number of interest deliveries that failed"),
 
 		ReceiveObject ("objects", "Receive count of ContentObjects from channel"),
 		ReceiveInterest ("interests", "Receive count of Interests from channel"),
 		ReceiveUnknown ("calls", "Receive count of unknown type from channel"),
+		ReceiveErrors ("errors", "Number of errors from the channel in run() loop"),
 		
 		ContentObjectsIgnored ("ContentObjects", "The number of ContentObjects that are never handled"),
 		;
@@ -1533,6 +1580,10 @@ public class CCNNetworkManager implements Runnable {
 		public String [] getNames() {
 			return _names;
 		}
+	}
+	
+	protected String formatMessage(String message) {
+		return _managerIdString + message;
 	}
 }
 

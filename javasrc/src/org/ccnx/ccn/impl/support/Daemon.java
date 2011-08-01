@@ -68,12 +68,16 @@ public class Daemon {
 	protected boolean _interactive = false;
 	protected String _pid;
 	
+	// TODO maybe this doesn't belong here
+	public static final String PROP_JAVA_LIBRARY_PATH ="java.library.path";
+	
 	public static final String PROP_DAEMON_MEMORY = "ccn.daemon.memory";
 	public static final String PROP_DAEMON_DEBUG_PORT = "ccn.daemon.debug";
 	public static final String PROP_DAEMON_OUTPUT = "ccn.daemon.output";
 	public static final String PROP_DAEMON_PROFILE = "ccn.daemon.profile";
 	public static final String PROP_DAEMON_DEBUG_SUSPEND = "ccn.daemon.debug.suspend";
 	public static final String PROP_DAEMON_DEBUG_NOSHARE = "ccn.daemon.debug.noshare";
+	public static final String PROP_DAEMON_CHECK_JNI = "ccn.daemon.check.jni";
 	
 	public static final String DEFAULT_OUTPUT_STREAM = "/dev/null";
 	
@@ -172,7 +176,6 @@ public class Daemon {
 			}
 
 			getRMIFile(_daemonName, SystemConfiguration.getPID()).delete();		
-			System.exit(0);
 		}			
 
 		public void shutDown() {
@@ -193,6 +196,9 @@ public class Daemon {
 		}
 		public void finish() {
 			Log.info("Should not be here, in WorkerThread.finish().");
+		}
+		public void waitForStart() {
+			Log.info("Should not be here, in waitForStart().");
 		}
 		public boolean signal(String name) {
 			Log.info("Should not be here, in WorkerThread.signal().");
@@ -367,6 +373,10 @@ public class Daemon {
 	     * TODO - we might want to add them all but for now these are
 	     * the critical ones
 	     */
+		String libPath = System.getProperty(PROP_JAVA_LIBRARY_PATH);
+		if (libPath != null) {
+			argList.add("-D" + PROP_JAVA_LIBRARY_PATH + "=" + libPath);
+		}
 		String portval = System.getProperty(CCNNetworkManager.PROP_AGENT_PORT);
 		if (portval != null) {
 			argList.add("-D" + CCNNetworkManager.PROP_AGENT_PORT + "=" + portval);
@@ -392,6 +402,10 @@ public class Daemon {
 		String unshared = System.getProperty(PROP_DAEMON_DEBUG_NOSHARE);
 		if (null != unshared)
 			argList.add("-Xshare:off");
+		
+		String checkJNI = System.getProperty(PROP_DAEMON_CHECK_JNI);
+		if (null != checkJNI)
+			argList.add("-Xcheck:jni");
 		
 		String profileInfo = System.getProperty(PROP_DAEMON_PROFILE);
 		if (profileInfo != null) {

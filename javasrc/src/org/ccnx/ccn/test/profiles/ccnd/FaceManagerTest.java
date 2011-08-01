@@ -55,6 +55,7 @@ public class FaceManagerTest extends LibraryTestBase {
 	 */
 	@BeforeClass
 	public static void setUpBeforeClass() throws Exception {
+		LibraryTestBase.setUpBeforeClass();
 	}
 
 	/**
@@ -62,6 +63,7 @@ public class FaceManagerTest extends LibraryTestBase {
 	 */
 	@AfterClass
 	public static void tearDownAfterClass() throws Exception {
+		LibraryTestBase.tearDownAfterClass();
 	}
 
 	/**
@@ -167,6 +169,13 @@ public class FaceManagerTest extends LibraryTestBase {
 			System.out.println("Failed to delete face.");
 			e.printStackTrace();
 			fail("Failed to delete face.");
+		}
+		
+		try {
+			mgr.deleteFace(faceID);
+			fail("Failed to receive expected CCNDaemonException deleting already deleted face.");
+		}catch (CCNDaemonException e) {
+			System.out.println("Received expected exception " + e.getClass().getName() + ", message: " + e.getMessage());
 		}
 	}
 

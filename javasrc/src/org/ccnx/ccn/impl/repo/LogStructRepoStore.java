@@ -90,6 +90,7 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 	protected String _repositoryRoot = null;
 	protected String _repositoryMeta = null;
 	protected File _repositoryFile;
+	protected boolean _useStoredPolicy = true;
 
 	Map<Integer,RepoFile> _files;
 	RepoFile _activeWriteFile = null;
@@ -295,6 +296,13 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 	 */
 	public void initialize(String repositoryRoot, File policyFile, String localName, String globalPrefix,
 				String namespace, CCNHandle handle) throws RepositoryException {
+		
+		Log.info(Log.FAC_REPO, "LogStructRepoStore.initialize()");
+		
+		// If a new policy file or namespace was requested from the command line, we don't use policy
+		// that was already stored in the repo if there was any
+		if (null != policyFile || null != namespace)
+			_useStoredPolicy = false;
 		PolicyXML pxml = null;
 		boolean nameFromArgs = (null != localName);
 		boolean globalFromArgs = (null != globalPrefix);
@@ -337,6 +345,11 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 							null, LogStructRepoStoreProfile.REPOSITORY_KEYSTORE_ALIAS, 
 							LogStructRepoStoreProfile.KEYSTORE_PASSWORD);
 				_km.initialize();
+
+				// Let's use our key manager as the default. That will make us less
+				// prone to accidentally loading the user's key manager. If we close it more than
+				// once, that's ok.
+				KeyManager.setDefaultKeyManager(_km);
 				
 				if( Log.isLoggable(Log.FAC_REPO, Level.FINEST))
 					Log.finest(Log.FAC_REPO, "Initialized repository key store.");
@@ -345,11 +358,6 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 				
 				if( Log.isLoggable(Log.FAC_REPO, Level.FINEST))
 					Log.finest(Log.FAC_REPO, "Opened repository handle.");
-				
-				// Let's use our key manager as the default. That will make us less
-				// prone to accidentally loading the user's key manager. If we close it more than
-				// once, that's ok.
-				KeyManager.setDefaultKeyManager(_km);
 				
 				// Serve our key using the localhost key discovery protocol
 				ServiceDiscoveryProfile.publishLocalServiceKey(ServiceDiscoveryProfile.REPOSITORY_SERVICE_NAME,
@@ -402,11 +410,7 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 
 		String checkName = checkFile(LogStructRepoStoreProfile.REPO_LOCALNAME, localName, nameFromArgs);
 		localName = checkName != null ? checkName : localName;
-		try {
-			_policy.setLocalName(localName);		
-		} catch (MalformedContentNameStringException e3) {
-			throw new RepositoryException(e3.getMessage());
-		}
+		pxml.setLocalName(localName);		
 		
 		checkName = checkFile(LogStructRepoStoreProfile.REPO_GLOBALPREFIX, globalPrefix, globalFromArgs);
 		globalPrefix = checkName != null ? checkName : globalPrefix;
@@ -414,7 +418,7 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 			Log.info(Log.FAC_REPO, "REPO: initializing repository: global prefix {0}, local name {1}", globalPrefix, localName);
 		}
 		try {
-			_policy.setGlobalPrefix(globalPrefix);
+			pxml.setGlobalPrefix(globalPrefix);
 			if (Log.isLoggable(Log.FAC_REPO, Level.INFO)) {
 				Log.info(Log.FAC_REPO, "REPO: initializing policy location: {0} for global prefix {1} and local name {2}", localName, globalPrefix,  localName);
 			}
@@ -422,29 +426,41 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 			throw new RepositoryException(e2.getMessage());
 		}
 		
-		/**
-		 * Try to read policy from storage if we don't have full policy source yet
-		 */
-		if (null == pxml) {
-			try {
-				readPolicy(localName, _km);
-			} catch (ContentDecodingException e) {
-				throw new RepositoryException(e.getMessage());
-			}
-		} else { // If we didn't read in our policy from a previous saved policy file, save the policy now
-			pxml = _policy.getPolicyXML();
-			ContentName policyName = BasicPolicy.getPolicyName(_policy.getGlobalPrefix(), _policy.getLocalName());
-			try {
-				PolicyObject po = new PolicyObject(policyName, pxml, null, null, new RepositoryInternalFlowControl(this, handle));
-				po.save();
-			} catch (IOException e) {
-				throw new RepositoryException(e.getMessage());
-			}
-		}
+		_policy = new BasicPolicy();
+		_policy.setPolicyXML(pxml);
 		try {
 			finishInitPolicy(globalPrefix, localName);
 		} catch (MalformedContentNameStringException e) {
 			throw new RepositoryException(e.getMessage());
+		}
+	}
+	
+	/**
+	 * Write/rewrite the policy file if different from what we have now
+	 * @throws RepositoryException 
+	 */
+	public void policyUpdate() throws RepositoryException {
+		PolicyXML storedPxml = null;
+		try {
+			storedPxml = readPolicy(_policy.getGlobalPrefix());
+			if (null != storedPxml && _useStoredPolicy)
+				_policy.setPolicyXML(storedPxml);
+		} catch (Exception e) {
+			throw new RepositoryException(e.getMessage());
+		}
+		
+		/**
+		 * If there are differences we need to write the updated version
+		 */
+		PolicyXML pxml = _policy.getPolicyXML();
+		if (null == storedPxml || !pxml.equals(storedPxml)) {
+			ContentName policyName = BasicPolicy.getPolicyName(pxml.getGlobalPrefix());
+			try {
+				PolicyObject po = new PolicyObject(policyName, pxml, null, null, new RepositoryInternalFlowControl(this, _handle));
+				po.save();
+			} catch (IOException e) {
+				throw new RepositoryException(e.getMessage());
+			}
 		}
 	}
 
@@ -457,21 +473,6 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 	 */
 	public NameEnumerationResponse saveContent(ContentObject content) throws RepositoryException {
 		// Make sure content is within allowable nameSpace
-		boolean nameSpaceOK = false;
-		synchronized (_policy) {
-			for (ContentName name : _policy.getNamespace()) {
-				if (name.isPrefixOf(content.name())) {
-					nameSpaceOK = true;
-					break;
-				}
-			}
-		}
-		if (!nameSpaceOK) {
-			if (Log.isLoggable(Log.FAC_REPO, Level.INFO)) {
-				Log.info(Log.FAC_REPO, "Repo rejecting content: {0}, not in registered namespace.", content.name());
-			}
-			return null;
-		}
 		if (null == _activeWriteFile) {
 			Log.warning(Log.FAC_REPO, "Tried to save: {0}, presumably after repo shutdown", content.name());
 			return null;
@@ -626,9 +627,15 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 	 * Cleanup on shutdown
 	 */
 	public void shutDown() {
+		Log.info(Log.FAC_REPO, "LogStructRepoStore.shutdown()");
+		
+		// THis closes ResponsitoryStoreBase._handle
 		super.shutDown();
-		if (null != _km)
-			_km.close();
+		
+		if (null != _km) {
+			KeyManager.closeDefaultKeyManager();
+		}
+		
 		if (null != _activeWriteFile && null != _activeWriteFile.openFile) {
 			try {
 				synchronized (_activeWriteFile) {
@@ -651,15 +658,18 @@ public class LogStructRepoStore extends RepositoryStoreBase implements Repositor
 	synchronized public boolean bulkImport(String name) throws RepositoryException {
 		if (name.contains(UserConfiguration.FILE_SEP))
 			throw new RepositoryException("Bulk import data can not contain pathnames");
-		File file = new File(_repositoryRoot + UserConfiguration.FILE_SEP + LogStructRepoStoreProfile.REPO_IMPORT_DIR + UserConfiguration.FILE_SEP + name);
-		if (!file.exists()) {		
-			// Is this due to a reexpressed interest for bulk import already in progress?
-			if (_bulkImportInProgress.containsKey(name))
-					return false;		
-			throw new RepositoryException("File does not exist: " + file);
+		File file;
+		synchronized (_bulkImportInProgress) {
+			file = new File(_repositoryRoot + UserConfiguration.FILE_SEP + LogStructRepoStoreProfile.REPO_IMPORT_DIR + UserConfiguration.FILE_SEP + name);
+			if (!file.exists()) {		
+				// Is this due to a reexpressed interest for bulk import already in progress?
+				if (_bulkImportInProgress.containsKey(name))
+						return false;		
+				throw new RepositoryException("File does not exist: " + file);
+			}
+			
+			_bulkImportInProgress.put(name, name);
 		}
-		
-		_bulkImportInProgress.put(name, name);
 		_currentFileIndex++;
 		File repoFile = new File(_repositoryFile, LogStructRepoStoreProfile.CONTENT_FILE_PREFIX + _currentFileIndex);
 		if (!file.renameTo(repoFile))

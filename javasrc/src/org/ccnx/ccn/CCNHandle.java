@@ -1,7 +1,7 @@
 /*
  * Part of the CCNx Java Library.
  *
- * Copyright (C) 2008, 2009 Palo Alto Research Center, Inc.
+ * Copyright (C) 2008, 2009, 2011 Palo Alto Research Center, Inc.
  *
  * This library is free software; you can redistribute it and/or modify it
  * under the terms of the GNU Lesser General Public License version 2.1
@@ -18,10 +18,12 @@
 package org.ccnx.ccn;
 
 import java.io.IOException;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.logging.Level;
 
 import org.ccnx.ccn.config.ConfigurationException;
 import org.ccnx.ccn.impl.CCNNetworkManager;
+import org.ccnx.ccn.impl.security.keys.BasicKeyManager;
 import org.ccnx.ccn.impl.support.Log;
 import org.ccnx.ccn.protocol.ContentName;
 import org.ccnx.ccn.protocol.ContentObject;
@@ -37,18 +39,27 @@ import org.ccnx.ccn.protocol.PublisherPublicKeyDigest;
  * collection of signing and verification keys. A typical application
  * may have one CCNHandle or many; each encapsulates a single connection
  * to the local CCN agent.
+ * 
+ * Once a handle is closed, it cannot be used anymore.  It will throw
+ * an IOException in those cases.
  */
 public class CCNHandle implements CCNBase {
 	
 	protected static CCNHandle _handle = null;
 
-	protected KeyManager _keyManager = null;
+	protected final KeyManager _keyManager;
+	
+	// To give each handle a unique ID so they can be debuged
+	protected final static AtomicInteger _handleIdCount = new AtomicInteger(0);
+	protected final int _handleId;
+	protected final String _handleIdString;
 	
 	/**
 	 * A CCNNetworkManager embodies a connection to ccnd.
 	 */
-	protected CCNNetworkManager _networkManager = null;
-	
+	protected final CCNNetworkManager _networkManager;
+	protected final Object _openLock = new Object();
+	protected boolean _isOpen = false;
 	
 	/**
 	 * Create a new CCNHandle, opening a new connection to the CCN network
@@ -59,16 +70,14 @@ public class CCNHandle implements CCNBase {
 	 * 		data that we expect to be well-formed.
 	 */
 	public static CCNHandle open() throws ConfigurationException, IOException { 
-		synchronized (CCNHandle.class) {
-			try {
-				return new CCNHandle();
-			} catch (ConfigurationException e) {
-				Log.severe("Configuration exception initializing CCN library: " + e.getMessage());
-				throw e;
-			} catch (IOException e) {
-				Log.severe("IO exception initializing CCN library: " + e.getMessage());
-				throw e;
-			}
+		try {
+			return new CCNHandle();
+		} catch (ConfigurationException e) {
+			Log.severe(Log.FAC_NETMANAGER, "Configuration exception initializing CCN library: " + e.getMessage());
+			throw e;
+		} catch (IOException e) {
+			Log.severe(Log.FAC_NETMANAGER, "IO exception initializing CCN library: " + e.getMessage());
+			throw e;
 		}
 	}
 	
@@ -81,9 +90,7 @@ public class CCNHandle implements CCNBase {
 	 * @throws IOException 
 	 */
 	public static CCNHandle open(KeyManager keyManager) throws IOException { 
-		synchronized (CCNHandle.class) {
-			return new CCNHandle(keyManager);
-		}
+		return new CCNHandle(keyManager);
 	}
 	
 	/**
@@ -96,11 +103,11 @@ public class CCNHandle implements CCNBase {
 		try {
 			return create();
 		} catch (ConfigurationException e) {
-			Log.warning("Configuration exception attempting to create handle: " + e.getMessage());
+			Log.warning(Log.FAC_NETMANAGER, "Configuration exception attempting to create handle: " + e.getMessage());
 			Log.warningStackTrace(e);
 			throw new RuntimeException("Error in system configuration. Cannot create handle.",e);
 		} catch (IOException e) {
-			Log.warning("IO exception attempting to create handle: " + e.getMessage());
+			Log.warning(Log.FAC_NETMANAGER, "IO exception attempting to create handle: " + e.getMessage());
 			Log.warningStackTrace(e);
 			throw new RuntimeException("Error in system IO. Cannot create handle.",e);
 		}
@@ -116,7 +123,12 @@ public class CCNHandle implements CCNBase {
 	 */
 	protected static synchronized CCNHandle create() throws ConfigurationException, IOException {
 		if (null == _handle) {
-			_handle = new CCNHandle();
+			KeyManager km = KeyManager.getDefaultKeyManager();
+			if (km instanceof BasicKeyManager) {
+				_handle = ((BasicKeyManager) km).handle();
+			} else {
+				_handle = new CCNHandle();
+			}
 		}
 		return _handle;
 	}
@@ -127,18 +139,28 @@ public class CCNHandle implements CCNBase {
 	 * @throws IOException 
 	 */
 	protected CCNHandle(KeyManager keyManager) throws IOException {
+		_handleId = _handleIdCount.incrementAndGet();
+		_handleIdString = String.format("CCNHandle %d: ", _handleId);
+		
 		if (null == keyManager) {
-			throw new IOException("Cannot instantiate handle -- KeyManager is null. Use CCNHandle() constructor to get default KeyManager, or specify one here.");
+			throw new IOException(formatMessage("Cannot instantiate handle -- KeyManager is null. Use CCNHandle() constructor to get default KeyManager, or specify one here."));
 		}
 		_keyManager = keyManager;
 		// force initialization of network manager
 		try {
 			_networkManager = new CCNNetworkManager(_keyManager);
 		} catch (IOException ex){
-			Log.warning("IOException instantiating network manager: " + ex.getMessage());
+			Log.warning(formatMessage("IOException instantiating network manager: " + ex.getMessage()));
 			Log.warningStackTrace(ex);
 			throw ex;
 		}
+			
+		synchronized(_openLock) {
+			_isOpen = true;
+		}
+		
+		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.INFO) )
+			Log.info(Log.FAC_NETMANAGER, formatMessage("Handle is now open"));
 	}
 
 	/**
@@ -155,41 +177,44 @@ public class CCNHandle implements CCNBase {
 	/**
 	 * For testing only
 	 */
-	protected CCNHandle(boolean useNetwork) {}
+	protected CCNHandle(boolean useNetwork) {
+		_handleId = _handleIdCount.incrementAndGet();
+		_handleIdString = String.format("CCNHandle %d: ", _handleId);
+		_networkManager = null;
+		_keyManager = null;
+		
+		if( Log.isLoggable(Log.FAC_NETMANAGER, Level.INFO) )
+			Log.info(Log.FAC_NETMANAGER, formatMessage("Handle is now open (testing only)"));
+	}
 	
 	/**
 	 * Retrieve this handle's network manager. Should only be called by low-level
 	 * methods seeking direct access to the network.
+	 * 
+	 * If the handle is closed, this will return null.
+	 * 
 	 * @return the CCN network manager
 	 */
 	public CCNNetworkManager getNetworkManager() { 
-		if (null == _networkManager) {
-			synchronized(this) {
-				if (null == _networkManager) {
-					try {
-						_networkManager = new CCNNetworkManager(_keyManager);
-					} catch (IOException ex){
-						Log.warning("IOException instantiating network manager: " + ex.getMessage());
-						ex.printStackTrace();
-						_networkManager = null;
-					}
-				}
-			}
+		synchronized(_openLock) {
+			if( !_isOpen )
+				return null;
 		}
+
 		return _networkManager;
 	}
 
-	/**
-	 * Change the KeyManager this CCNHandle is using.
-	 * @param keyManager the new KeyManager to use
-	 */
-	public void setKeyManager(KeyManager keyManager) {
-		if (null == keyManager) {
-			Log.warning("StandardCCNLibrary::setKeyManager: Key manager cannot be null!");
-			throw new IllegalArgumentException("Key manager cannot be null!");
-		}
-		_keyManager = keyManager;
-	}
+//	/**
+//	 * Change the KeyManager this CCNHandle is using.
+//	 * @param keyManager the new KeyManager to use
+//	 */
+//	public void setKeyManager(KeyManager keyManager) {
+//		if (null == keyManager) {
+//			Log.warning(formatMessage("StandardCCNLibrary::setKeyManager: Key manager cannot be null!"));
+//			throw new IllegalArgumentException(formatMessage("Key manager cannot be null!"));
+//		}
+//		_keyManager = keyManager;
+//	}
 	
 	/**
 	 * Return the KeyManager we are using.
@@ -240,8 +265,13 @@ public class CCNHandle implements CCNBase {
 	 * @return the content object
 	 * @throws IOException
 	 */
-	public ContentObject get(Interest interest, long timeout) throws IOException {
+	public ContentObject get(Interest interest, long timeout) throws IOException {		
 		while (true) {
+			synchronized(_openLock) {
+				if( !_isOpen )
+					throw new IOException(formatMessage("Handle is closed"));
+			}
+
 			try {
 				return getNetworkManager().get(interest, timeout);
 			} catch (InterruptedException e) {}
@@ -262,9 +292,14 @@ public class CCNHandle implements CCNBase {
 	public ContentObject put(ContentObject co) throws IOException {
 		boolean interrupted = false;
 		do {
+			synchronized(_openLock) {
+				if( !_isOpen )
+					throw new IOException(formatMessage("Handle is closed"));
+			}
+
 			try {
 				if( Log.isLoggable(Level.FINEST) )
-					Log.finest("Putting content on wire: " + co.name());
+					Log.finest(Log.FAC_NETMANAGER, formatMessage("Putting content on wire: " + co.name()));
 				return getNetworkManager().put(co);
 			} catch (InterruptedException e) {
 				interrupted = true;
@@ -281,6 +316,14 @@ public class CCNHandle implements CCNBase {
 	 */
 	public void registerFilter(ContentName filter,
 			CCNFilterListener callbackListener) throws IOException {
+		if( Log.isLoggable(Level.FINE) )
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("registerFilter " + filter.toString()));
+
+		synchronized(_openLock) {
+			if( !_isOpen )
+				throw new IOException(formatMessage("Handle is closed"));
+		}
+
 		getNetworkManager().setInterestFilter(this, filter, callbackListener);
 	}
 	
@@ -288,9 +331,20 @@ public class CCNHandle implements CCNBase {
 	 * Unregister a standing interest filter
 	 * @param filter
 	 * @param callbackListener
+	 * @throws IOException if handle is closed
 	 */	
 	public void unregisterFilter(ContentName filter,
 			CCNFilterListener callbackListener) {
+		if( Log.isLoggable(Level.FINE) )
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("unregisterFilter " + filter.toString()));
+
+		synchronized(_openLock) {
+			if( !_isOpen ) {
+				Log.warning(formatMessage("Called unregisterFilter on a closed handle"));
+				return;
+			}
+		}
+
 		getNetworkManager().cancelInterestFilter(this, filter, callbackListener);		
 	}
 	
@@ -318,6 +372,14 @@ public class CCNHandle implements CCNBase {
 	public void expressInterest(
 			Interest interest,
 			CCNInterestListener listener) throws IOException {
+		if( Log.isLoggable(Level.FINE) )
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("expressInterest " + interest.name().toString()));
+
+		synchronized(_openLock) {
+			if( !_isOpen )
+				throw new IOException(formatMessage("Handle is closed"));
+		}
+
 		// Will add the interest to the listener.
 		getNetworkManager().expressInterest(this, interest, listener);
 	}
@@ -329,6 +391,16 @@ public class CCNHandle implements CCNBase {
 	 * 	requested by more than one listener.
 	 */
 	public void cancelInterest(Interest interest, CCNInterestListener listener) {
+		if( Log.isLoggable(Level.FINE) )
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("cancelInterest " + interest.name().toString()));
+
+		synchronized(_openLock) {
+			if( !_isOpen ) {
+				Log.warning(Log.FAC_NETMANAGER, formatMessage("Called cancelInterest on a closed handle"));
+				return;
+			}
+		}
+
 		getNetworkManager().cancelInterest(this, interest, listener);
 	}
 
@@ -336,9 +408,24 @@ public class CCNHandle implements CCNBase {
 	 * Shutdown the handle and its associated resources
 	 */
 	public void close() {
-		if (null != _networkManager)
-			_networkManager.shutdown();
-		_networkManager = null;
+		if( Log.isLoggable(Level.FINE) )
+			Log.fine(Log.FAC_NETMANAGER, formatMessage("Closing handle"));
+
+		synchronized(_openLock) {
+			if( _isOpen ) {
+				_isOpen = false;
+				_networkManager.shutdown();
+			} else {
+				Log.warning(Log.FAC_NETMANAGER, formatMessage("Handle is already closed.  DIAGNOSTIC STACK DUMP."));
+				Thread.dumpStack();
+			}
+		}
+
+		synchronized (CCNHandle.class) {
+			if (_handle == this) {
+				_handle = null;
+			}
+		}
 	}
 
 	/**
@@ -350,6 +437,10 @@ public class CCNHandle implements CCNBase {
 	 */
 	public ContentVerifier defaultVerifier() {
 		return _keyManager.getDefaultVerifier();
+	}
+	
+	protected String formatMessage(String message) {
+		return _handleIdString + message;
 	}
 }
 
