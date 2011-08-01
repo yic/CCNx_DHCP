@@ -18,6 +18,9 @@
 #include <ccn/charbuf.h>
 #include <ccn/ccn_dhcp.h>
 
+/*
+ * Bind a prefix to a face
+ */
 int register_prefix(struct ccn *h, struct ccn_charbuf *local_scope_template,
         struct ccn_charbuf *no_name, struct ccn_charbuf *name_prefix,
         struct ccn_face_instance *face_instance)
@@ -50,6 +53,7 @@ int register_prefix(struct ccn *h, struct ccn_charbuf *local_scope_template,
     res = ccn_sign_content(h, temp, no_name, NULL, prefixreg->buf, prefixreg->length);
     resultbuf = ccn_charbuf_create();
 
+    /* construct Interest containing prefixreg request */
     name = ccn_charbuf_create();
     ccn_name_init(name);
     ccn_name_append_str(name, "ccnx");
@@ -57,8 +61,10 @@ int register_prefix(struct ccn *h, struct ccn_charbuf *local_scope_template,
     ccn_name_append_str(name, "prefixreg");
     ccn_name_append(name, temp->buf, temp->length);
 
+    /* send Interest, get Data */
     res = ccn_get(h, name, local_scope_template, 1000, resultbuf, &pcobuf, NULL, 0);
     ccn_content_get_value(resultbuf->buf, resultbuf->length, &pcobuf, &ptr, &length);
+    /* extract new forwarding entry from Data */
     new_forwarding_entry = ccn_forwarding_entry_parse(ptr, length);
 
     res = new_forwarding_entry->faceid;
@@ -73,6 +79,10 @@ int register_prefix(struct ccn *h, struct ccn_charbuf *local_scope_template,
     return (res);
 }
 
+/*
+ * Create new face by sending out a request Interest
+ * The actual new face instance is returned
+ */
 struct ccn_face_instance *create_face(struct ccn *h, struct ccn_charbuf *local_scope_template,
         struct ccn_charbuf *no_name, struct ccn_face_instance *face_instance)
 {
@@ -102,8 +112,10 @@ struct ccn_face_instance *create_face(struct ccn *h, struct ccn_charbuf *local_s
     ccn_name_append(name, face_instance->ccnd_id, face_instance->ccnd_id_size);
     ccn_name_append_str(name, face_instance->action);
     ccn_name_append(name, temp->buf, temp->length);
+    /* send Interest to retrieve Data that contains the newly created face */
     res = ccn_get(h, name, local_scope_template, 1000, resultbuf, &pcobuf, NULL, 0);
 
+    /* decode Data to get the actual face instance */
     ccn_content_get_value(resultbuf->buf, resultbuf->length, &pcobuf, &ptr, &length);
     new_face_instance = ccn_face_instance_parse(ptr, length);
 
@@ -112,9 +124,13 @@ struct ccn_face_instance *create_face(struct ccn *h, struct ccn_charbuf *local_s
     ccn_charbuf_destroy(&temp);
     ccn_charbuf_destroy(&resultbuf);
     ccn_charbuf_destroy(&name);
+
     return new_face_instance;
 }
 
+/*
+ * Get ccnd id
+ */
 static int get_ccndid(struct ccn *h, struct ccn_charbuf *local_scope_template,
         const unsigned char *ccndid, size_t ccndid_storage_size)
 {
@@ -129,8 +145,10 @@ static int get_ccndid(struct ccn *h, struct ccn_charbuf *local_scope_template,
     resultbuf = ccn_charbuf_create();
 
     ccn_name_from_uri(name, ccndid_uri);
+    /* get Data */
     ccn_get(h, name, local_scope_template, 4500, resultbuf, &pcobuf, NULL, 0);
 
+    /* extract from Data */
     ccn_ref_tagged_BLOB(CCN_DTAG_PublisherPublicKeyDigest,
             resultbuf->buf,
             pcobuf.offset[CCN_PCO_B_PublisherPublicKeyDigest],
@@ -145,6 +163,10 @@ static int get_ccndid(struct ccn *h, struct ccn_charbuf *local_scope_template,
     return (ccndid_result_size);
 }
 
+/*
+ * Construct a new face instance based on the given address and port
+ * This face instance is only used to send new face request
+ */
 struct ccn_face_instance *construct_face(const unsigned char *ccndid, size_t ccndid_size,
         const char *address, const char *port)
 {
@@ -187,44 +209,24 @@ struct ccn_face_instance *construct_face(const unsigned char *ccndid, size_t ccn
     return fi;
 }
 
+/*
+ * initialize local data
+ */
 void init_data(struct ccn_charbuf *local_scope_template,
         struct ccn_charbuf *no_name)
 {
     ccn_charbuf_append_tt(local_scope_template, CCN_DTAG_Interest, CCN_DTAG);
     ccn_charbuf_append_tt(local_scope_template, CCN_DTAG_Name, CCN_DTAG);
-    ccn_charbuf_append_closer(local_scope_template);
+    ccn_charbuf_append_closer(local_scope_template);    /* </Name> */
     ccnb_tagged_putf(local_scope_template, CCN_DTAG_Scope, "1");
-    ccn_charbuf_append_closer(local_scope_template);
+    ccn_charbuf_append_closer(local_scope_template);    /* </Interest> */
 
     ccn_name_init(no_name);
 }
 
-void join_dhcp_group(struct ccn *h)
-{
-    struct ccn_charbuf *local_scope_template = ccn_charbuf_create();
-    struct ccn_charbuf *no_name = ccn_charbuf_create();
-    struct ccn_charbuf *prefix = ccn_charbuf_create();
-    unsigned char ccndid_storage[32] = {0};
-    const unsigned char *ccndid = ccndid_storage;
-    size_t ccndid_size = 0;
-    struct ccn_face_instance *fi;
-    struct ccn_face_instance *nfi;
-
-    init_data(local_scope_template, no_name);
-    ccn_name_from_uri(prefix, CCN_DHCP_URI);
-
-    ccndid_size = get_ccndid(h, local_scope_template, ccndid, sizeof(ccndid_storage));
-    fi = construct_face(ccndid, ccndid_size, CCN_DHCP_ADDR, CCN_DHCP_PORT);
-    nfi = create_face(h, local_scope_template, no_name, fi);
-    register_prefix(h, local_scope_template, no_name, prefix, nfi);
-
-    ccn_charbuf_destroy(&local_scope_template);
-    ccn_charbuf_destroy(&no_name);
-    ccn_charbuf_destroy(&prefix);
-    ccn_face_instance_destroy(&fi);
-    ccn_face_instance_destroy(&nfi);
-}
-
+/*
+ * Create a newface on the given address and port, bind the prefix to the face
+ */
 void add_new_face(struct ccn *h, struct ccn_charbuf *prefix, const char *address, const char *port)
 {
     struct ccn_charbuf *local_scope_template = ccn_charbuf_create();
@@ -238,14 +240,30 @@ void add_new_face(struct ccn *h, struct ccn_charbuf *prefix, const char *address
     init_data(local_scope_template, no_name);
 
     ccndid_size = get_ccndid(h, local_scope_template, ccndid, sizeof(ccndid_storage));
+    /* construct a face instance for new face request */
     fi = construct_face(ccndid, ccndid_size, address, port);
+    /* send new face request to actually create a new face */
     nfi = create_face(h, local_scope_template, no_name, fi);
+    /* bind prefix to the new face */
     register_prefix(h, local_scope_template, no_name, prefix, nfi);
 
     ccn_charbuf_destroy(&local_scope_template);
     ccn_charbuf_destroy(&no_name);
     ccn_face_instance_destroy(&fi);
     ccn_face_instance_destroy(&nfi);
+}
+
+/*
+ * Create a face on the multicast address and port, bind the DHCP prefix to the face
+ */
+void join_dhcp_group(struct ccn *h)
+{
+    struct ccn_charbuf *prefix = ccn_charbuf_create();
+
+    ccn_name_from_uri(prefix, CCN_DHCP_URI);
+    add_new_face(h, prefix, CCN_DHCP_ADDR, CCN_DHCP_PORT);
+
+    ccn_charbuf_destroy(&prefix);
 }
 
 int ccn_dhcp_content_parse(const unsigned char *p, size_t size, struct ccn_dhcp_entry *tail)
