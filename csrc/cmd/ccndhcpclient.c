@@ -28,13 +28,17 @@ int get_dhcp_content(struct ccn *h, struct ccn_dhcp_entry *tail)
     int count = 0;
 
     ccn_name_from_uri(name, CCN_DHCP_CONTENT_URI);
+
     res = ccn_get(h, name, NULL, 3000, resultbuf, &pcobuf, NULL, 0);
-    if (res >= 0) {
-        ptr = resultbuf->buf;
-        length = resultbuf->length;
-        ccn_content_get_value(ptr, length, &pcobuf, &ptr, &length);
-        count = ccn_dhcp_content_parse(ptr, length, tail);
+    if (res < 0) {
+        fprintf(stderr, "Error getting DHCP content\n");
+        exit(1);
     }
+
+    ptr = resultbuf->buf;
+    length = resultbuf->length;
+    ccn_content_get_value(ptr, length, &pcobuf, &ptr, &length);
+    count = ccn_dhcp_content_parse(ptr, length, tail);
 
     ccn_charbuf_destroy(&name);
     ccn_charbuf_destroy(&resultbuf);
@@ -54,16 +58,25 @@ int main(int argc, char **argv)
     h = ccn_create();
     res = ccn_connect(h, NULL);
     if (res < 0) {
-        ccn_perror(h, "ccn_connect");
+        ccn_perror(h, "Cannot connect to ccnd.");
         exit(1);
     }
 
-    join_dhcp_group(h);
+    res = join_dhcp_group(h);
+    if (res < 0) {
+        ccn_perror(h, "Cannot join DHCP group.");
+        exit(1);
+    }
+
     count = get_dhcp_content(h, de);
     for (i = 0; i < count; i ++)
     {
         de = de->next;
-        add_new_face(h, de->name_prefix, de->address, de->port);
+        res = add_new_face(h, de->name_prefix, de->address, de->port);
+        if (res < 0) {
+            fprintf(stderr, "Error adding new face at %s:%s\n", de->address, de->port);
+            exit(1);
+        }
     }
 
     de = &de_storage;
