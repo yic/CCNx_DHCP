@@ -2,7 +2,11 @@ DHCP group: 224.0.0.66
 DHCP port: 60006
 DHCP prefix: ccnx:/local/dhcp
 DHCP content name: ccnx:/local/dhcp/content
-DHCP configuration file: specified by -f parameter, ./ccn_dhcp.config by default
+DHCP configuration file: specified by -f parameter, or ./ccn_dhcp.config by default
+
+configuration format:
+#prefix gateway(ip address/machine name) port. e.g.,
+ccnx:/0 mario 9695
 
 DHCP Server:
 1. Join DHCP group
@@ -10,7 +14,7 @@ DHCP Server:
     2) create a new face towards the DHCP group and port (the new face uses UDP)
     3) bind DHCP prefix to this new face
 2. Send DHCP content to local ccnd
-    1) read DHCP configuration file (all entries of the config file are sent to the requesting node in one message; the format is "prefix host port", in the test I used "ccnx:/ serlio 9695", 9695 is the default ccnx port)
+    1) read DHCP configuration file (all entries of the config file are sent to the requesting node in one message)
     2) construct DHCP entries into a ccnx message (with DHCP content name) and send to local ccnd (a new entry "CCN_DTAG_DHCPContent = 115" is added to enum ccn_dtag)
 
 DHCP Client:
@@ -19,3 +23,10 @@ DHCP Client:
 3. For each forwarding entry (with prefix, host and port):
     1) create a new face to the host and port (the new face uses UDP)
     2) bind the prefix to the face 
+
+usage:
+ccndhcpserver [-f config_file]
+ccndhcpclient
+
+note:
+multicast needs to be enabled. it is turned on by default by linux kernel.
